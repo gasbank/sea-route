@@ -107,7 +107,7 @@ void MaxMatch<NameType>::addVertex(const VertexType& type, const NameType& name)
     VertexNamesToIndexes& namesToIdxs(type == U_Vertex ? m_u_vertNamesToIdxs : m_v_vertNamesToIdxs);
     Vertexes& vertexes(type == U_Vertex ? m_u_vertexes : m_v_vertexes);
 
-    VertexNamesToIndexes::iterator nameToIdx(namesToIdxs.find(name));
+    typename VertexNamesToIndexes::iterator nameToIdx(namesToIdxs.find(name));
     if (nameToIdx != namesToIdxs.end()) {
         char partname(type == U_Vertex ? 'u' : 'v');
         throw std::string("MaxMatch::addVertex(const VertexType& type, const string& name): A ") + partname +
@@ -121,7 +121,7 @@ void MaxMatch<NameType>::addVertex(const VertexType& type, const NameType& name)
 
 template<typename NameType>
 void MaxMatch<NameType>::addEdge(const NameType& u_vertexName, const NameType& v_vertexName) {
-    VertexNamesToIndexes::iterator nameToIdx(m_u_vertNamesToIdxs.find(u_vertexName));
+    typename VertexNamesToIndexes::iterator nameToIdx(m_u_vertNamesToIdxs.find(u_vertexName));
     if (nameToIdx == m_u_vertNamesToIdxs.end()) {
         throw std::string("MaxMatch::addEdge(const string& u_vertexName, const string& v_vertexName): "
                           "no u vertex with u_vertexName exists.");

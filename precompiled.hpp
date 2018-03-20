@@ -10,7 +10,5 @@
 #include <map>
 #include <limits>
 #include <list>
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/bipartite.hpp>
 #define PNG_DEBUG 3
 #include <png.h>

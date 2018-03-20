@@ -40,7 +40,7 @@ xyxyvector hori_lines;
 xyxyvector vert_lines;
 MaxMatchInt bipartite;
 
-void read_png_file(char* file_name) {
+void read_png_file(const char* file_name) {
     char header[8];    // 8 is the maximum size that can be checked
 
                        /* open file and test for it being a png */
@@ -158,6 +158,84 @@ void detect_concave_vertices(void) {
     printf("Total concave vertices: %d\n", total_concave_vertices_count);
 }
 
+bool check_neighbor(const xyxy& line) {
+    int dx = line.xy1.x - line.xy0.x;
+    int dy = line.xy1.y - line.xy0.y;
+    if (dx && !dy) {
+        // horizontal line
+        int x = line.xy0.x;
+        int y = line.xy0.y;
+        png_byte* row0 = row_pointers[y + 0];
+        png_byte* row1 = row_pointers[y + 1];
+        //char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
+        char b01 = ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+        //char b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
+        char b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+        if (b01 && !b11) {
+            // upper is 1
+            for (int i = 0; i < dx; i++) {
+                b01 = ((row0[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) ? 1 : 0;
+                if (b01 == 0) {
+                    // discontinuity detected. not neighbor.
+                    return false;
+                }
+            }
+            return true;
+        } else if (!b01 && b11) {
+            // lower is 1
+            for (int i = 0; i < dx; i++) {
+                b11 = ((row1[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) ? 1 : 0;
+                if (b11 == 0) {
+                    // discontinuity detected. not neighbor.
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    } else if (!dx && dy) {
+        // vertical line
+        int x = line.xy0.x;
+        int y = line.xy0.y;
+        //png_byte* row0 = row_pointers[y + 0];
+        png_byte* row1 = row_pointers[y + 1];
+        //char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
+        //char b01 = ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+        char b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
+        char b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+        if (b10 && !b11) {
+            // left is 1
+            for (int i = 0; i < dy; i++) {
+                row1 = row_pointers[y + i];
+                b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
+                if (b10 == 0) {
+                    // discontinuity detected. not neighbor.
+                    return false;
+                }
+            }
+            return true;
+        } else if (!b10 && b11) {
+            // right is 1
+            for (int i = 0; i < dy; i++) {
+                row1 = row_pointers[y + i];
+                b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+                if (b11 == 0) {
+                    // discontinuity detected. not neighbor.
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        // ???!?!?!?!?!?
+        abort();
+    }
+    return false;
+}
+
 void get_lines(xyxyvector& lines, const int_xyvector_map& concaves) {
     
     int verbose = height <= 64 && width <= 64;
@@ -166,110 +244,27 @@ void get_lines(xyxyvector& lines, const int_xyvector_map& concaves) {
         for (auto cit2 = cit->second.cbegin(); cit2 != cit->second.cend(); ++cit2) {
             // pull two elements at once
             xyxy line;
-            line.xy0 = *cit2;
+            line.xy0 = *cit2; // FIRST CIT2
             ++cit2;
             if (cit2 != cit->second.cend()) {
-                line.xy1 = *cit2;
-                lines.push_back(line);
-                printf("Line (%d,%d)-(%d,%d) added.\n",
-                       line.xy0.y, line.xy0.x, line.xy1.y, line.xy1.x);
+                line.xy1 = *cit2; // SECOND CIT2
+                
+                // check line.xy0 and line.xy1 are neighbors.
+                if (check_neighbor(line)) {
+                    // skip FIRST CIT2
+                    --cit2;
+                } else {
+                    lines.push_back(line);
+                    if (verbose) {
+                        printf("Line (%d,%d)-(%d,%d) added.\n",
+                               line.xy0.y, line.xy0.x, line.xy1.y, line.xy1.x);
+                    }
+                }
             } else {
                 break;
             }
         }
     }
-}
-
-using namespace boost;
-
-/// Example to test for bipartiteness and print the certificates.
-
-template <typename Graph>
-void print_bipartite(const Graph& g) {
-    typedef graph_traits <Graph> traits;
-    typename traits::vertex_iterator vertex_iter, vertex_end;
-
-    /// Most simple interface just tests for bipartiteness. 
-
-    bool bipartite = is_bipartite(g);
-
-    if (bipartite) {
-        typedef std::vector <default_color_type> partition_t;
-        typedef vec_adj_list_vertex_id_map <no_property, unsigned int> index_map_t;
-        typedef iterator_property_map <partition_t::iterator, index_map_t> partition_map_t;
-
-        partition_t partition(num_vertices(g));
-        partition_map_t partition_map(partition.begin(), get(vertex_index, g));
-
-        /// A second interface yields a bipartition in a color map, if the graph is bipartite.
-
-        is_bipartite(g, get(vertex_index, g), partition_map);
-
-        for (boost::tie(vertex_iter, vertex_end) = vertices(g); vertex_iter != vertex_end; ++vertex_iter) {
-            std::cout << "Vertex " << *vertex_iter << " has color " << (get(partition_map, *vertex_iter) == color_traits <
-                                                                        default_color_type>::white() ? "white" : "black") << std::endl;
-        }
-    } else {
-        typedef std::vector <typename traits::vertex_descriptor> vertex_vector_t;
-        vertex_vector_t odd_cycle;
-
-        /// A third interface yields an oddcycle if the graph is not bipartite.
-
-        find_odd_cycle(g, get(vertex_index, g), std::back_inserter(odd_cycle));
-
-        std::cout << "Odd cycle consists of the vertices:";
-        for (size_t i = 0; i < odd_cycle.size(); ++i) {
-            std::cout << " " << odd_cycle[i];
-        }
-        std::cout << std::endl;
-    }
-}
-
-void test_bipartite() {
-    typedef adjacency_list <vecS, vecS, undirectedS> vector_graph_t;
-    typedef std::pair <int, int> E;
-
-    /**
-    * Create the graph drawn below.
-    *
-    *       0 - 1 - 2
-    *       |       |
-    *   3 - 4 - 5 - 6
-    *  /      \   /
-    *  |        7
-    *  |        |
-    *  8 - 9 - 10
-    **/
-
-    E bipartite_edges[] = { E(0, 1), E(0, 4), E(1, 2), E(2, 6), E(3, 4), E(3, 8), E(4, 5), E(4, 7), E(5, 6), E(
-        6, 7), E(7, 10), E(8, 9), E(9, 10) };
-    vector_graph_t bipartite_vector_graph(&bipartite_edges[0],
-                                          &bipartite_edges[0] + sizeof(bipartite_edges) / sizeof(E), 11);
-
-    /**
-    * Create the graph drawn below.
-    *
-    *       2 - 1 - 0
-    *       |       |
-    *   3 - 6 - 5 - 4
-    *  /      \   /
-    *  |        7
-    *  |       /
-    *  8 ---- 9
-    *
-    **/
-
-    E non_bipartite_edges[] = { E(0, 1), E(0, 4), E(1, 2), E(2, 6), E(3, 6), E(3, 8), E(4, 5), E(4, 7), E(5, 6),
-        E(6, 7), E(7, 9), E(8, 9) };
-    vector_graph_t non_bipartite_vector_graph(&non_bipartite_edges[0], &non_bipartite_edges[0]
-                                              + sizeof(non_bipartite_edges) / sizeof(E), 10);
-
-    /// Call test routine for a bipartite and a non-bipartite graph.
-
-    print_bipartite(bipartite_vector_graph);
-
-    print_bipartite(non_bipartite_vector_graph);
-
 }
 
 int max_match_test() {
@@ -395,14 +390,22 @@ void maximum_matching() {
     }
 }
 
+#ifdef __APPLE__
+#define DATA_ROOT "/Users/kimgeoyeob/laidoff-art/"
+#else
+#define DATA_ROOT "c:\\laidoff-art\\"
+#endif
+
 int main(int argc, char **argv) {
-    //read_png_file("c:\\laidoff-art\\water_land_20k.png");
-    //read_png_file("c:\\laidoff-art\\water_16k.png");
-    //read_png_file("c:\\laidoff-art\\bw.png");
-    //read_png_file("c:\\laidoff-art\\dissection_1.png");
-    //read_png_file("c:\\laidoff-art\\dissection_2.png");
-    //read_png_file("c:\\laidoff-art\\dissection_3.png");
-    read_png_file("c:\\laidoff-art\\dissection_4.png");
+    //read_png_file(DATA_ROOT "water_land_20k.png");
+    //read_png_file(DATA_ROOT "water_16k.png");
+    //read_png_file(DATA_ROOT "bw.png");
+    //read_png_file(DATA_ROOT "dissection_1.png");
+    //read_png_file(DATA_ROOT "dissection_2.png");
+    //read_png_file(DATA_ROOT "dissection_3.png");
+    //read_png_file(DATA_ROOT "dissection_4.png");
+    //read_png_file(DATA_ROOT "dissection_5.png");
+    read_png_file(DATA_ROOT "dissection_6.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_concaves);
