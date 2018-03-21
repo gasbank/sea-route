@@ -50,7 +50,7 @@ xyxyvector vert_lines;
 MaxMatchInt bipartite;
 int land_color_index;
 
-#define PIXELBIT(row, x) ((row[(x) / 8] >> (7 - ((x) % 8))) & 1) == land_color_index ? 1 : 0
+#define PIXELBIT(row, x) (((row)[(x) / 8] >> (7 - ((x) % 8))) & 1) == land_color_index ? 1 : 0
 
 void read_png_file(const char* file_name) {
     char header[8];    // 8 is the maximum size that can be checked
@@ -467,9 +467,10 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_1.png");
     //read_png_file(DATA_ROOT "dissection_2.png");
     //read_png_file(DATA_ROOT "dissection_3.png");
-    read_png_file(DATA_ROOT "dissection_4.png");
+    //read_png_file(DATA_ROOT "dissection_4.png");
     //read_png_file(DATA_ROOT "dissection_5.png");
     //read_png_file(DATA_ROOT "dissection_6.png");
+    read_png_file(DATA_ROOT "dissection_7.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_convex_concaves);
