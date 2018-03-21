@@ -19,10 +19,12 @@ public:
         VertexIndex u_vertex, v_vertex;
         // Index of this edge in m_edges
         EdgeIndex idx;
+        bool matched;
     };
 
     typedef std::vector<Edge> Edges;
     typedef std::vector<EdgeIndex> EdgeIndexes;
+    typedef std::map<VertexIndex, EdgeIndex> EdgeMap;
 
     enum VertexType
     {
@@ -39,6 +41,7 @@ public:
         // Index of this vertex in m_vertexes
         VertexIndex idx;
         EdgeIndexes edges;
+        EdgeMap edgeMap;
     };
 
     enum
@@ -48,7 +51,8 @@ public:
 
     typedef std::vector<Vertex> Vertexes;
     typedef std::vector<VertexIndex> VertexIndexes;
-
+    typedef std::set<VertexIndex> VertexIndexSet;
+    
     typedef std::vector<Layer> Layers;
 
     MaxMatch();
@@ -74,7 +78,9 @@ public:
     // augmenting path from uIdx was found.
     bool findPath(const VertexIndex& uIdx);
     
-
+    void flagMatchedOnMatchingEdges();
+    void findMinimumVertexCover() const;
+    void insertAlternatingEdges(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const;
 protected:
     typedef std::map<NameType, VertexIndex> VertexNamesToIndexes;
 
@@ -140,8 +146,10 @@ void MaxMatch<NameType>::addEdge(const NameType& u_vertexName, const NameType& v
     EdgeIndex edgeIdx(m_edges.size());
     m_edges.push_back(Edge(uIdx, vIdx, edgeIdx));
     u.edges.push_back(edgeIdx);
+    u.edgeMap[vIdx] = edgeIdx;
     v.edges.push_back(edgeIdx);
 }
+
 
 
 template<typename NameType>
@@ -166,7 +174,23 @@ int MaxMatch<NameType>::hopcroftKarp() {
             }
         }
     }
-
+    
+    {
+        VertexIndex uIdx(0);
+        for (VertexIndexes::const_iterator u_to_v(us_to_vs().begin());
+             u_to_v != us_to_vs().end();
+             ++u_to_v, ++uIdx) {
+            if (uIdx == NillVertIdx) {
+                continue;
+            }
+            if (*u_to_v == NillVertIdx) {
+                continue;
+            }
+            EdgeIndex eIdx = u_vertexes()[uIdx].edgeMap.find(*u_to_v)->second;
+            m_edges[eIdx].matched = true;
+        }
+    }
+    
     return matches;
 }
 
@@ -246,17 +270,106 @@ template<typename NameType>
 MaxMatch<NameType>::Edge::Edge()
     : u_vertex(std::numeric_limits<VertexIndex>::min()),
     v_vertex(std::numeric_limits<VertexIndex>::min()),
-    idx(std::numeric_limits<EdgeIndex>::min()) {
+    idx(std::numeric_limits<EdgeIndex>::min()),
+    matched(false) {
 }
 
 template<typename NameType>
 MaxMatch<NameType>::Edge::Edge(const VertexIndex& u_vertex_, const VertexIndex& v_vertex_, const EdgeIndex& idx_)
     : u_vertex(u_vertex_),
     v_vertex(v_vertex_),
-    idx(idx_) {
+    idx(idx_),
+    matched(false)
+{
 }
 
 template<typename NameType>
 MaxMatch<NameType>::Vertex::Vertex()
     : idx(std::numeric_limits<VertexIndex>::min()) {
 }
+
+template<typename NameType>
+void MaxMatch<NameType>::flagMatchedOnMatchingEdges() {
+    VertexIndex uIdx(0);
+    for (VertexIndexes::const_iterator u_to_v(us_to_vs().begin());
+         u_to_v != us_to_vs().end();
+         ++u_to_v, ++uIdx) {
+        if (uIdx == NillVertIdx) {
+            continue;
+        }
+        if (*u_to_v != NillVertIdx) {
+            //u_vertexes()[uIdx].name
+        }
+    }
+}
+
+template<typename NameType>
+void MaxMatch<NameType>::insertAlternatingEdges(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const {
+    if (vIfTrue) {
+        if (ZVSet.find(uvIdx) != ZVSet.end()) {
+            return;
+        }
+    } else {
+        if (ZUSet.find(uvIdx) != ZUSet.end()) {
+            return;
+        }
+    }
+    const Vertex& uv(vIfTrue ? m_v_vertexes[uvIdx] : m_u_vertexes[uvIdx]);
+    vIfTrue ? ZVSet.insert(uvIdx) : ZUSet.insert(uvIdx);
+    for (const auto& e : uv.edges) {
+        
+        if (m_edges[e].matched == vIfTrue) {
+            insertAlternatingEdges(ZUSet, ZVSet, vIfTrue ? m_edges[e].u_vertex : m_edges[e].v_vertex, !vIfTrue);
+        }
+    }
+}
+
+template<typename NameType>
+void MaxMatch<NameType>::findMinimumVertexCover() const {
+    VertexIndex uIdx(0);
+    //VertexIndexSet LSet;
+    VertexIndexSet ZUSet;
+    VertexIndexSet ZVSet;
+    for (VertexIndexes::const_iterator u_to_v(us_to_vs().begin());
+         u_to_v != us_to_vs().end();
+         ++u_to_v, ++uIdx) {
+        if (uIdx == NillVertIdx) {
+            continue;
+        }
+        if (*u_to_v == NillVertIdx) {
+            //std::cout << "U " << u_vertexes()[uIdx].name << " unmatched." << std::endl;
+            //LSet.insert(uIdx);
+            for (const auto& e : u_vertexes()[uIdx].edges) {
+                //std::cout << "  edge: " << m_edges[e].u_vertex << " -> " << m_edges[e].v_vertex << " matched:" << m_edges[e].matched << std::endl;
+            }
+            insertAlternatingEdges(ZUSet, ZVSet, uIdx, false);
+            
+            
+        }
+    }
+    
+    VertexIndexSet uMinCover;
+    for (const auto& vertex : u_vertexes()) {
+        if (vertex.idx == NillVertIdx) {
+            continue;
+        }
+        if (ZUSet.find(vertex.idx) == ZUSet.end()) {
+            uMinCover.insert(vertex.idx);
+            //std::cout << "U min cover vertex index " << vertex.idx << std::endl;
+        }
+    }
+    VertexIndexSet vMinCover;
+    for (const auto& vertex : v_vertexes()) {
+        if (vertex.idx == NillVertIdx) {
+            continue;
+        }
+        if (ZVSet.find(vertex.idx) != ZVSet.end()) {
+            vMinCover.insert(vertex.idx);
+            //std::cout << "V min cover vertex index " << vertex.idx << std::endl;
+        }
+    }
+    std::cout << "U min cover vertex count " << uMinCover.size() << std::endl;
+    std::cout << "V min cover vertex count " << vMinCover.size() << std::endl;
+}
+
+

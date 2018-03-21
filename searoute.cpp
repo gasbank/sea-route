@@ -416,8 +416,8 @@ void maximum_matching() {
         }
         j++;
     }
-    printf("Horizontal lines: %d\n", hori_lines.size());
-    printf("Vertical lines: %d\n", vert_lines.size());
+    printf("Horizontal lines: %zu\n", hori_lines.size());
+    printf("Vertical lines: %zu\n", vert_lines.size());
     printf("Adding crossing edges...\n");
     i = 1;
     int edge_count = 0;
@@ -452,6 +452,8 @@ void maximum_matching() {
             std::cout << bipartite.u_vertexes()[uIdx].name << " -> " << bipartite.v_vertexes()[*u_to_v].name << std::endl;
         }
     }
+    
+    bipartite.findMinimumVertexCover();
 }
 
 #ifdef __APPLE__
@@ -462,7 +464,7 @@ void maximum_matching() {
 
 int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "water_land_20k.png");
-    //read_png_file(DATA_ROOT "water_16k.png");
+    read_png_file(DATA_ROOT "water_16k.png");
     //read_png_file(DATA_ROOT "bw.png");
     //read_png_file(DATA_ROOT "dissection_1.png");
     //read_png_file(DATA_ROOT "dissection_2.png");
@@ -470,7 +472,7 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_4.png");
     //read_png_file(DATA_ROOT "dissection_5.png");
     //read_png_file(DATA_ROOT "dissection_6.png");
-    read_png_file(DATA_ROOT "dissection_7.png");
+    //read_png_file(DATA_ROOT "dissection_7.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_convex_concaves);
