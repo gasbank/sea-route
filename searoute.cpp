@@ -51,6 +51,61 @@ MaxMatchInt bipartite;
 int land_color_index;
 
 #define PIXELBIT(row, x) (((row)[(x) / 8] >> (7 - ((x) % 8))) & 1) == land_color_index ? 1 : 0
+#define PIXELSETBIT(row, x) (row)[(x) / 8] |= (1 << (7 - ((x) % 8)))
+#define PIXELCLEARBIT(row, x) (row)[(x) / 8] &= ~(1 << (7 - ((x) % 8)))
+#define PIXELINVERTBIT(row, x) (row)[(x) / 8] ^= (1 << (7 - ((x) % 8)))
+#define PIXELCLEARBITXY(x, y) PIXELCLEARBIT(row_pointers[(y)], (x))
+#define PIXELSETBITXY(x, y) PIXELSETBIT(row_pointers[(y)], (x))
+#define PIXELINVERTBITXY(x, y) PIXELINVERTBIT(row_pointers[(y)], (x))
+
+void write_png_file(const char *filename) {
+    
+    FILE *fp = fopen(filename, "wb");
+    if(!fp) abort();
+    
+    png_structp png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+    if (!png) abort();
+    
+    png_infop info = png_create_info_struct(png);
+    if (!info) abort();
+    
+    if (setjmp(png_jmpbuf(png))) abort();
+    
+    png_init_io(png, fp);
+    
+    // Output is 1bit depth, palette format.
+    int num_palette = 2;
+    png_color palette[2] = {
+        {0,0,0},
+        {255,255,255},
+    };
+    png_set_PLTE(png, info, palette, num_palette);
+        
+    png_set_IHDR(png,
+                 info,
+                 width, height,
+                 1,
+                 PNG_COLOR_TYPE_PALETTE,
+                 PNG_INTERLACE_NONE,
+                 PNG_COMPRESSION_TYPE_DEFAULT,
+                 PNG_FILTER_TYPE_DEFAULT
+                 );
+    png_write_info(png, info);
+    
+    // To remove the alpha channel for PNG_COLOR_TYPE_RGB format,
+    // Use png_set_filler().
+    //png_set_filler(png, 0, PNG_FILLER_AFTER);
+    
+    png_write_image(png, row_pointers);
+    png_write_end(png, NULL);
+    
+    for(int y = 0; y < height; y++) {
+        free(row_pointers[y]);
+    }
+    free(row_pointers);
+    
+    fclose(fp);
+}
 
 void read_png_file(const char* file_name) {
     char header[8];    // 8 is the maximum size that can be checked
@@ -465,6 +520,9 @@ void maximum_matching() {
         if (verbose) {
             printf("[CUT] U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
         }
+        for (int x = it.xy0.x; x < it.xy1.x; x++) {
+            PIXELINVERTBITXY(x+1, it.xy0.y+1);
+        }
         i++;
     }
     j = 1;
@@ -475,6 +533,9 @@ void maximum_matching() {
         }
         if (verbose) {
             printf("[CUT] V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        }
+        for (int y = it.xy0.y; y < it.xy1.y; y++) {
+            PIXELINVERTBITXY(it.xy0.x+1, y+1);
         }
         j++;
     }
@@ -496,13 +557,16 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_4.png");
     //read_png_file(DATA_ROOT "dissection_5.png");
     //read_png_file(DATA_ROOT "dissection_6.png");
-    read_png_file(DATA_ROOT "dissection_7.png");
+    //read_png_file(DATA_ROOT "dissection_7.png");
     //read_png_file(DATA_ROOT "dissection_8.png");
+    read_png_file(DATA_ROOT "dissection_9.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_convex_concaves);
     get_lines(vert_lines, col_key_convex_concaves);
     maximum_matching();
+    
+    write_png_file(DATA_ROOT "dissection_output.png");
     //test_bipartite();
     //max_match_test();
     return 0;
