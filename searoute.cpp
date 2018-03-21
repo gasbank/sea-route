@@ -1,15 +1,24 @@
 #include "precompiled.hpp"
 #include "MaxMatch.h"
 
+enum VERTEX_TYPE {
+    VT_CONVEX,
+    VT_CONCAVE,
+};
+
 struct xy {
     int x : 16;
     int y : 16;
+};
+struct xyv {
+    xy xy;
+    VERTEX_TYPE v;
 };
 struct xyxy {
     xy xy0;
     xy xy1;
 };
-typedef std::unordered_map<int, std::vector<xy>> int_xyvector_map;
+typedef std::unordered_map<int, std::vector<xyv> > int_xyvvector_map;
 typedef std::vector<xyxy> xyxyvector;
 typedef MaxMatch<std::string> MaxMatchString;
 typedef MaxMatch<int> MaxMatchInt;
@@ -34,11 +43,14 @@ png_infop info_ptr;
 int number_of_passes;
 png_bytep * row_pointers;
 
-int_xyvector_map row_key_concaves;
-int_xyvector_map col_key_concaves;
+int_xyvvector_map row_key_convex_concaves;
+int_xyvvector_map col_key_convex_concaves;
 xyxyvector hori_lines;
 xyxyvector vert_lines;
 MaxMatchInt bipartite;
+int land_color_index;
+
+#define PIXELBIT(row, x) ((row[(x) / 8] >> (7 - ((x) % 8))) & 1) == land_color_index ? 1 : 0
 
 void read_png_file(const char* file_name) {
     char header[8];    // 8 is the maximum size that can be checked
@@ -88,6 +100,22 @@ void read_png_file(const char* file_name) {
 
     png_read_image(png_ptr, row_pointers);
 
+    int num_palette;
+    png_colorp palette;
+    if (png_get_PLTE(png_ptr, info_ptr, &palette, &num_palette)) {
+        printf("Palette color count: %d\n", num_palette);
+        if (num_palette != 2) {
+            abort_("[read_png_file] palette size should be 2.\n");
+        }
+        for (int i = 0; i < num_palette; i++) {
+            printf("  Color #%d: %d,%d,%d\n",
+                   i, palette[i].red, palette[i].green, palette[i].blue);
+            if (palette[i].red == 0) {
+                land_color_index = i;
+            }
+        }
+    }
+
     fclose(fp);
 }
 
@@ -102,7 +130,7 @@ void count_total_inverts(void) {
         int prev_b = 0;
         int invert_count = 0;
         for (x = 0; x<width; x++) {
-            int b = ((row[x / 8] >> (7 - (x % 8))) & 1) ? 1 : 0;
+            int b = PIXELBIT(row, x);
             if ((prev_b == 0 && b == 1) // 0 -> 1
                 || (x == width-1 && prev_b == 0 && b == 1) // last column 1
                 ) {
@@ -133,29 +161,41 @@ void detect_concave_vertices(void) {
     int verbose = height <= 64 && width <= 64;
 
     int total_concave_vertices_count = 0;
+    int total_convex_vertices_count = 0;
     for (y = 0; y<height-1; y++) {
         png_byte* row0 = row_pointers[y + 0];
         png_byte* row1 = row_pointers[y + 1];
         for (x = 0; x<width-1; x++) {
-            char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
-            char b01 = ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
-            char b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
-            char b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+            char b00 = PIXELBIT(row0, x + 0); // ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
+            char b01 = PIXELBIT(row0, x + 1); // ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
+            char b10 = PIXELBIT(row1, x + 0); // ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
+            char b11 = PIXELBIT(row1, x + 1); // ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
             char bcc = (b11 << 3) | (b10 << 2) | (b01 << 1) | b00;
-            if (bcc == 0b0111 || bcc == 0b1011 || bcc == 0b1101 || bcc == 0b1110) {
+            bool concave = bcc == 0b0111 || bcc == 0b1011 || bcc == 0b1101 || bcc == 0b1110;
+            bool convex = bcc == 0b1000 || bcc == 0b0100 || bcc == 0b0010 || bcc == 0b0001;
+            if (concave) {
                 if (verbose) {
                     printf("Concave vertex at row %d col %d\n", y, x);
                 }
-                xy xycombined;
-                xycombined.x = x;
-                xycombined.y = y;
-                row_key_concaves[y].push_back(xycombined);
-                col_key_concaves[x].push_back(xycombined);
                 total_concave_vertices_count++;
+            } else if (convex) {
+                if (verbose) {
+                    printf("Convex vertex at row %d col %d\n", y, x);
+                }
+                total_convex_vertices_count++;
+            }
+            if (concave || convex) {
+                xyv xycombined;
+                xycombined.xy.x = x;
+                xycombined.xy.y = y;
+                xycombined.v = concave ? VT_CONCAVE : VT_CONVEX;
+                row_key_convex_concaves[y].push_back(xycombined);
+                col_key_convex_concaves[x].push_back(xycombined);
             }
         }
     }
     printf("Total concave vertices: %d\n", total_concave_vertices_count);
+    printf("Total convex vertices: %d\n", total_convex_vertices_count);
 }
 
 bool check_neighbor(const xyxy& line) {
@@ -167,14 +207,14 @@ bool check_neighbor(const xyxy& line) {
         int y = line.xy0.y;
         png_byte* row0 = row_pointers[y + 0];
         png_byte* row1 = row_pointers[y + 1];
-        //char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
-        char b01 = ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
-        //char b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
-        char b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+        //char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
+        char b01 = PIXELBIT(row0, x + 1); // ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
+        //char b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
+        char b11 = PIXELBIT(row1, x + 1); // ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
         if (b01 && !b11) {
             // upper is 1
             for (int i = 0; i < dx; i++) {
-                b01 = ((row0[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) ? 1 : 0;
+                b01 = PIXELBIT(row0, x + i); // ((row0[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b01 == 0) {
                     // discontinuity detected. not neighbor.
                     return false;
@@ -184,7 +224,7 @@ bool check_neighbor(const xyxy& line) {
         } else if (!b01 && b11) {
             // lower is 1
             for (int i = 0; i < dx; i++) {
-                b11 = ((row1[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) ? 1 : 0;
+                b11 = PIXELBIT(row1, x + i); // ((row1[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b11 == 0) {
                     // discontinuity detected. not neighbor.
                     return false;
@@ -200,15 +240,15 @@ bool check_neighbor(const xyxy& line) {
         int y = line.xy0.y;
         //png_byte* row0 = row_pointers[y + 0];
         png_byte* row1 = row_pointers[y + 1];
-        //char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
-        //char b01 = ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
-        char b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
-        char b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+        //char b00 = ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
+        //char b01 = ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
+        char b10 = PIXELBIT(row1, x + 0); // ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
+        char b11 = PIXELBIT(row1, x + 1); // ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
         if (b10 && !b11) {
             // left is 1
             for (int i = 0; i < dy; i++) {
                 row1 = row_pointers[y + i];
-                b10 = ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) ? 1 : 0;
+                b10 = PIXELBIT(row1, x + 0); // ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b10 == 0) {
                     // discontinuity detected. not neighbor.
                     return false;
@@ -219,7 +259,7 @@ bool check_neighbor(const xyxy& line) {
             // right is 1
             for (int i = 0; i < dy; i++) {
                 row1 = row_pointers[y + i];
-                b11 = ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) ? 1 : 0;
+                b11 = PIXELBIT(row1, x + 1); // ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b11 == 0) {
                     // discontinuity detected. not neighbor.
                     return false;
@@ -236,23 +276,33 @@ bool check_neighbor(const xyxy& line) {
     return false;
 }
 
-void get_lines(xyxyvector& lines, const int_xyvector_map& concaves) {
+void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
     
     int verbose = height <= 64 && width <= 64;
 
     for (auto cit = concaves.cbegin(); cit != concaves.cend(); ++cit) {
         for (auto cit2 = cit->second.cbegin(); cit2 != cit->second.cend(); ++cit2) {
+            // skip convex vertex
+            if (cit2->v == VT_CONVEX) {
+                continue;
+            }
             // pull two elements at once
             xyxy line;
-            line.xy0 = *cit2; // FIRST CIT2
+            line.xy0 = cit2->xy; // FIRST CIT2
             ++cit2;
             if (cit2 != cit->second.cend()) {
-                line.xy1 = *cit2; // SECOND CIT2
+                // skip concave-convex vertex pair
+                if (cit2->v == VT_CONVEX) {
+                    continue;
+                }
+
+                line.xy1 = cit2->xy; // SECOND CIT2
                 
                 // check line.xy0 and line.xy1 are neighbors.
                 if (check_neighbor(line)) {
                     // skip FIRST CIT2
                     --cit2;
+                
                 } else {
                     lines.push_back(line);
                     if (verbose) {
@@ -348,35 +398,49 @@ bool line_cross(const xyxy& hori, const xyxy& vert) {
 }
 
 void maximum_matching() {
+    int verbose = height <= 64 && width <= 64;
+
     int i = 1;
     for (const auto& it : hori_lines) {
         bipartite.addVertex(bipartite.U_Vertex, i);
-        printf("U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        if (verbose) {
+            printf("U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        }
         i++;
     }
     int j = 1;
     for (const auto& it : vert_lines) {
         bipartite.addVertex(bipartite.V_Vertex, j);
-        printf("V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        if (verbose) {
+            printf("V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        }
         j++;
     }
-    
-    int verbose = height <= 64 && width <= 64;
-
+    printf("Horizontal lines: %d\n", hori_lines.size());
+    printf("Vertical lines: %d\n", vert_lines.size());
+    printf("Adding crossing edges...\n");
     i = 1;
+    int edge_count = 0;
     for (const auto& it : hori_lines) {
         j = 1;
         for (const auto& it2 : vert_lines) {
             if (line_cross(it, it2)) {
                 bipartite.addEdge(i, j);
-                printf("HORI #%d [(%d,%d)-(%d,%d)] and VERT #%d [(%d,%d)-(%d,%d)] crossed.\n",
-                       i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x,
-                       j, it2.xy0.y, it2.xy0.x, it2.xy1.y, it2.xy1.x);
+                if (verbose) {
+                    printf("HORI #%d [(%d,%d)-(%d,%d)] and VERT #%d [(%d,%d)-(%d,%d)] crossed.\n",
+                           i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x,
+                           j, it2.xy0.y, it2.xy0.x, it2.xy1.y, it2.xy1.x);
+                }
+                edge_count++;
+                if (edge_count % 500000 == 0) {
+                    printf("  %d edges...\n", edge_count);
+                }
             }
             j++;
         }
         i++;
     }
+    printf("Solving Hopcroft-Karp...\n");
     int c(bipartite.hopcroftKarp());
     std::cout << "Match size: " << c << std::endl;
     
@@ -403,13 +467,13 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_1.png");
     //read_png_file(DATA_ROOT "dissection_2.png");
     //read_png_file(DATA_ROOT "dissection_3.png");
-    //read_png_file(DATA_ROOT "dissection_4.png");
+    read_png_file(DATA_ROOT "dissection_4.png");
     //read_png_file(DATA_ROOT "dissection_5.png");
-    read_png_file(DATA_ROOT "dissection_6.png");
+    //read_png_file(DATA_ROOT "dissection_6.png");
     count_total_inverts();
     detect_concave_vertices();
-    get_lines(hori_lines, row_key_concaves);
-    get_lines(vert_lines, col_key_concaves);
+    get_lines(hori_lines, row_key_convex_concaves);
+    get_lines(vert_lines, col_key_convex_concaves);
     maximum_matching();
     //test_bipartite();
     //max_match_test();
