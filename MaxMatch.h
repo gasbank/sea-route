@@ -80,7 +80,7 @@ public:
     
     void flagMatchedOnMatchingEdges();
     void findMinimumVertexCover() const;
-    void insertAlternatingEdges(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const;
+    void insertAlternatingEdgesRecursively(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const;
 protected:
     typedef std::map<NameType, VertexIndex> VertexNamesToIndexes;
 
@@ -304,7 +304,7 @@ void MaxMatch<NameType>::flagMatchedOnMatchingEdges() {
 }
 
 template<typename NameType>
-void MaxMatch<NameType>::insertAlternatingEdges(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const {
+void MaxMatch<NameType>::insertAlternatingEdgesRecursively(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const {
     if (vIfTrue) {
         if (ZVSet.find(uvIdx) != ZVSet.end()) {
             return;
@@ -319,7 +319,7 @@ void MaxMatch<NameType>::insertAlternatingEdges(VertexIndexSet& ZUSet, VertexInd
     for (const auto& e : uv.edges) {
         
         if (m_edges[e].matched == vIfTrue) {
-            insertAlternatingEdges(ZUSet, ZVSet, vIfTrue ? m_edges[e].u_vertex : m_edges[e].v_vertex, !vIfTrue);
+            insertAlternatingEdgesRecursively(ZUSet, ZVSet, vIfTrue ? m_edges[e].u_vertex : m_edges[e].v_vertex, !vIfTrue);
         }
     }
 }
@@ -327,7 +327,6 @@ void MaxMatch<NameType>::insertAlternatingEdges(VertexIndexSet& ZUSet, VertexInd
 template<typename NameType>
 void MaxMatch<NameType>::findMinimumVertexCover() const {
     VertexIndex uIdx(0);
-    //VertexIndexSet LSet;
     VertexIndexSet ZUSet;
     VertexIndexSet ZVSet;
     for (VertexIndexes::const_iterator u_to_v(us_to_vs().begin());
@@ -337,14 +336,7 @@ void MaxMatch<NameType>::findMinimumVertexCover() const {
             continue;
         }
         if (*u_to_v == NillVertIdx) {
-            //std::cout << "U " << u_vertexes()[uIdx].name << " unmatched." << std::endl;
-            //LSet.insert(uIdx);
-            for (const auto& e : u_vertexes()[uIdx].edges) {
-                //std::cout << "  edge: " << m_edges[e].u_vertex << " -> " << m_edges[e].v_vertex << " matched:" << m_edges[e].matched << std::endl;
-            }
-            insertAlternatingEdges(ZUSet, ZVSet, uIdx, false);
-            
-            
+            insertAlternatingEdgesRecursively(ZUSet, ZVSet, uIdx, false);
         }
     }
     
