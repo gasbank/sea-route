@@ -81,6 +81,10 @@ public:
     void flagMatchedOnMatchingEdges();
     void findMinimumVertexCover() const;
     void insertAlternatingEdgesRecursively(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const;
+    void insertAlternatingEdgesIteratively(VertexIndexSet& zInputSet, VertexIndexSet& zOutputSet, bool isInputU, VertexIndexSet& visitedZSet) const;
+    size_t getEdgeCount() const {
+        return m_edges.size();
+    }
 protected:
     typedef std::map<NameType, VertexIndex> VertexNamesToIndexes;
 
@@ -325,8 +329,26 @@ void MaxMatch<NameType>::insertAlternatingEdgesRecursively(VertexIndexSet& ZUSet
 }
 
 template<typename NameType>
+void MaxMatch<NameType>::insertAlternatingEdgesIteratively(VertexIndexSet& zInputSet, VertexIndexSet& zOutputSet, bool isInputU, VertexIndexSet& visitedZSet) const {
+    for (const auto& uvIdx : zInputSet) {
+        if (visitedZSet.find(uvIdx) != visitedZSet.end()) {
+            continue;
+        }
+        visitedZSet.insert(uvIdx);
+        const Vertex& uv(isInputU ? m_u_vertexes[uvIdx] : m_v_vertexes[uvIdx]);
+        for (const auto& e : uv.edges) {
+            if (m_edges[e].matched == !isInputU) {
+                zOutputSet.insert(isInputU ? m_edges[e].v_vertex : m_edges[e].u_vertex);
+            }
+        }
+    }
+}
+
+template<typename NameType>
 void MaxMatch<NameType>::findMinimumVertexCover() const {
     VertexIndex uIdx(0);
+    VertexIndexSet visitedZUSet;
+    VertexIndexSet visitedZVSet;
     VertexIndexSet ZUSet;
     VertexIndexSet ZVSet;
     for (VertexIndexes::const_iterator u_to_v(us_to_vs().begin());
@@ -336,9 +358,31 @@ void MaxMatch<NameType>::findMinimumVertexCover() const {
             continue;
         }
         if (*u_to_v == NillVertIdx) {
-            insertAlternatingEdgesRecursively(ZUSet, ZVSet, uIdx, false);
+            
+            ZUSet.insert(uIdx);
+            
+            //insertAlternatingEdgesRecursively(ZUSet, ZVSet, uIdx, false);
         }
     }
+    
+    bool verbose = getEdgeCount() < 1000;
+    
+    bool isInputU = true;
+    size_t oldOutputSetSize = 0;
+    size_t newOutputSetSize = 0;
+    do {
+        if (isInputU) {
+            oldOutputSetSize = ZVSet.size();
+            insertAlternatingEdgesIteratively(ZUSet, ZVSet, isInputU, visitedZUSet);
+            newOutputSetSize = ZVSet.size();
+        } else {
+            oldOutputSetSize = ZUSet.size();
+            insertAlternatingEdgesIteratively(ZVSet, ZUSet, isInputU, visitedZVSet);
+            newOutputSetSize = ZUSet.size();
+        }
+        isInputU = !isInputU;
+    } while (newOutputSetSize > oldOutputSetSize);
+    
     
     VertexIndexSet uMinCover;
     for (const auto& vertex : u_vertexes()) {
@@ -347,7 +391,9 @@ void MaxMatch<NameType>::findMinimumVertexCover() const {
         }
         if (ZUSet.find(vertex.idx) == ZUSet.end()) {
             uMinCover.insert(vertex.idx);
-            //std::cout << "U min cover vertex index " << vertex.idx << std::endl;
+            if (verbose) {
+                std::cout << "  U min cover vertex index " << vertex.idx << std::endl;
+            }
         }
     }
     VertexIndexSet vMinCover;
@@ -357,7 +403,9 @@ void MaxMatch<NameType>::findMinimumVertexCover() const {
         }
         if (ZVSet.find(vertex.idx) != ZVSet.end()) {
             vMinCover.insert(vertex.idx);
-            //std::cout << "V min cover vertex index " << vertex.idx << std::endl;
+            if (verbose) {
+                std::cout << "  V min cover vertex index " << vertex.idx << std::endl;
+            }
         }
     }
     std::cout << "U min cover vertex count " << uMinCover.size() << std::endl;

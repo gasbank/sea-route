@@ -440,7 +440,8 @@ void maximum_matching() {
         }
         i++;
     }
-    printf("Solving Hopcroft-Karp...\n");
+    printf("Get total edge count: %zu\n", bipartite.getEdgeCount());
+    printf("Solving maximum matching using Hopcroft-Karp...\n");
     int c(bipartite.hopcroftKarp());
     std::cout << "Match size: " << c << std::endl;
     
@@ -452,7 +453,7 @@ void maximum_matching() {
             std::cout << bipartite.u_vertexes()[uIdx].name << " -> " << bipartite.v_vertexes()[*u_to_v].name << std::endl;
         }
     }
-    
+    printf("Solving minimum vertex cover from maximum matching...\n");
     bipartite.findMinimumVertexCover();
 }
 
@@ -469,10 +470,10 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_1.png");
     //read_png_file(DATA_ROOT "dissection_2.png");
     //read_png_file(DATA_ROOT "dissection_3.png");
-    read_png_file(DATA_ROOT "dissection_4.png");
+    //read_png_file(DATA_ROOT "dissection_4.png");
     //read_png_file(DATA_ROOT "dissection_5.png");
     //read_png_file(DATA_ROOT "dissection_6.png");
-    //read_png_file(DATA_ROOT "dissection_7.png");
+    read_png_file(DATA_ROOT "dissection_7.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_convex_concaves);
