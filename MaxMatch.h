@@ -79,7 +79,7 @@ public:
     bool findPath(const VertexIndex& uIdx);
     
     void flagMatchedOnMatchingEdges();
-    void findMinimumVertexCover() const;
+    void findMinimumVertexCover(VertexIndexSet& uMinCover, VertexIndexSet& vMinCover) const;
     void insertAlternatingEdgesRecursively(VertexIndexSet& ZUSet, VertexIndexSet& ZVSet, VertexIndex uvIdx, bool vIfTrue) const;
     void insertAlternatingEdgesIteratively(VertexIndexSet& zInputSet, VertexIndexSet& zOutputSet, bool isInputU, VertexIndexSet& visitedZSet) const;
     size_t getEdgeCount() const {
@@ -345,7 +345,7 @@ void MaxMatch<NameType>::insertAlternatingEdgesIteratively(VertexIndexSet& zInpu
 }
 
 template<typename NameType>
-void MaxMatch<NameType>::findMinimumVertexCover() const {
+void MaxMatch<NameType>::findMinimumVertexCover(VertexIndexSet& uMinCover, VertexIndexSet& vMinCover) const {
     VertexIndex uIdx(0);
     VertexIndexSet visitedZUSet;
     VertexIndexSet visitedZVSet;
@@ -383,8 +383,6 @@ void MaxMatch<NameType>::findMinimumVertexCover() const {
         isInputU = !isInputU;
     } while (newOutputSetSize > oldOutputSetSize);
     
-    
-    VertexIndexSet uMinCover;
     for (const auto& vertex : u_vertexes()) {
         if (vertex.idx == NillVertIdx) {
             continue;
@@ -396,7 +394,7 @@ void MaxMatch<NameType>::findMinimumVertexCover() const {
             }
         }
     }
-    VertexIndexSet vMinCover;
+    
     for (const auto& vertex : v_vertexes()) {
         if (vertex.idx == NillVertIdx) {
             continue;

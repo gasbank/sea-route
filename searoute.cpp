@@ -393,8 +393,8 @@ int max_match_test() {
 }
 
 bool line_cross(const xyxy& hori, const xyxy& vert) {
-    return hori.xy0.x < vert.xy0.x && vert.xy0.x < hori.xy1.x
-        && vert.xy0.y < hori.xy0.y && hori.xy0.y < vert.xy1.y;
+    return hori.xy0.x <= vert.xy0.x && vert.xy0.x <= hori.xy1.x
+        && vert.xy0.y <= hori.xy0.y && hori.xy0.y <= vert.xy1.y;
 }
 
 void maximum_matching() {
@@ -454,7 +454,30 @@ void maximum_matching() {
         }
     }
     printf("Solving minimum vertex cover from maximum matching...\n");
-    bipartite.findMinimumVertexCover();
+    MaxMatchInt::VertexIndexSet hori_min_vertex, vert_min_vertex;
+    bipartite.findMinimumVertexCover(hori_min_vertex, vert_min_vertex);
+    i = 1;
+    for (const auto& it : hori_lines) {
+        if (hori_min_vertex.find(i) != hori_min_vertex.end()) {
+            // not used cut
+            continue;
+        }
+        if (verbose) {
+            printf("[CUT] U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        }
+        i++;
+    }
+    j = 1;
+    for (const auto& it : vert_lines) {
+        if (vert_min_vertex.find(j) != vert_min_vertex.end()) {
+            // not used cut
+            continue;
+        }
+        if (verbose) {
+            printf("[CUT] V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+        }
+        j++;
+    }
 }
 
 #ifdef __APPLE__
@@ -474,6 +497,7 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_5.png");
     //read_png_file(DATA_ROOT "dissection_6.png");
     read_png_file(DATA_ROOT "dissection_7.png");
+    //read_png_file(DATA_ROOT "dissection_8.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_convex_concaves);
