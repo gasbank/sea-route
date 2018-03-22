@@ -6,10 +6,23 @@ enum VERTEX_TYPE {
     VT_CONCAVE,
 };
 
+
+enum LINE_CHECK_RESULT {
+    LCR_GOOD_CUT,
+    LCR_NEIGHBOR_VERTEX,
+    LCR_DISCONNECTED,
+    LCR_BUG,
+};
+
 struct xy {
     int x : 16;
     int y : 16;
 };
+
+inline bool operator < (const xy& lhs, const xy& rhs) {
+    return (lhs.y << 16 | lhs.x) < (rhs.y << 16 | rhs.x);
+}
+
 struct xyv {
     xy xy;
     VERTEX_TYPE v;
@@ -20,6 +33,7 @@ struct xyxy {
 };
 typedef std::unordered_map<int, std::vector<xyv> > int_xyvvector_map;
 typedef std::vector<xyxy> xyxyvector;
+typedef std::set<xy> xyset;
 typedef MaxMatch<std::string> MaxMatchString;
 typedef MaxMatch<int> MaxMatchInt;
 
@@ -49,11 +63,13 @@ xyxyvector hori_lines;
 xyxyvector vert_lines;
 MaxMatchInt bipartite;
 int land_color_index;
-
-#define PIXELBIT(row, x) (((row)[(x) / 8] >> (7 - ((x) % 8))) & 1) == land_color_index ? 1 : 0
+xyset cut_boundary_pixels;
+std::vector<xyset> seed_pixels;
+#define PIXELBIT(row, x) (((((row)[(x) / 8] >> (7 - ((x) % 8))) & 1) == land_color_index) ? 1 : 0)
 #define PIXELSETBIT(row, x) (row)[(x) / 8] |= (1 << (7 - ((x) % 8)))
 #define PIXELCLEARBIT(row, x) (row)[(x) / 8] &= ~(1 << (7 - ((x) % 8)))
 #define PIXELINVERTBIT(row, x) (row)[(x) / 8] ^= (1 << (7 - ((x) % 8)))
+#define PIXELBITXY(x, y) PIXELBIT(row_pointers[(y)], (x))
 #define PIXELCLEARBITXY(x, y) PIXELCLEARBIT(row_pointers[(y)], (x))
 #define PIXELSETBITXY(x, y) PIXELSETBIT(row_pointers[(y)], (x))
 #define PIXELINVERTBITXY(x, y) PIXELINVERTBIT(row_pointers[(y)], (x))
@@ -253,7 +269,7 @@ void detect_concave_vertices(void) {
     printf("Total convex vertices: %d\n", total_convex_vertices_count);
 }
 
-bool check_neighbor(const xyxy& line) {
+LINE_CHECK_RESULT check_line(const xyxy& line) {
     int dx = line.xy1.x - line.xy0.x;
     int dy = line.xy1.y - line.xy0.y;
     if (dx && !dy) {
@@ -272,22 +288,32 @@ bool check_neighbor(const xyxy& line) {
                 b01 = PIXELBIT(row0, x + i); // ((row0[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b01 == 0) {
                     // discontinuity detected. not neighbor.
-                    return false;
+                    return LCR_GOOD_CUT;
                 }
             }
-            return true;
+            return LCR_NEIGHBOR_VERTEX;
         } else if (!b01 && b11) {
             // lower is 1
             for (int i = 0; i < dx; i++) {
                 b11 = PIXELBIT(row1, x + i); // ((row1[(x + i) / 8] >> (7 - ((x + i) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b11 == 0) {
                     // discontinuity detected. not neighbor.
-                    return false;
+                    return LCR_GOOD_CUT;
                 }
             }
-            return true;
+            return LCR_NEIGHBOR_VERTEX;
         } else {
-            return false;
+            // should be upper/lower both are 1
+            // if not, disconnected
+            for (int i = 0; i < dx; i++) {
+                b01 = PIXELBIT(row0, x + i);
+                b11 = PIXELBIT(row1, x + i);
+                if (b01 == 0 && b11 == 0) {
+                    // disconnection detected.
+                    return LCR_DISCONNECTED;
+                }
+            }
+            return LCR_GOOD_CUT;
         }
     } else if (!dx && dy) {
         // vertical line
@@ -306,10 +332,10 @@ bool check_neighbor(const xyxy& line) {
                 b10 = PIXELBIT(row1, x + 0); // ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b10 == 0) {
                     // discontinuity detected. not neighbor.
-                    return false;
+                    return LCR_GOOD_CUT;
                 }
             }
-            return true;
+            return LCR_NEIGHBOR_VERTEX;
         } else if (!b10 && b11) {
             // right is 1
             for (int i = 0; i < dy; i++) {
@@ -317,18 +343,31 @@ bool check_neighbor(const xyxy& line) {
                 b11 = PIXELBIT(row1, x + 1); // ((row1[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
                 if (b11 == 0) {
                     // discontinuity detected. not neighbor.
-                    return false;
+                    return LCR_GOOD_CUT;
                 }
             }
-            return true;
+            return LCR_NEIGHBOR_VERTEX;
         } else {
-            return false;
+            // should be left/right both are 1
+            // if not, disconnected
+            for (int i = 0; i < dy; i++) {
+                row1 = row_pointers[y + i];
+                b10 = PIXELBIT(row1, x + 0);
+                b11 = PIXELBIT(row1, x + 1);
+                if (b10 == 0 && b11 == 0) {
+                    // disconnection detected.
+                    return LCR_DISCONNECTED;
+                }
+            }
+            return LCR_GOOD_CUT;
         }
     } else {
         // ???!?!?!?!?!?
         abort();
     }
-    return false;
+    // ???!?!?!?!?!?
+    abort();
+    return LCR_BUG;
 }
 
 void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
@@ -354,10 +393,10 @@ void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
                 line.xy1 = cit2->xy; // SECOND CIT2
                 
                 // check line.xy0 and line.xy1 are neighbors.
-                if (check_neighbor(line)) {
+                auto check_result = check_line(line);
+                if (check_result == LCR_NEIGHBOR_VERTEX || check_result == LCR_DISCONNECTED) {
                     // skip FIRST CIT2
                     --cit2;
-                
                 } else {
                     lines.push_back(line);
                     if (verbose) {
@@ -512,33 +551,146 @@ void maximum_matching() {
     MaxMatchInt::VertexIndexSet hori_min_vertex, vert_min_vertex;
     bipartite.findMinimumVertexCover(hori_min_vertex, vert_min_vertex);
     i = 1;
+    int hori_cut_count = 0;
     for (const auto& it : hori_lines) {
-        if (hori_min_vertex.find(i) != hori_min_vertex.end()) {
-            // not used cut
-            continue;
-        }
-        if (verbose) {
-            printf("[CUT] U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
-        }
-        for (int x = it.xy0.x; x < it.xy1.x; x++) {
-            PIXELINVERTBITXY(x+1, it.xy0.y+1);
+        if (hori_min_vertex.find(i) == hori_min_vertex.end()) {
+            // 'it' is not minimum cover vertex, that is, 'it' belongs to independent set
+            // use 'it' as cut
+            if (verbose) {
+                printf("[CUT] U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+            }
+            
+            //for (int x = it.xy0.x; x < it.xy1.x; x++) {
+            //    PIXELINVERTBITXY(x + 1, it.xy0.y + 1);
+            //}
+
+            // cut caching
+            hori_cut_count++;
+
+            // cut boundary caching
+            xyset boundary_up, boundary_down;
+            for (int k = it.xy0.x; k < it.xy1.x; k++) {
+                xy boundary;
+                boundary.x = k + 1;
+                boundary.y = it.xy0.y + 0;
+                cut_boundary_pixels.insert(boundary);
+                boundary_up.insert(boundary);
+
+                boundary.y = it.xy0.y + 1;
+                cut_boundary_pixels.insert(boundary);
+                boundary_down.insert(boundary);
+            }
+            seed_pixels.push_back(boundary_up);
+            seed_pixels.push_back(boundary_down);
         }
         i++;
     }
     j = 1;
+    int vert_cut_count = 0;
     for (const auto& it : vert_lines) {
-        if (vert_min_vertex.find(j) != vert_min_vertex.end()) {
-            // not used cut
-            continue;
-        }
-        if (verbose) {
-            printf("[CUT] V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
-        }
-        for (int y = it.xy0.y; y < it.xy1.y; y++) {
-            PIXELINVERTBITXY(it.xy0.x+1, y+1);
+        if (vert_min_vertex.find(j) == vert_min_vertex.end()) {
+            // 'it' is not minimum cover vertex, that is, 'it' belongs to independent set
+            // use 'it' as cut
+            if (verbose) {
+                printf("[CUT] V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
+            }
+            
+            //for (int y = it.xy0.y; y < it.xy1.y; y++) {
+            //    PIXELINVERTBITXY(it.xy0.x + 1, y + 1);
+            //}
+
+            // cut caching
+            vert_cut_count++;
+            // cut boundary caching
+            xyset boundary_left, boundary_right;
+            for (int k = it.xy0.y; k < it.xy1.y; k++) {
+                xy boundary;
+                boundary.x = it.xy0.x + 0;
+                boundary.y = k + 1;
+                cut_boundary_pixels.insert(boundary);
+                boundary_left.insert(boundary);
+
+                boundary.x = it.xy0.x + 1;
+                cut_boundary_pixels.insert(boundary);
+                boundary_right.insert(boundary);
+            }
+            seed_pixels.push_back(boundary_left);
+            seed_pixels.push_back(boundary_right);
         }
         j++;
     }
+    printf("Total horizontal cut count: %d\n", hori_cut_count);
+    printf("Total vertical cut count: %d\n", vert_cut_count);
+}
+
+void propagate_seed_pixels() {
+    xyset covered;
+    std::vector<xyset> segment_list;
+    for (const auto& seed : seed_pixels) {
+        xyset segment;
+        // this seed already covered by previous segments
+        bool skip_this_seed = false;
+        for (const auto& seed_pixel : seed) {
+            if (covered.find(seed_pixel) != covered.end()) {
+                skip_this_seed = true;
+                break;
+            }
+        }
+        if (skip_this_seed) {
+            covered.insert(seed.cbegin(), seed.cend());
+            continue;
+        }
+        
+        // all seed pixels compose a segment
+        segment.insert(seed.cbegin(), seed.cend());
+        covered.insert(seed.cbegin(), seed.cend());
+
+        xyset start_seed = seed;
+        xyset new_seed;
+        do {
+            new_seed.clear();
+            for (const auto& pixel : start_seed) {
+                int offsets[][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 } };
+                for (const auto& off : offsets) {
+                    xy pixel_pos = { pixel.x + off[0], pixel.y + off[1] };
+                    // out of bounds
+                    if (pixel_pos.x < 0 || pixel_pos.x >= width || pixel_pos.y < 0 || pixel_pos.y >= height) {
+                        continue;
+                    }
+                    // cleared pixel
+                    if (PIXELBITXY(pixel_pos.x, pixel_pos.y) == 0) {
+                        continue;
+                    }
+                    // already covered
+                    if (covered.find(pixel_pos) != covered.end()) {
+                        continue;
+                    }
+                    // another seed boundary
+                    if (cut_boundary_pixels.find(pixel_pos) != cut_boundary_pixels.end()) {
+                        continue;
+                    }
+                    // new pixel found!
+                    covered.insert(pixel_pos);
+                    segment.insert(pixel_pos);
+                    new_seed.insert(pixel_pos);
+                }
+            }
+            start_seed = new_seed;
+        } while (start_seed.size() > 0);
+        if (segment.size() > 0) {
+            segment_list.push_back(segment);
+        }
+    }
+    printf("Segment count: %zu\n", segment_list.size());
+    /*
+    for (y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        int prev_b = 0;
+        int invert_count = 0;
+        for (x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+        }
+    }*/
 }
 
 #ifdef __APPLE__
@@ -549,22 +701,30 @@ void maximum_matching() {
 
 int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "water_land_20k.png");
-    //read_png_file(DATA_ROOT "water_16k.png");
+    read_png_file(DATA_ROOT "water_16k.png");
     //read_png_file(DATA_ROOT "bw.png");
     //read_png_file(DATA_ROOT "dissection_1.png");
     //read_png_file(DATA_ROOT "dissection_2.png");
     //read_png_file(DATA_ROOT "dissection_3.png");
-    //read_png_file(DATA_ROOT "dissection_4.png");
-    //read_png_file(DATA_ROOT "dissection_5.png");
+    //read_png_file(DATA_ROOT "dissection_stackoverflow_example.png");
+    //read_png_file(DATA_ROOT "dissection_center_hole.png");
     //read_png_file(DATA_ROOT "dissection_6.png");
-    //read_png_file(DATA_ROOT "dissection_7.png");
+    //read_png_file(DATA_ROOT "dissection_big_arrow.png");
     //read_png_file(DATA_ROOT "dissection_8.png");
-    read_png_file(DATA_ROOT "dissection_9.png");
+    //read_png_file(DATA_ROOT "dissection_9.png");
+    //read_png_file(DATA_ROOT "dissection_cross.png");
+    //read_png_file(DATA_ROOT "dissection_64x64.png");
+    //read_png_file(DATA_ROOT "dissection_framed.png");
+    //read_png_file(DATA_ROOT "dissection_framed_small.png");
+    //read_png_file(DATA_ROOT "dissection_islands.png");
+    //read_png_file(DATA_ROOT "dissection_four.png");
+    //read_png_file(DATA_ROOT "dissection_tetris.png");
     count_total_inverts();
     detect_concave_vertices();
     get_lines(hori_lines, row_key_convex_concaves);
     get_lines(vert_lines, col_key_convex_concaves);
     maximum_matching();
+    propagate_seed_pixels();
     
     write_png_file(DATA_ROOT "dissection_output.png");
     //test_bipartite();
