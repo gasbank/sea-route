@@ -584,6 +584,9 @@ void maximum_matching() {
             seed_pixels.push_back(boundary_down);
         }
         i++;
+        if (i % 1000 == 0) {
+            printf("Adding cuts from horizontal lines %d...\n", i);
+        }
     }
     j = 1;
     int vert_cut_count = 0;
@@ -618,6 +621,9 @@ void maximum_matching() {
             seed_pixels.push_back(boundary_right);
         }
         j++;
+        if (j % 1000 == 0) {
+            printf("Adding cuts from vertical lines %d...\n", j);
+        }
     }
     printf("Total horizontal cut count: %d\n", hori_cut_count);
     printf("Total vertical cut count: %d\n", vert_cut_count);
@@ -626,7 +632,12 @@ void maximum_matching() {
 void propagate_seed_pixels() {
     xyset covered;
     std::vector<xyset> segment_list;
+    int seed_pixel_index = 0;
     for (const auto& seed : seed_pixels) {
+        seed_pixel_index++;
+        if (seed_pixel_index % 20000 == 0) {
+            printf("Propagating seed pixel index %d...\n", seed_pixel_index);
+        }
         xyset segment;
         // this seed already covered by previous segments
         bool skip_this_seed = false;
@@ -682,6 +693,11 @@ void propagate_seed_pixels() {
         }
     }
     printf("Segment count: %zu\n", segment_list.size());
+    for (const auto& segment : segment_list) {
+        for (const auto& seg_pixel : segment) {
+            PIXELINVERTBITXY(seg_pixel.x, seg_pixel.y);
+        }
+    }
     /*
     for (y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
