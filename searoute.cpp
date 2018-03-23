@@ -1,6 +1,10 @@
 #include "precompiled.hpp"
 #include "MaxMatch.h"
 
+#define DATA_ROOT "assets/"
+#define WORLDMAP_RTREE_FILENAME "worldmap_static.dat"
+#define WORLDMAP_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024)
+
 enum VERTEX_TYPE {
     VT_CONVEX,
     VT_CONCAVE,
@@ -37,14 +41,66 @@ typedef std::set<xy> xyset;
 typedef MaxMatch<std::string> MaxMatchString;
 typedef MaxMatch<int> MaxMatchInt;
 
-void abort_(const char * s, ...) {
-    va_list args;
-    va_start(args, s);
-    vfprintf(stderr, s, args);
-    fprintf(stderr, "\n");
-    va_end(args);
-    abort();
+
+
+template <class T>
+inline void hash_combine(std::size_t & s, const T & v) {
+    std::hash<T> h;
+    s ^= h(v) + 0x9e3779b9 + (s << 6) + (s >> 2);
 }
+
+struct RECTPIXEL {
+    int x : 16;
+    int y : 16;
+    int w : 16;
+    int h : 16;
+};
+
+namespace std {
+    template<>
+    struct hash<RECTPIXEL> {
+        std::size_t operator()(const RECTPIXEL& s) const {
+            std::size_t res = 0;
+            hash_combine(res, s.x);
+            hash_combine(res, s.y);
+            hash_combine(res, s.w);
+            hash_combine(res, s.h);
+            return res;
+        }
+    };
+    template<>
+    struct equal_to<RECTPIXEL> {
+        inline bool operator()(const RECTPIXEL& a, const RECTPIXEL& b) const {
+            std::size_t res = 0;
+            hash_combine(res, a.x);
+            hash_combine(res, a.y);
+            hash_combine(res, a.w);
+            hash_combine(res, a.h);
+            std::size_t res_other = 0;
+            hash_combine(res_other, b.x);
+            hash_combine(res_other, b.y);
+            hash_combine(res_other, b.w);
+            hash_combine(res_other, b.h);
+            return res == res_other;
+        }
+    };
+}
+
+std::vector<RECTPIXEL> rect_pixel_set;
+
+namespace bi = boost::interprocess;
+namespace bg = boost::geometry;
+namespace bgm = bg::model;
+namespace bgi = bg::index;
+
+typedef bgm::point<short, 2, bg::cs::cartesian> point_t;
+typedef bgm::box<point_t> box_t;
+typedef std::pair<box_t, int> value_t;
+typedef bgi::linear<32, 8> params_t;
+typedef bgi::indexable<value_t> indexable_t;
+typedef bgi::equal_to<value_t> equal_to_t;
+typedef bi::allocator<value_t, bi::managed_mapped_file::segment_manager> allocator_t;
+typedef bgi::rtree<value_t, params_t, indexable_t, equal_to_t, allocator_t> rtree_t;
 
 int x, y;
 
@@ -73,6 +129,15 @@ std::vector<xyset> seed_pixels;
 #define PIXELCLEARBITXY(x, y) PIXELCLEARBIT(row_pointers[(y)], (x))
 #define PIXELSETBITXY(x, y) PIXELSETBIT(row_pointers[(y)], (x))
 #define PIXELINVERTBITXY(x, y) PIXELINVERTBIT(row_pointers[(y)], (x))
+
+void abort_(const char * s, ...) {
+    va_list args;
+    va_start(args, s);
+    vfprintf(stderr, s, args);
+    fprintf(stderr, "\n");
+    va_end(args);
+    abort();
+}
 
 void write_png_file(const char *filename) {
     
@@ -716,69 +781,6 @@ void first_pass() {
     propagate_seed_pixels();
 }
 
-
-template <class T>
-inline void hash_combine(std::size_t & s, const T & v)
-{
-    std::hash<T> h;
-    s^= h(v) + 0x9e3779b9 + (s<< 6) + (s>> 2);
-}
-
-struct RECTPIXEL {
-    int x : 16;
-    int y : 16;
-    int w : 16;
-    int h : 16;
-};
-
-namespace std {
-    template<>
-    struct hash<RECTPIXEL> {
-        std::size_t operator()( const RECTPIXEL& s ) const
-        {
-            std::size_t res = 0;
-            hash_combine(res,s.x);
-            hash_combine(res,s.y);
-            hash_combine(res,s.w);
-            hash_combine(res,s.h);
-            return res;
-        }
-    };
-    template<>
-    struct equal_to<RECTPIXEL> {
-        inline bool operator()(const RECTPIXEL& a, const RECTPIXEL& b) const {
-            std::size_t res = 0;
-            hash_combine(res,a.x);
-            hash_combine(res,a.y);
-            hash_combine(res,a.w);
-            hash_combine(res,a.h);
-            std::size_t res_other = 0;
-            hash_combine(res_other,b.x);
-            hash_combine(res_other,b.y);
-            hash_combine(res_other,b.w);
-            hash_combine(res_other,b.h);
-            return res == res_other;
-        }
-    };
-}
-
-std::vector<RECTPIXEL> rect_pixel_set;
-
-namespace bi = boost::interprocess;
-namespace bg = boost::geometry;
-namespace bgm = bg::model;
-namespace bgi = bg::index;
-
-typedef bgm::point<int, 2, bg::cs::cartesian> point_t;
-typedef bgm::box<point_t> box_t;
-typedef box_t value_t;
-typedef bgi::linear<32, 8> params_t;
-typedef bgi::indexable<value_t> indexable_t;
-typedef bgi::equal_to<value_t> equal_to_t;
-typedef bi::allocator<value_t, bi::managed_mapped_file::segment_manager> allocator_t;
-typedef bgi::rtree<value_t, params_t, indexable_t, equal_to_t, allocator_t> rtree_t;
-
-
 void second_pass() {
     int old_land_pixel_count = 0;
     for (int y = 0; y < height; y++) {
@@ -875,7 +877,7 @@ void second_pass() {
     printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
     
     {
-        bi::managed_mapped_file file(bi::open_or_create, "/Users/kimgeoyeob/data.bin", 512*1024*1024);
+        bi::managed_mapped_file file(bi::open_or_create, DATA_ROOT WORLDMAP_RTREE_FILENAME, WORLDMAP_RTREE_MMAP_MAX_SIZE);
         allocator_t alloc(file.get_segment_manager());
         rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
         rtree_ptr->clear();
@@ -895,24 +897,32 @@ void second_pass() {
             }
             
             box_t b(point_t(pixel_set.x, pixel_set.y), point_t(pixel_set.x + pixel_set.w, pixel_set.y + pixel_set.h));
-            //auto rtree_value = std::make_pair(b, 0);
-            //rtree.insert(rtree_value);
-            rtree_ptr->insert(b);
+            rtree_ptr->insert(std::make_pair(b, reconstructed_pixel_count));
         }
         printf("Reconstructed pixel count: %d\n", reconstructed_pixel_count);
         printf("R Tree size: %zu\n", rtree_ptr->size());
     }
 }
 
-#ifdef __APPLE__
-#define DATA_ROOT "/Users/kimgeoyeob/laidoff-art/"
-#else
-#define DATA_ROOT "c:\\laidoff-art\\"
-#endif
-
 int main(int argc, char **argv) {
+    std::cout << "sea-route v0.1" << std::endl;
+    auto cwd = boost::filesystem::current_path();
+    do {
+        auto assets = cwd;
+        assets.append("assets");
+        if (boost::filesystem::is_directory(assets)) {
+            boost::filesystem::current_path(cwd);
+            break;
+        }
+        cwd.remove_leaf();
+    } while (!cwd.empty());
+
+    if (cwd.empty()) {
+        abort();
+    }
+
     //read_png_file(DATA_ROOT "water_land_20k.png");
-    read_png_file(DATA_ROOT "water_16k.png");
+    //read_png_file(DATA_ROOT "water_16k.png");
     //read_png_file(DATA_ROOT "water_16k_first_pass.png");
     //read_png_file(DATA_ROOT "bw.png");
     //read_png_file(DATA_ROOT "dissection_1.png");
@@ -934,27 +944,33 @@ int main(int argc, char **argv) {
     
     //first_pass();
     //second_pass(); //-------!!!
-    
+    //write_png_file(DATA_ROOT "dissection_output.png");
+
     {
-        bi::managed_mapped_file file(bi::open_or_create, "/Users/kimgeoyeob/data.bin", 512*1024*1024);
+        bi::managed_mapped_file file(bi::open_or_create, DATA_ROOT WORLDMAP_RTREE_FILENAME, WORLDMAP_RTREE_MMAP_MAX_SIZE);
         allocator_t alloc(file.get_segment_manager());
         rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
         printf("R Tree size: %zu\n", rtree_ptr->size());
+
+        if (rtree_ptr->size() == 0) {
+            // populate rtree
+            read_png_file(DATA_ROOT "water_16384x8192.png");
+            second_pass();
+        }
+
         box_t query_box(point_t(5000, 4000), point_t(5100, 4100));
         std::vector<value_t> result_s;
         rtree_ptr->query(bgi::intersects(query_box), std::back_inserter(result_s));
         for (const auto& r : result_s) {
-            printf("X0: %d, Y0: %d, X1: %d, Y0: %d\n",
-                   r.min_corner().get<0>(),
-                   r.min_corner().get<1>(),
-                   r.max_corner().get<0>(),
-                   r.max_corner().get<1>());
+            printf("X0: %d, Y0: %d, X1: %d, Y0: %d --- %d\n",
+                   r.first.min_corner().get<0>(),
+                   r.first.min_corner().get<1>(),
+                   r.first.max_corner().get<0>(),
+                   r.first.max_corner().get<1>(),
+                   r.second);
         }
         printf("Total rects: %zu\n", result_s.size());
     }
     
-    write_png_file(DATA_ROOT "dissection_output.png");
-    //test_bipartite();
-    //max_match_test();
     return 0;
 }
