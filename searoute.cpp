@@ -28,7 +28,7 @@ inline bool operator < (const xy& lhs, const xy& rhs) {
 }
 
 struct xyv {
-    xy xy;
+    xy coords;
     VERTEX_TYPE v;
 };
 struct xyxy {
@@ -320,8 +320,8 @@ void detect_concave_vertices(void) {
             }
             if (concave || convex) {
                 xyv xycombined;
-                xycombined.xy.x = x;
-                xycombined.xy.y = y;
+                xycombined.coords.x = x;
+                xycombined.coords.y = y;
                 xycombined.v = concave ? VT_CONCAVE : VT_CONVEX;
                 row_key_convex_concaves[y].push_back(xycombined);
                 col_key_convex_concaves[x].push_back(xycombined);
@@ -445,7 +445,7 @@ void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
             }
             // pull two elements at once
             xyxy line;
-            line.xy0 = cit2->xy; // FIRST CIT2
+            line.xy0 = cit2->coords; // FIRST CIT2
             ++cit2;
             if (cit2 != cit->second.cend()) {
                 // skip concave-convex vertex pair
@@ -453,7 +453,7 @@ void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
                     continue;
                 }
 
-                line.xy1 = cit2->xy; // SECOND CIT2
+                line.xy1 = cit2->coords; // SECOND CIT2
                 
                 // check line.xy0 and line.xy1 are neighbors.
                 auto check_result = check_line(line);
