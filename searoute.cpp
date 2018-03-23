@@ -3,7 +3,7 @@
 
 #define DATA_ROOT "assets/"
 #define WORLDMAP_RTREE_FILENAME "worldmap_static.dat"
-#define WORLDMAP_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024)
+#define WORLDMAP_RTREE_MMAP_MAX_SIZE (14 * 1024 * 1024)
 
 enum VERTEX_TYPE {
     VT_CONVEX,
