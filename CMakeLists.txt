@@ -37,6 +37,9 @@ MACRO(ADD_MSVC_PRECOMPILED_HEADER PrecompiledHeader PrecompiledSource SourcesVar
   ENDIF(MSVC)
 ENDMACRO(ADD_MSVC_PRECOMPILED_HEADER)
 
+# pthread deps on Linux server build
+find_package(Threads)
+
 SET(SeaRouteSources
 searoute.cpp
 searoute.hpp
@@ -45,4 +48,4 @@ MaxMatch.h)
 
 ADD_MSVC_PRECOMPILED_HEADER("precompiled.hpp" "precompiled.cpp" SeaRouteSources)
 ADD_EXECUTABLE(searoute ${SeaRouteSources})
-target_link_libraries(searoute png_static ${Boost_LIBRARIES})
+target_link_libraries(searoute png_static ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
