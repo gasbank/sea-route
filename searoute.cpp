@@ -1075,10 +1075,18 @@ void astar_rtree(const char* output, size_t output_max_size, xy from, xy to) {
             printf("Path Count: %zu\n", pathCount);
             float pathCost = ASPathGetCost(path);
             printf("Path Cost: %f\n", pathCost);
-            if (pathCost < 2000) {
+            if (pathCost < 6000) {
                 for (size_t i = 0; i < pathCount; i++) {
                     xyxy* node = reinterpret_cast<xyxy*>(ASPathGetNode(path, i));
-                    printf("Path %zu: (%d, %d)\n", i, node->xy0.x, node->xy0.y);
+                    printf("Path %zu: (%d, %d)-(%d, %d) [%d x %d = %d]\n",
+                           i,
+                           node->xy0.x,
+                           node->xy0.y,
+                           node->xy1.x,
+                           node->xy1.y,
+                           node->xy1.x - node->xy0.x,
+                           node->xy1.y - node->xy0.y,
+                           (node->xy1.x - node->xy0.x) * (node->xy1.y - node->xy0.y));
                 }
             }
             // Phase 2 - per-pixel node searching
@@ -1155,6 +1163,121 @@ void test_astar() {
     }
 }
 
+struct height_width_start {
+    int height;
+    int width;
+    int start;
+    int area() const { return height * width; }
+};
+
+struct height_width_row_col {
+    int height;
+    int width;
+    int row;
+    int col;
+    int area() const { return height * width; }
+    height_width_row_col(int h, int w, int r, int c) : height(h), width(w), row(r), col(c) {}
+};
+
+struct start_height {
+    int start;
+    int height;
+    start_height(int s, int h) : start(s), height(h) {}
+};
+
+std::vector<int> histogram_from_row(int r) {
+    png_bytep row = row_pointers[r];
+    std::vector<int> histogram(width);
+    for (int x = 0; x < width; x++) {
+        histogram[x] = PIXELBIT(row, x);
+    }
+    return histogram;
+}
+
+height_width_start max_rectangle_size(const std::vector<int>& histogram) {
+    std::stack<start_height> stack;
+    height_width_start max_size = { 0, 0, -1 };
+    int pos = 0;
+    for (pos = 0; pos < histogram.size(); pos++) {
+        int height = histogram[pos];
+        int start = pos;
+        while (true) {
+            if (stack.empty() || height > stack.top().height) {
+                stack.push(start_height(start, height));
+            } else if (stack.empty() == false && height < stack.top().height) {
+                height_width_start new_max_size = {
+                    stack.top().height,
+                    pos - stack.top().start,
+                    stack.top().start,
+                };
+                if (max_size.area() < new_max_size.area()) {
+                    max_size = new_max_size;
+                }
+                start = stack.top().start;
+                stack.pop();
+                continue;
+            }
+            break;
+        }
+    }
+    //pos += 1;
+    while (stack.empty() == false) {
+        auto v = stack.top();
+        height_width_start new_size = {
+            v.height,
+            pos - v.start,
+            v.start,
+        };
+        if (max_size.area() < new_size.area()) {
+            max_size = new_size;
+        }
+        stack.pop();
+    }
+    return max_size;
+}
+
+height_width_row_col max_size() {
+    auto hist = histogram_from_row(0);
+    auto max_size = max_rectangle_size(hist);
+    int last_row = max_size.area() > 0 ? 0 : -1;
+    for (int rowindex = 0; rowindex < height - 1; rowindex++) {
+        png_bytep row = row_pointers[rowindex + 1];
+        for (int x = 0; x < width; x++) {
+            auto h = hist[x];
+            auto el = PIXELBIT(row, x);
+            hist[x] = el ? (1 + h) : 0;
+        }
+        auto new_size = max_rectangle_size(hist);
+        if (max_size.area() < new_size.area()) {
+            last_row = rowindex + 1;
+            max_size = new_size;
+        }
+    }
+    if (max_size.area() == 0) {
+        return height_width_row_col(0, 0, -1, -1);
+    } else {
+        return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
+    }
+}
+
+void invert_area(int x, int y, int w, int h) {
+    // clear rectpixel
+    for (int ys = y; ys < y + h; ys++) {
+        png_byte* rowsub = row_pointers[ys];
+        for (int xs = x; xs < x + w; xs++) {
+            int before = PIXELBIT(rowsub, xs);
+            if (before == 0) {
+                abort();
+            }
+            PIXELINVERTBIT(rowsub, xs);
+            int after = PIXELBIT(rowsub, xs);
+            if (after == 1) {
+                abort();
+            }
+        }
+    }
+}
+
 int main(int argc, char **argv) {
     std::cout << "sea-route v0.1" << std::endl;
     auto cwd = boost::filesystem::current_path();
@@ -1192,7 +1315,8 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_islands.png");
     //read_png_file(DATA_ROOT "dissection_four.png");
     //read_png_file(DATA_ROOT "dissection_tetris.png");
-    //read_png_file(DATA_ROOT "water_16384x8192.png");
+    read_png_file(DATA_ROOT "water_16384x8192.png", 0);
+    //read_png_file(DATA_ROOT "max_rect_1.png", 0);
     
     //first_pass();
     //second_pass(); //-------!!!
@@ -1200,9 +1324,44 @@ int main(int argc, char **argv) {
 
     //create_worldmap_rtrees();
 
-    test_astar_rtree();
+    //test_astar_rtree();
     
     //test_astar();
-
+    
+    //auto r1 = max_rectangle_size(histogram_from_row(4000));
+    
+    int old_land_pixel_count = 0;
+    for (int y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+            if (b) {
+                old_land_pixel_count++;
+            }
+        }
+    }
+    printf("Total land pixel count: %d\n", old_land_pixel_count);
+    int remaining_land_pixel_count = old_land_pixel_count;
+    while (true) {
+        auto r2 = max_size();
+        int area = r2.width * r2.height;
+        remaining_land_pixel_count -= area;
+        printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%)\n", r2.col, r2.row, r2.width, r2.height, area, remaining_land_pixel_count, (float)remaining_land_pixel_count / old_land_pixel_count * 100);
+        invert_area(r2.col, r2.row, r2.width, r2.height);
+        if (remaining_land_pixel_count <= 0) {
+            break;
+        }
+    }
+    int new_land_pixel_count = 0;
+    for (int y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+            if (b) {
+                new_land_pixel_count++;
+            }
+        }
+    }
+    printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
     return 0;
 }
