@@ -44,10 +44,8 @@ SET(SeaRouteSources
 searoute.cpp
 searoute.hpp
 MaxMatch.cpp
-MaxMatch.h
-AStar.c
-AStar.h)
+MaxMatch.h)
 
 ADD_MSVC_PRECOMPILED_HEADER("precompiled.hpp" "precompiled.cpp" SeaRouteSources)
-ADD_EXECUTABLE(searoute ${SeaRouteSources})
+ADD_EXECUTABLE(searoute ${SeaRouteSources} AStar.c AStar.h)
 target_link_libraries(searoute png_static ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})

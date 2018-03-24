@@ -110,7 +110,7 @@ static inline Node NodeMake(VisitedNodes nodes, size_t index)
 
 static inline NodeRecord *NodeGetRecord(Node node)
 {
-    return node.nodes->nodeRecords + (node.index * (node.nodes->source->nodeSize + sizeof(NodeRecord)));
+    return (NodeRecord*)((char*)node.nodes->nodeRecords + (node.index * (node.nodes->source->nodeSize + sizeof(NodeRecord))));
 }
 
 static inline void *GetNodeKey(Node node)
@@ -322,7 +322,7 @@ static inline void RemoveNodeFromOpenSet(Node n)
 static inline void DidInsertIntoOpenSetAtIndex(VisitedNodes nodes, size_t index)
 {
     while (index > 0) {
-        const size_t parentIndex = floorf((index-1) / 2);
+        const size_t parentIndex = (size_t)floorf((float)(index-1) / 2);
         
         if (NodeRankCompare(NodeMake(nodes, nodes->openNodes[parentIndex]), NodeMake(nodes, nodes->openNodes[index])) < 0) {
             break;
@@ -391,7 +391,7 @@ static inline float NeighborListGetEdgeCost(ASNeighborList list, size_t index)
 
 static void *NeighborListGetNodeKey(ASNeighborList list, size_t index)
 {
-    return list->nodeKeys + (index * list->source->nodeSize);
+    return (char*)list->nodeKeys + (index * list->source->nodeSize);
 }
 
 /********************************************/
@@ -404,7 +404,7 @@ void ASNeighborListAdd(ASNeighborList list, void *node, float edgeCost)
         list->nodeKeys = realloc(list->nodeKeys, list->source->nodeSize * list->capacity);
     }
     list->costs[list->count] = edgeCost;
-    memcpy(list->nodeKeys + (list->count * list->source->nodeSize), node, list->source->nodeSize);
+    memcpy((char*)list->nodeKeys + (list->count * list->source->nodeSize), node, list->source->nodeSize);
     list->count++;
 }
 
