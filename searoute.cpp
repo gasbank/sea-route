@@ -1,5 +1,6 @@
 #include "precompiled.hpp"
 #include "MaxMatch.h"
+#include "AStar.h"
 
 #define DATA_ROOT "assets/"
 #define WORLDMAP_RTREE_FILENAME "worldmap_static.dat"
@@ -904,6 +905,72 @@ void second_pass() {
     }
 }
 
+void create_worldmap_rtree() {
+    bi::managed_mapped_file file(bi::open_or_create, DATA_ROOT WORLDMAP_RTREE_FILENAME, WORLDMAP_RTREE_MMAP_MAX_SIZE);
+    allocator_t alloc(file.get_segment_manager());
+    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
+    printf("R Tree size: %zu\n", rtree_ptr->size());
+    
+    if (rtree_ptr->size() == 0) {
+        // populate rtree
+        read_png_file(DATA_ROOT "water_16384x8192.png");
+        second_pass();
+    }
+    
+    box_t query_box(point_t(5000, 4000), point_t(5100, 4100));
+    std::vector<value_t> result_s;
+    rtree_ptr->query(bgi::intersects(query_box), std::back_inserter(result_s));
+    for (const auto& r : result_s) {
+        printf("X0: %d, Y0: %d, X1: %d, Y0: %d --- %d\n",
+               r.first.min_corner().get<0>(),
+               r.first.min_corner().get<1>(),
+               r.first.max_corner().get<0>(),
+               r.first.max_corner().get<1>(),
+               r.second);
+    }
+    printf("Total rects: %zu\n", result_s.size());
+}
+
+int out_of_bounds(int x, int y) {
+    return x < 0 || x >= width || y < 0 || y >= height;
+}
+
+void PathNodeNeighbors(ASNeighborList neighbors, void *node, void *context) {
+    xy* n = reinterpret_cast<xy*>(node);
+    short offsets[][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 } };
+    for (const auto& off : offsets) {
+        short x2 = n->x + off[0];
+        short y2 = n->y + off[1];
+        if (out_of_bounds(x2, y2) == 0 && PIXELBITXY(x2, y2) == 0) {
+            xy n2 = { x2, y2 };
+            ASNeighborListAdd(neighbors, &n2, 1);
+        }
+    }
+}
+
+float PathNodeHeuristic(void *fromNode, void *toNode, void *context) {
+    xy* from = reinterpret_cast<xy*>(fromNode);
+    xy* to = reinterpret_cast<xy*>(toNode);
+
+    // using the manhatten distance since this is a simple grid and you can only move in 4 directions
+    return (fabs(from->x - to->x) + fabs(from->y - to->y));
+}
+
+int PathNodeComparator(void *node1, void *node2, void *context) {
+    xy* n1 = reinterpret_cast<xy*>(node1);
+    int n1v = n1->y << 16 | n1->x;
+    xy* n2 = reinterpret_cast<xy*>(node2);
+    int n2v = n2->y << 16 | n2->x;
+    int d = n1v - n2v;
+    if (d == 0) {
+        return 0;
+    } else if (d > 0) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
+
 int main(int argc, char **argv) {
     std::cout << "sea-route v0.1" << std::endl;
     auto cwd = boost::filesystem::current_path();
@@ -941,35 +1008,34 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_islands.png");
     //read_png_file(DATA_ROOT "dissection_four.png");
     //read_png_file(DATA_ROOT "dissection_tetris.png");
+    read_png_file(DATA_ROOT "water_16384x8192.png");
     
     //first_pass();
     //second_pass(); //-------!!!
     //write_png_file(DATA_ROOT "dissection_output.png");
 
+    create_worldmap_rtree();
+    
+    ASPathNodeSource PathNodeSource =
     {
-        bi::managed_mapped_file file(bi::open_or_create, DATA_ROOT WORLDMAP_RTREE_FILENAME, WORLDMAP_RTREE_MMAP_MAX_SIZE);
-        allocator_t alloc(file.get_segment_manager());
-        rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
-        printf("R Tree size: %zu\n", rtree_ptr->size());
-
-        if (rtree_ptr->size() == 0) {
-            // populate rtree
-            read_png_file(DATA_ROOT "water_16384x8192.png");
-            second_pass();
+        sizeof(xy),
+        PathNodeNeighbors,
+        PathNodeHeuristic,
+        NULL,
+        PathNodeComparator
+    };
+    xy pathFrom = {14092, 2452};
+    xy pathTo = {3366, 3178};
+    ASPath path = ASPathCreate(&PathNodeSource, NULL, &pathFrom, &pathTo);
+    size_t pathCount = ASPathGetCount(path);
+    printf("Path Count: %zu\n", pathCount);
+    float pathCost = ASPathGetCost(path);
+    printf("Path Cost: %f\n", pathCost);
+    if (pathCost < 2000) {
+        for (size_t i = 0; i < pathCount; i++) {
+            xy* node = reinterpret_cast<xy*>(ASPathGetNode(path, i));
+            printf("Path %zu: (%d, %d)\n", i, node->x, node->y);
         }
-
-        box_t query_box(point_t(5000, 4000), point_t(5100, 4100));
-        std::vector<value_t> result_s;
-        rtree_ptr->query(bgi::intersects(query_box), std::back_inserter(result_s));
-        for (const auto& r : result_s) {
-            printf("X0: %d, Y0: %d, X1: %d, Y0: %d --- %d\n",
-                   r.first.min_corner().get<0>(),
-                   r.first.min_corner().get<1>(),
-                   r.first.max_corner().get<0>(),
-                   r.first.max_corner().get<1>(),
-                   r.second);
-        }
-        printf("Total rects: %zu\n", result_s.size());
     }
     
     return 0;
