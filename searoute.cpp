@@ -1241,13 +1241,15 @@ height_width_start max_rectangle_size(const std::vector<int>& histogram) {
 }
 
 std::unordered_set<int> omit_row;
-int last_max_area = -1;
 
-height_width_row_col max_size() {
+height_width_row_col get_max_size(const int last_max_area) {
     auto hist = histogram_from_row(0);
     auto max_size = max_rectangle_size(hist);
-	last_max_area = max_size.area();
-    int last_row = last_max_area > 0 ? 0 : -1;
+	int max_area = max_size.area();
+    int last_row = max_area > 0 ? 0 : -1;
+	if (max_area == last_max_area) {
+		return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
+	}
     
     for (int rowindex = 0; rowindex < height - 1; rowindex++) {
         if (omit_row.find(rowindex + 1) != omit_row.end()) {
@@ -1269,10 +1271,11 @@ height_width_row_col max_size() {
                 last_row = rowindex + 1;
                 max_size = new_size;
 				// early exit
-				if (last_max_area == max_size.area()) {
-					break;
+				if (max_size.area() == last_max_area) {
+					printf("Fast\n");
+					return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
 				}
-				last_max_area = max_size.area();
+				//last_max_area = max_size.area();
             }
         }
     }
@@ -1393,9 +1396,11 @@ int main(int argc, char **argv) {
     printf("Total land pixel count (remaining): %d\n", remaining_land_pixel_count);
     
     int rect_count = 0;
+	int last_max_area = -1;
     while (true) {
-        auto r2 = max_size();
-        int area = r2.width * r2.height;
+        auto r2 = get_max_size(last_max_area);
+		int area = r2.area();
+		last_max_area = area;
         remaining_land_pixel_count -= area;
         printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
                r2.col,
