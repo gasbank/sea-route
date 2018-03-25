@@ -1398,17 +1398,19 @@ int main(int argc, char **argv) {
     
     int rect_count = 0;
 	int last_max_area = -1;
-	int last_max_area_row = 0;
+	int scan_start_row = 0;
     while (true) {
-        auto r2 = get_max_size(last_max_area, last_max_area_row);
-		if (r2.area() != last_max_area) {
+        auto r2 = get_max_size(last_max_area, scan_start_row);
+		if (r2.area() == last_max_area) {
+			// turn on fast search next time
+			scan_start_row = r2.row;
+		} else if (scan_start_row != 0 && r2.area() != last_max_area) {
 			// search again
-			last_max_area_row = 0;
-			r2 = get_max_size(last_max_area, last_max_area_row);
+			scan_start_row = 0;
+			r2 = get_max_size(last_max_area, scan_start_row);
 		}
 		int area = r2.area();
 		last_max_area = area;
-		last_max_area_row = r2.row;
         remaining_land_pixel_count -= area;
         printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
                r2.col,
