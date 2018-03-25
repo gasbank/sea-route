@@ -1374,7 +1374,8 @@ int main(int argc, char **argv) {
     
     printf("Total land pixel count (original): %d\n", old_land_pixel_count);
     
-    for (auto it = rtree_ptr->begin(); it != rtree_ptr->end(); it++) {
+	auto rtree_bounds = rtree_ptr->bounds();
+    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
         int x = it->first.min_corner().get<0>();
         int y = it->first.min_corner().get<1>();
         int w = it->first.max_corner().get<0>() - x;
