@@ -1293,11 +1293,13 @@ void invert_area(int x, int y, int w, int h) {
         for (int xs = x; xs < x + w; xs++) {
             int before = PIXELBIT(rowsub, xs);
             if (before == 0) {
+				printf("B X\n");
                 abort();
             }
             PIXELINVERTBIT(rowsub, xs);
             int after = PIXELBIT(rowsub, xs);
             if (after == 1) {
+				printf("A X\n");
                 abort();
             }
         }
