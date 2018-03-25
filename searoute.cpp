@@ -8,7 +8,8 @@
 #define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_RTREE_FILENAME "worldmap_water.dat"
 #define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
-
+#define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "worldmap_land_max_rect.dat"
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 enum VERTEX_TYPE {
     VT_CONVEX,
     VT_CONCAVE,
@@ -182,10 +183,12 @@ void write_png_file(const char *filename) {
     png_write_image(png, row_pointers);
     png_write_end(png, NULL);
     
+    /*
     for(int y = 0; y < height; y++) {
         free(row_pointers[y]);
     }
     free(row_pointers);
+     */
     
     fclose(fp);
 }
@@ -1168,6 +1171,7 @@ struct height_width_start {
     int width;
     int start;
     int area() const { return height * width; }
+    int last_max_area;
 };
 
 struct height_width_row_col {
@@ -1194,9 +1198,9 @@ std::vector<int> histogram_from_row(int r) {
     return histogram;
 }
 
-height_width_start max_rectangle_size(const std::vector<int>& histogram) {
+height_width_start max_rectangle_size(const std::vector<int>& histogram, int last_max_area) {
     std::stack<start_height> stack;
-    height_width_start max_size = { 0, 0, -1 };
+    height_width_start max_size = { 0, 0, -1, last_max_area };
     int pos = 0;
     for (pos = 0; pos < histogram.size(); pos++) {
         int height = histogram[pos];
@@ -1236,21 +1240,33 @@ height_width_start max_rectangle_size(const std::vector<int>& histogram) {
     return max_size;
 }
 
+std::unordered_set<int> omit_row;
+
 height_width_row_col max_size() {
     auto hist = histogram_from_row(0);
     auto max_size = max_rectangle_size(hist);
     int last_row = max_size.area() > 0 ? 0 : -1;
+    
     for (int rowindex = 0; rowindex < height - 1; rowindex++) {
+        if (omit_row.find(rowindex + 1) != omit_row.end()) {
+            continue;
+        }
         png_bytep row = row_pointers[rowindex + 1];
         for (int x = 0; x < width; x++) {
             auto h = hist[x];
             auto el = PIXELBIT(row, x);
             hist[x] = el ? (1 + h) : 0;
         }
-        auto new_size = max_rectangle_size(hist);
-        if (max_size.area() < new_size.area()) {
-            last_row = rowindex + 1;
-            max_size = new_size;
+        bool hist_zeros = std::all_of(hist.begin(), hist.end(), [](int i) { return i==0; });
+        if (hist_zeros) {
+            omit_row.insert(rowindex + 1);
+            //printf("Row %d omitted.\n", rowindex + 1);
+        } else {
+            auto new_size = max_rectangle_size(hist);
+            if (max_size.area() < new_size.area()) {
+                last_row = rowindex + 1;
+                max_size = new_size;
+            }
         }
     }
     if (max_size.area() == 0) {
@@ -1330,6 +1346,11 @@ int main(int argc, char **argv) {
     
     //auto r1 = max_rectangle_size(histogram_from_row(4000));
     
+    bi::managed_mapped_file file(bi::open_or_create, DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE);
+    allocator_t alloc(file.get_segment_manager());
+    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
+    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
+    
     int old_land_pixel_count = 0;
     for (int y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
@@ -1340,16 +1361,53 @@ int main(int argc, char **argv) {
             }
         }
     }
-    printf("Total land pixel count: %d\n", old_land_pixel_count);
-    int remaining_land_pixel_count = old_land_pixel_count;
+    
+    printf("Total land pixel count (original): %d\n", old_land_pixel_count);
+    
+    for (auto it = rtree_ptr->begin(); it != rtree_ptr->end(); it++) {
+        int x = it->first.min_corner().get<0>();
+        int y = it->first.min_corner().get<1>();
+        int w = it->first.max_corner().get<0>() - x;
+        int h = it->first.max_corner().get<1>() - y;
+        invert_area(x, y, w, h);
+    }
+
+    int remaining_land_pixel_count = 0;
+    for (int y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+            if (b) {
+                remaining_land_pixel_count++;
+            }
+        }
+    }
+
+    printf("Total land pixel count (remaining): %d\n", remaining_land_pixel_count);
+    
+    int rect_count = 0;
     while (true) {
         auto r2 = max_size();
         int area = r2.width * r2.height;
         remaining_land_pixel_count -= area;
-        printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%)\n", r2.col, r2.row, r2.width, r2.height, area, remaining_land_pixel_count, (float)remaining_land_pixel_count / old_land_pixel_count * 100);
+        printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
+               r2.col,
+               r2.row,
+               r2.width,
+               r2.height,
+               area,
+               remaining_land_pixel_count,
+               (float)remaining_land_pixel_count / old_land_pixel_count * 100,
+               omit_row.size());
         invert_area(r2.col, r2.row, r2.width, r2.height);
         if (remaining_land_pixel_count <= 0) {
             break;
+        }
+        rect_count++;
+        box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
+        rtree_ptr->insert(std::make_pair(box, rect_count));
+        if (rect_count % 20 == 0) {
+            write_png_file(DATA_ROOT "rect_output.png");
         }
     }
     int new_land_pixel_count = 0;
