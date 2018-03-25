@@ -1246,7 +1246,7 @@ height_width_row_col get_max_size(const int last_max_area, const int last_max_ar
     auto hist = histogram_from_row(last_max_area_row);
     auto max_size = max_rectangle_size(hist);
 	int max_area = max_size.area();
-    int last_row = max_area > 0 ? 0 : -1;
+    int last_row = max_area > 0 ? last_max_area_row : -1;
 	if (max_area == last_max_area) {
 		return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
 	}
