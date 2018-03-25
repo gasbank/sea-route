@@ -1464,7 +1464,8 @@ int main(int argc, char **argv) {
     printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
 
 	// dump final result to portable format
-	std::vector<xyxy> write_buffer(rtree_ptr->size());
+	std::vector<xyxy> write_buffer;
+	write_buffer.reserve(rtree_ptr->size());
 	rtree_bounds = rtree_ptr->bounds();
 	for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
 		xyxy v;
