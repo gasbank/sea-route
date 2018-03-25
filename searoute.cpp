@@ -1293,13 +1293,13 @@ void invert_area(int x, int y, int w, int h) {
         for (int xs = x; xs < x + w; xs++) {
             int before = PIXELBIT(rowsub, xs);
             if (before == 0) {
-				printf("B X\n");
+				printf("B X (x=%d, y=%d)\n", xs, ys);
                 abort();
             }
             PIXELINVERTBIT(rowsub, xs);
             int after = PIXELBIT(rowsub, xs);
             if (after == 1) {
-				printf("A X\n");
+				printf("A X (x=%d, y=%d)\n", xs, ys);
                 abort();
             }
         }
@@ -1402,6 +1402,7 @@ int main(int argc, char **argv) {
 	int last_max_area = -1;
 	int scan_start_row = 0;
     while (true) {
+		printf("last_max_area = %d, scan_start_row = %d\n", last_max_area, scan_start_row);
         auto r2 = get_max_size(last_max_area, scan_start_row);
 		if (r2.area() == last_max_area) {
 			// turn on fast search next time
