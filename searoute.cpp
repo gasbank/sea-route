@@ -1374,17 +1374,26 @@ int main(int argc, char **argv) {
             }
         }
     }
-    
+
     printf("Total land pixel count (original): %d\n", old_land_pixel_count);
 	//printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
+	std::vector<value_t> to_be_removed;
 	auto rtree_bounds = rtree_ptr->bounds();
-    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
+    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); /*empty*/) {
         int x = it->first.min_corner().get<0>();
         int y = it->first.min_corner().get<1>();
         int w = it->first.max_corner().get<0>() - x;
         int h = it->first.max_corner().get<1>() - y;
-        invert_area(x, y, w, h);
+		if (w == 0 || h == 0 || x < 0 || y < 0) {
+			to_be_removed.push_back(*it);
+			printf("Invalid R-tree node will be removed.\n");
+		} else {
+			invert_area(x, y, w, h);
+		}
     }
+	for (auto v : to_be_removed) {
+		rtree_ptr->remove(v);
+	}
 	//printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
     int remaining_land_pixel_count = 0;
     for (int y = 0; y < height; y++) {
@@ -1417,20 +1426,23 @@ int main(int argc, char **argv) {
 		int area = r2.area();
 		last_max_area = area;
         remaining_land_pixel_count -= area;
-        printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
-               r2.col,
-               r2.row,
-               r2.width,
-               r2.height,
-               area,
-               remaining_land_pixel_count,
-               (float)remaining_land_pixel_count / old_land_pixel_count * 100,
-               omit_row.size());
-        invert_area(r2.col, r2.row, r2.width, r2.height);
+        
+		if (area > 0) {
+			printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
+				r2.col,
+				r2.row,
+				r2.width,
+				r2.height,
+				area,
+				remaining_land_pixel_count,
+				(float)remaining_land_pixel_count / old_land_pixel_count * 100,
+				omit_row.size());
+			invert_area(r2.col, r2.row, r2.width, r2.height);
 
-        rect_count++;
-        box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
-        rtree_ptr->insert(std::make_pair(box, rect_count));
+			rect_count++;
+			box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
+			rtree_ptr->insert(std::make_pair(box, rect_count));
+		}
         
 		if (remaining_land_pixel_count <= 0) {
 			break;
