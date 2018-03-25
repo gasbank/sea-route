@@ -1462,5 +1462,21 @@ int main(int argc, char **argv) {
         }
     }
     printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
+
+	// dump final result to portable format
+	std::vector<xyxy> write_buffer(rtree_ptr->size());
+	rtree_bounds = rtree_ptr->bounds();
+	for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
+		xyxy v;
+		v.xy0.x = it->first.min_corner().get<0>();
+		v.xy0.y = it->first.min_corner().get<1>();
+		v.xy1.x = it->first.max_corner().get<0>();
+		v.xy1.y = it->first.max_corner().get<1>();
+		write_buffer.push_back(v);
+	}
+	FILE* fout = fopen(DATA_ROOT "land_raw.dat", "wb");
+	fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
+	fclose(fout);
+	printf("Dumped.\n");
     return 0;
 }
