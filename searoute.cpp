@@ -1242,8 +1242,8 @@ height_width_start max_rectangle_size(const std::vector<int>& histogram) {
 
 std::unordered_set<int> omit_row;
 
-height_width_row_col get_max_size(const int last_max_area) {
-    auto hist = histogram_from_row(0);
+height_width_row_col get_max_size(const int last_max_area, const int last_max_area_row) {
+    auto hist = histogram_from_row(last_max_area_row);
     auto max_size = max_rectangle_size(hist);
 	int max_area = max_size.area();
     int last_row = max_area > 0 ? 0 : -1;
@@ -1251,7 +1251,7 @@ height_width_row_col get_max_size(const int last_max_area) {
 		return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
 	}
     
-    for (int rowindex = 0; rowindex < height - 1; rowindex++) {
+    for (int rowindex = last_max_area_row; rowindex < height - 1; rowindex++) {
         if (omit_row.find(rowindex + 1) != omit_row.end()) {
             continue;
         }
@@ -1398,10 +1398,17 @@ int main(int argc, char **argv) {
     
     int rect_count = 0;
 	int last_max_area = -1;
+	int last_max_area_row = 0;
     while (true) {
-        auto r2 = get_max_size(last_max_area);
+        auto r2 = get_max_size(last_max_area, last_max_area_row);
+		if (r2.area() != last_max_area) {
+			// search again
+			last_max_area_row = 0;
+			r2 = get_max_size(last_max_area, last_max_area_row);
+		}
 		int area = r2.area();
 		last_max_area = area;
+		last_max_area_row = r2.row;
         remaining_land_pixel_count -= area;
         printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
                r2.col,
