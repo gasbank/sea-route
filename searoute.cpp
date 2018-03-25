@@ -1433,9 +1433,10 @@ int main(int argc, char **argv) {
         rect_count++;
         box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
         rtree_ptr->insert(std::make_pair(box, rect_count));
-        if (rect_count % 20 == 0) {
+        
+		/*if (rect_count % 20 == 0) {
             write_png_file(DATA_ROOT "rect_output.png");
-        }
+        }*/
     }
     int new_land_pixel_count = 0;
     for (int y = 0; y < height; y++) {
