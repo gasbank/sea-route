@@ -1379,14 +1379,14 @@ int main(int argc, char **argv) {
 	//printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
 	std::vector<value_t> to_be_removed;
 	auto rtree_bounds = rtree_ptr->bounds();
-    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); /*empty*/) {
+    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
         int x = it->first.min_corner().get<0>();
         int y = it->first.min_corner().get<1>();
         int w = it->first.max_corner().get<0>() - x;
         int h = it->first.max_corner().get<1>() - y;
-		if (w == 0 || h == 0 || x < 0 || y < 0) {
+		if (x < 0 || y < 0 || w == 0 || h == 0) {
 			to_be_removed.push_back(*it);
-			printf("Invalid R-tree node will be removed.\n");
+			printf("Invalid R-tree node (x=%d,y=%d,w=%d,h=%d) will be removed.\n", x, y, w, h);
 		} else {
 			invert_area(x, y, w, h);
 		}
