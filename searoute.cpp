@@ -1427,13 +1427,14 @@ int main(int argc, char **argv) {
                (float)remaining_land_pixel_count / old_land_pixel_count * 100,
                omit_row.size());
         invert_area(r2.col, r2.row, r2.width, r2.height);
-        if (remaining_land_pixel_count <= 0) {
-            break;
-        }
+
         rect_count++;
         box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
         rtree_ptr->insert(std::make_pair(box, rect_count));
         
+		if (remaining_land_pixel_count <= 0) {
+			break;
+		}
 		/*if (rect_count % 20 == 0) {
             write_png_file(DATA_ROOT "rect_output.png");
         }*/
