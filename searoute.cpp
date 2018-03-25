@@ -1477,6 +1477,6 @@ int main(int argc, char **argv) {
 	FILE* fout = fopen(DATA_ROOT "land_raw.dat", "wb");
 	fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
 	fclose(fout);
-	printf("Dumped.\n");
+	printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xyxy), write_buffer.size());
     return 0;
 }
