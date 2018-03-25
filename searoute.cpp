@@ -1375,7 +1375,7 @@ int main(int argc, char **argv) {
     }
     
     printf("Total land pixel count (original): %d\n", old_land_pixel_count);
-    
+	printf("BUG PIXEL VALUE = %d", PIXELBITXY(5127, 6634));
 	auto rtree_bounds = rtree_ptr->bounds();
     for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
         int x = it->first.min_corner().get<0>();
@@ -1384,7 +1384,7 @@ int main(int argc, char **argv) {
         int h = it->first.max_corner().get<1>() - y;
         invert_area(x, y, w, h);
     }
-
+	printf("BUG PIXEL VALUE = %d", PIXELBITXY(5127, 6634));
     int remaining_land_pixel_count = 0;
     for (int y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
@@ -1402,6 +1402,7 @@ int main(int argc, char **argv) {
 	int last_max_area = -1;
 	int scan_start_row = 0;
     while (true) {
+		printf("BUG PIXEL VALUE = %d", PIXELBITXY(5127, 6634));
 		printf("last_max_area = %d, scan_start_row = %d\n", last_max_area, scan_start_row);
         auto r2 = get_max_size(last_max_area, scan_start_row);
 		if (r2.area() == last_max_area) {
