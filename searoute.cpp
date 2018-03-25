@@ -1198,11 +1198,11 @@ std::vector<int> histogram_from_row(int r) {
     return histogram;
 }
 
-height_width_start max_rectangle_size(const std::vector<int>& histogram, int last_max_area) {
+height_width_start max_rectangle_size(const std::vector<int>& histogram) {
     std::stack<start_height> stack;
-    height_width_start max_size = { 0, 0, -1, last_max_area };
+    height_width_start max_size = { 0, 0, -1 };
     int pos = 0;
-    for (pos = 0; pos < histogram.size(); pos++) {
+    for (pos = 0; pos < static_cast<int>(histogram.size()); pos++) {
         int height = histogram[pos];
         int start = pos;
         while (true) {
@@ -1241,11 +1241,13 @@ height_width_start max_rectangle_size(const std::vector<int>& histogram, int las
 }
 
 std::unordered_set<int> omit_row;
+int last_max_area = -1;
 
 height_width_row_col max_size() {
     auto hist = histogram_from_row(0);
     auto max_size = max_rectangle_size(hist);
-    int last_row = max_size.area() > 0 ? 0 : -1;
+	last_max_area = max_size.area();
+    int last_row = last_max_area > 0 ? 0 : -1;
     
     for (int rowindex = 0; rowindex < height - 1; rowindex++) {
         if (omit_row.find(rowindex + 1) != omit_row.end()) {
@@ -1266,6 +1268,11 @@ height_width_row_col max_size() {
             if (max_size.area() < new_size.area()) {
                 last_row = rowindex + 1;
                 max_size = new_size;
+				// early exit
+				if (last_max_area == max_size.area()) {
+					break;
+				}
+				last_max_area = max_size.area();
             }
         }
     }

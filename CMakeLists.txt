@@ -1,4 +1,4 @@
-project(searoute)
+project(sea-route)
 
 add_subdirectory(libpng)
 include_directories(libpng)
@@ -47,5 +47,5 @@ MaxMatch.cpp
 MaxMatch.h)
 
 ADD_MSVC_PRECOMPILED_HEADER("precompiled.hpp" "precompiled.cpp" SeaRouteSources)
-ADD_EXECUTABLE(searoute ${SeaRouteSources} AStar.c AStar.h)
-target_link_libraries(searoute png_static ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+ADD_EXECUTABLE(sea-route ${SeaRouteSources} AStar.c AStar.h)
+target_link_libraries(sea-route png_static ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
