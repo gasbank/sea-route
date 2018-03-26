@@ -44,7 +44,10 @@ SET(SeaRouteSources
 searoute.cpp
 searoute.hpp
 MaxMatch.cpp
-MaxMatch.h)
+MaxMatch.h
+astarrtree.cpp
+astarrtree.hpp
+xy.hpp)
 
 ADD_MSVC_PRECOMPILED_HEADER("precompiled.hpp" "precompiled.cpp" SeaRouteSources)
 ADD_EXECUTABLE(sea-route ${SeaRouteSources} AStar.c AStar.h)
