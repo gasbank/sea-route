@@ -18,6 +18,7 @@
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/index/rtree.hpp>
 #include <boost/filesystem.hpp>
+#include <boost/format.hpp>
 
 #define PNG_DEBUG 3
 #include <png.h>
