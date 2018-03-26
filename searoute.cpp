@@ -1198,14 +1198,7 @@ void invert_area(int x, int y, int w, int h) {
     }
 }
 
-void dump_max_rect(const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
-    read_png_file(DATA_ROOT "water_16384x8192.png", red);
-
-    bi::managed_mapped_file file(bi::open_or_create, rtree_filename, rtree_memory_size);
-    allocator_t alloc(file.get_segment_manager());
-    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
-    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
-
+void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
     if (rtree_ptr->size() == 0) {
         int rect_count = 0;
         FILE* fin = fopen(dump_filename, "rb");
@@ -1227,6 +1220,17 @@ void dump_max_rect(const char* rtree_filename, size_t rtree_memory_size, const c
             printf("Dump file %s not exist.\n", dump_filename);
         }
     }
+}
+
+void dump_max_rect(const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
+    read_png_file(DATA_ROOT "water_16384x8192.png", red);
+
+    bi::managed_mapped_file file(bi::open_or_create, rtree_filename, rtree_memory_size);
+    allocator_t alloc(file.get_segment_manager());
+    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
+    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
+
+    load_from_dump_if_empty(rtree_ptr, dump_filename);
 
     int old_land_pixel_count = 0;
     for (int y = 0; y < height; y++) {
@@ -1399,16 +1403,16 @@ int main(int argc, char **argv) {
 
     //test_astar();
 
-    /*dump_max_rect(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME,
+    dump_max_rect(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME,
                   WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE,
                   DATA_ROOT "land_raw_xyxy.bin",
                   1,
-                  0);*/
-                  //dump_max_rect(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME,
-                  //              WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
-                  //              DATA_ROOT "water_raw_xyxy.bin",
-                  //              1,
-                  //              255);
+                  0);
+    dump_max_rect(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME,
+                  WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
+                  DATA_ROOT "water_raw_xyxy.bin",
+                  1,
+                  255);
 
     //test_astar_rtree_land();
     test_astar_rtree_water();
