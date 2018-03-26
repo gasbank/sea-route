@@ -5,11 +5,13 @@
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
 #define DATA_ROOT "assets/"
 #define WORLDMAP_LAND_RTREE_FILENAME "worldmap_land.dat"
-#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_RTREE_FILENAME "worldmap_water.dat"
-#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "worldmap_land_max_rect.dat"
-#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (7 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "worldmap_water_max_rect.dat"
+#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 enum VERTEX_TYPE {
     VT_CONVEX,
     VT_CONCAVE,
@@ -145,26 +147,26 @@ void abort_(const char * s, ...) {
 }
 
 void write_png_file(const char *filename) {
-    
+
     FILE *fp = fopen(filename, "wb");
-    if(!fp) abort();
-    
+    if (!fp) abort();
+
     png_structp png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
     if (!png) abort();
-    
+
     png_infop info = png_create_info_struct(png);
     if (!info) abort();
-    
+
     if (setjmp(png_jmpbuf(png))) abort();
-    
+
     png_init_io(png, fp);
-    
+
     // Output is 1bit depth, palette format.
     int num_palette = 2;
     png_colorp palettep;
     png_get_PLTE(png_ptr, info_ptr, &palettep, &num_palette);
     png_set_PLTE(png, info, palettep, num_palette);
-        
+
     png_set_IHDR(png,
                  info,
                  width, height,
@@ -173,23 +175,23 @@ void write_png_file(const char *filename) {
                  PNG_INTERLACE_NONE,
                  PNG_COMPRESSION_TYPE_DEFAULT,
                  PNG_FILTER_TYPE_DEFAULT
-                 );
+    );
     png_write_info(png, info);
-    
+
     // To remove the alpha channel for PNG_COLOR_TYPE_RGB format,
     // Use png_set_filler().
     //png_set_filler(png, 0, PNG_FILLER_AFTER);
-    
+
     png_write_image(png, row_pointers);
     png_write_end(png, NULL);
-    
+
     /*
     for(int y = 0; y < height; y++) {
         free(row_pointers[y]);
     }
     free(row_pointers);
      */
-    
+
     fclose(fp);
 }
 
@@ -236,7 +238,7 @@ void read_png_file(const char* file_name, png_byte red) {
         abort_("[read_png_file] Error during read_image");
 
     row_pointers = (png_bytep*)calloc(height, sizeof(png_bytep));
-    for (y = 0; y<height; y++)
+    for (y = 0; y < height; y++)
         row_pointers[y] = (png_byte*)calloc(1, png_get_rowbytes(png_ptr, info_ptr));
 
     png_read_image(png_ptr, row_pointers);
@@ -266,14 +268,14 @@ void count_total_inverts(void) {
                PNG_COLOR_TYPE_PALETTE, png_get_color_type(png_ptr, info_ptr));
     int verbose = height <= 64 && width <= 64;
     int total_invert_count = 0;
-    for (y = 0; y<height; y++) {
+    for (y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
         int prev_b = 0;
         int invert_count = 0;
-        for (x = 0; x<width; x++) {
+        for (x = 0; x < width; x++) {
             int b = PIXELBIT(row, x);
             if ((prev_b == 0 && b == 1) // 0 -> 1
-                || (x == width-1 && prev_b == 0 && b == 1) // last column 1
+                || (x == width - 1 && prev_b == 0 && b == 1) // last column 1
                 ) {
                 invert_count++;
             }
@@ -303,10 +305,10 @@ void detect_concave_vertices(void) {
 
     int total_concave_vertices_count = 0;
     int total_convex_vertices_count = 0;
-    for (y = 0; y<height-1; y++) {
+    for (y = 0; y < height - 1; y++) {
         png_byte* row0 = row_pointers[y + 0];
         png_byte* row1 = row_pointers[y + 1];
-        for (x = 0; x<width-1; x++) {
+        for (x = 0; x < width - 1; x++) {
             char b00 = PIXELBIT(row0, x + 0); // ((row0[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
             char b01 = PIXELBIT(row0, x + 1); // ((row0[(x + 1) / 8] >> (7 - ((x + 1) % 8))) & 1) == land_color_index ? 1 : 0;
             char b10 = PIXELBIT(row1, x + 0); // ((row1[(x + 0) / 8] >> (7 - ((x + 0) % 8))) & 1) == land_color_index ? 1 : 0;
@@ -441,7 +443,7 @@ LINE_CHECK_RESULT check_line(const xyxy& line) {
 }
 
 void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
-    
+
     int verbose = height <= 64 && width <= 64;
 
     for (auto cit = concaves.cbegin(); cit != concaves.cend(); ++cit) {
@@ -461,7 +463,7 @@ void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
                 }
 
                 line.xy1 = cit2->coords; // SECOND CIT2
-                
+
                 // check line.xy0 and line.xy1 are neighbors.
                 auto check_result = check_line(line);
                 if (check_result == LCR_NEIGHBOR_VERTEX || check_result == LCR_DISCONNECTED) {
@@ -482,7 +484,7 @@ void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
 }
 
 int max_match_test() {
-    
+
     MaxMatchInt mint;
     mint.addVertex(mint.U_Vertex, 100);
     mint.addVertex(mint.V_Vertex, 200);
@@ -492,7 +494,7 @@ int max_match_test() {
 
     try {
         MaxMatchString m;
-        
+
         m.addVertex(m.U_Vertex, "A");
         m.addVertex(m.U_Vertex, "B");
         m.addVertex(m.U_Vertex, "C");
@@ -608,7 +610,7 @@ void maximum_matching() {
     printf("Solving maximum matching using Hopcroft-Karp...\n");
     int c(bipartite.hopcroftKarp());
     std::cout << "Match size: " << c << std::endl;
-    
+
     if (verbose) {
         MaxMatchString::VertexIndex uIdx(0);
         for (MaxMatchString::VertexIndexes::const_iterator u_to_v(bipartite.us_to_vs().begin());
@@ -629,7 +631,7 @@ void maximum_matching() {
             if (verbose) {
                 printf("[CUT] U vertex (hori) #%d [(%d,%d)-(%d,%d)]\n", i, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
             }
-            
+
             //for (int x = it.xy0.x; x < it.xy1.x; x++) {
             //    PIXELINVERTBITXY(x + 1, it.xy0.y + 1);
             //}
@@ -667,7 +669,7 @@ void maximum_matching() {
             if (verbose) {
                 printf("[CUT] V vertex (vert) #%d [(%d,%d)-(%d,%d)]\n", j, it.xy0.y, it.xy0.x, it.xy1.y, it.xy1.x);
             }
-            
+
             //for (int y = it.xy0.y; y < it.xy1.y; y++) {
             //    PIXELINVERTBITXY(it.xy0.x + 1, y + 1);
             //}
@@ -721,7 +723,7 @@ void propagate_seed_pixels() {
             covered.insert(seed.cbegin(), seed.cend());
             continue;
         }
-        
+
         // all seed pixels compose a segment
         segment.insert(seed.cbegin(), seed.cend());
         covered.insert(seed.cbegin(), seed.cend());
@@ -841,16 +843,16 @@ void second_pass(const char* output, size_t output_max_size) {
                 if (max_subwidth <= 0 || min_subheight <= 0) {
                     abort();
                 }
-//                if (rect_pixel_set.find(rp) != rect_pixel_set.end()) {
-//
-//                    for (const auto& rps : rect_pixel_set) {
-//                        if (rps.x == rp.x && rps.y == rp.y && rps.w == rp.w && rps.h == rp.h) {
-//                            abort();
-//                        }
-//                    }
-//                    // wtf?
-//                    abort();
-//                }
+                //                if (rect_pixel_set.find(rp) != rect_pixel_set.end()) {
+                //
+                //                    for (const auto& rps : rect_pixel_set) {
+                //                        if (rps.x == rp.x && rps.y == rp.y && rps.w == rp.w && rps.h == rp.h) {
+                //                            abort();
+                //                        }
+                //                    }
+                //                    // wtf?
+                //                    abort();
+                //                }
                 rect_pixel_set.push_back(rp);
                 // clear rectpixel
                 for (int ys = y; ys < y + min_subheight; ys++) {
@@ -883,13 +885,13 @@ void second_pass(const char* output, size_t output_max_size) {
         }
     }
     printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
-    
+
     {
         bi::managed_mapped_file file(bi::open_or_create, output, output_max_size);
         allocator_t alloc(file.get_segment_manager());
         rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
         rtree_ptr->clear();
-        
+
         int reconstructed_pixel_count = 0;
         for (const auto& pixel_set : rect_pixel_set) {
             for (int y = pixel_set.y; y < pixel_set.y + pixel_set.h; y++) {
@@ -903,7 +905,7 @@ void second_pass(const char* output, size_t output_max_size) {
                     reconstructed_pixel_count++;
                 }
             }
-            
+
             box_t b(point_t(pixel_set.x, pixel_set.y), point_t(pixel_set.x + pixel_set.w, pixel_set.y + pixel_set.h));
             rtree_ptr->insert(std::make_pair(b, reconstructed_pixel_count));
         }
@@ -917,13 +919,13 @@ void create_worldmap_rtree(const char* png_file, const char* output, size_t outp
     allocator_t alloc(file.get_segment_manager());
     rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
     printf("R Tree size: %zu\n", rtree_ptr->size());
-    
+
     if (rtree_ptr->size() == 0) {
         // populate rtree
         read_png_file(png_file, red);
         second_pass(output, output_max_size);
     }
-    
+
     box_t query_box(point_t(5, 5), point_t(6, 6));
     std::vector<value_t> result_s;
     rtree_ptr->query(bgi::contains(query_box), std::back_inserter(result_s));
@@ -1107,34 +1109,34 @@ void astar_rtree(const char* output, size_t output_max_size, xy from, xy to) {
             std::cerr << "No path found." << std::endl;
         }
     } else {
-        std::cerr << "From-to node error." << std::endl;
+        std::cerr << "From-node and/or to-node error." << std::endl;
     }
 }
 
 void test_astar_rtree() {
     {
-        // TEST POS
-        xy pathFrom = { 1, 1 };
-        xy pathTo = { 4, 4 };
-        astar_rtree(DATA_ROOT WORLDMAP_LAND_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        // TEST POS (LAND-ROUTE SHORT)
+        xy pathFrom = { 14066, 2488 };
+        xy pathTo = { 14039, 2479 };
+        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
-        // KOREA -> AUSTRAILIA
-        xy pathFrom = { 14085, 2450 };
-        xy pathTo = { 14472, 5800 };
-        astar_rtree(DATA_ROOT WORLDMAP_WATER_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        // TEST POS (LAND-ROUTE MID)
+        xy pathFrom = { 14066, 2488 };
+        xy pathTo = { 13492, 753 };
+        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
-        // KOREA -> USA
-        xy pathFrom = { 14085, 2450 };
-        xy pathTo = { 2856, 2928 };
-        astar_rtree(DATA_ROOT WORLDMAP_WATER_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        // TEST POS (LAND-ROUTE LONG)
+        xy pathFrom = { 9031, 5657 };
+        xy pathTo = { 16379, 955 };
+        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
-        // ORIGIN -> END OF THE WORLD
-        xy pathFrom = { 0, 0 };
-        xy pathTo = { 15640, 7564 };
-        astar_rtree(DATA_ROOT WORLDMAP_WATER_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        // TEST POS (LAND-ROUTE NO ROUTE CASE)
+        xy pathFrom = { 13528, 5192 };
+        xy pathTo = { 11716, 3620 };
+        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
 }
 
@@ -1245,15 +1247,15 @@ std::unordered_set<int> omit_row;
 height_width_row_col get_max_size(const int last_max_area, const int last_max_area_row) {
     auto hist = histogram_from_row(last_max_area_row);
     auto max_size = max_rectangle_size(hist);
-	int max_area = max_size.area();
+    int max_area = max_size.area();
     int last_row = max_area > 0 ? last_max_area_row : -1;
-	if (max_area == last_max_area) {
-		return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
-	}
-    
+    if (max_area == last_max_area) {
+        return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
+    }
+
     for (int rowindex = last_max_area_row; rowindex < height - 1; rowindex++) {
         if (omit_row.find(rowindex + 1) != omit_row.end()) {
-			std::fill(hist.begin(), hist.end(), 0);
+            std::fill(hist.begin(), hist.end(), 0);
             continue;
         }
         png_bytep row = row_pointers[rowindex + 1];
@@ -1262,7 +1264,7 @@ height_width_row_col get_max_size(const int last_max_area, const int last_max_ar
             auto el = PIXELBIT(row, x);
             hist[x] = el ? (1 + h) : 0;
         }
-        bool hist_zeros = std::all_of(hist.begin(), hist.end(), [](int i) { return i==0; });
+        bool hist_zeros = std::all_of(hist.begin(), hist.end(), [](int i) { return i == 0; });
         if (hist_zeros) {
             omit_row.insert(rowindex + 1);
             //printf("Row %d omitted.\n", rowindex + 1);
@@ -1271,12 +1273,12 @@ height_width_row_col get_max_size(const int last_max_area, const int last_max_ar
             if (max_size.area() < new_size.area()) {
                 last_row = rowindex + 1;
                 max_size = new_size;
-				// early exit
-				if (max_size.area() == last_max_area) {
-					//printf("Fast\n");
-					return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
-				}
-				//last_max_area = max_size.area();
+                // early exit
+                if (max_size.area() == last_max_area) {
+                    //printf("Fast\n");
+                    return height_width_row_col(max_size.height, max_size.width, last_row - max_size.height + 1, max_size.start);
+                }
+                //last_max_area = max_size.area();
             }
         }
     }
@@ -1294,21 +1296,169 @@ void invert_area(int x, int y, int w, int h) {
         for (int xs = x; xs < x + w; xs++) {
             int before = PIXELBIT(rowsub, xs);
             if (before == 0) {
-				printf("B X (x=%d, y=%d)\n", xs, ys);
+                printf("B X (x=%d, y=%d)\n", xs, ys);
                 abort();
             }
             PIXELINVERTBIT(rowsub, xs);
             int after = PIXELBIT(rowsub, xs);
             if (after == 1) {
-				printf("A X (x=%d, y=%d)\n", xs, ys);
+                printf("A X (x=%d, y=%d)\n", xs, ys);
                 abort();
             }
         }
     }
 }
 
-int main(int argc, char **argv) {
-    std::cout << "sea-route v0.1" << std::endl;
+void dump_max_rect(const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
+    read_png_file(DATA_ROOT "water_16384x8192.png", red);
+
+    bi::managed_mapped_file file(bi::open_or_create, rtree_filename, rtree_memory_size);
+    allocator_t alloc(file.get_segment_manager());
+    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
+    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
+
+    if (rtree_ptr->size() == 0) {
+        int rect_count = 0;
+        FILE* fin = fopen(dump_filename, "rb");
+        if (fin) {
+            size_t read_max_count = 100000; // elements
+            void* read_buf = malloc(sizeof(xyxy) * read_max_count);
+            fseek(fin, 0, SEEK_SET);
+            while (size_t read_count = fread(read_buf, sizeof(xyxy), read_max_count, fin)) {
+                for (size_t i = 0; i < read_count; i++) {
+                    rect_count++;
+                    xyxy* r = reinterpret_cast<xyxy*>(read_buf) + i;
+                    box_t box(point_t(r->xy0.x, r->xy0.y), point_t(r->xy1.x, r->xy1.y));
+                    rtree_ptr->insert(std::make_pair(box, rect_count));
+                }
+            }
+            fclose(fin);
+            printf("Max rect R Tree size (after loaded from %s): %zu\n", dump_filename, rtree_ptr->size());
+        } else {
+            printf("Dump file %s not exist.\n", dump_filename);
+        }
+    }
+
+    int old_land_pixel_count = 0;
+    for (int y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+            if (b) {
+                old_land_pixel_count++;
+            }
+        }
+    }
+
+    printf("Total land pixel count (original): %d\n", old_land_pixel_count);
+    //printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
+    std::vector<value_t> to_be_removed;
+    auto rtree_bounds = rtree_ptr->bounds();
+    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
+        int x = it->first.min_corner().get<0>();
+        int y = it->first.min_corner().get<1>();
+        int w = it->first.max_corner().get<0>() - x;
+        int h = it->first.max_corner().get<1>() - y;
+        if (x < 0 || y < 0 || w == 0 || h == 0) {
+            to_be_removed.push_back(*it);
+            printf("Invalid R-tree node (x=%d,y=%d,w=%d,h=%d) will be removed.\n", x, y, w, h);
+        } else {
+            invert_area(x, y, w, h);
+        }
+    }
+    for (auto v : to_be_removed) {
+        rtree_ptr->remove(v);
+    }
+    //printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
+    int remaining_land_pixel_count = 0;
+    for (int y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+            if (b) {
+                remaining_land_pixel_count++;
+            }
+        }
+    }
+
+    printf("Total land pixel count (remaining): %d\n", remaining_land_pixel_count);
+
+    int rect_count = 0;
+    int last_max_area = -1;
+    int scan_start_row = 0;
+    while (true) {
+        //printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
+        //printf("last_max_area = %d, scan_start_row = %d\n", last_max_area, scan_start_row);
+        auto r2 = get_max_size(last_max_area, scan_start_row);
+        if (r2.area() == last_max_area) {
+            // turn on fast search next time
+            scan_start_row = r2.row;
+        } else if (scan_start_row != 0 && r2.area() != last_max_area) {
+            // search again
+            scan_start_row = 0;
+            r2 = get_max_size(last_max_area, scan_start_row);
+        }
+        int area = r2.area();
+        last_max_area = area;
+        remaining_land_pixel_count -= area;
+
+        if (area > 0) {
+            printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
+                   r2.col,
+                   r2.row,
+                   r2.width,
+                   r2.height,
+                   area,
+                   remaining_land_pixel_count,
+                   (float)remaining_land_pixel_count / old_land_pixel_count * 100,
+                   omit_row.size());
+            invert_area(r2.col, r2.row, r2.width, r2.height);
+
+            rect_count++;
+            box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
+            rtree_ptr->insert(std::make_pair(box, rect_count));
+        }
+
+        if (remaining_land_pixel_count <= 0) {
+            break;
+        }
+        /*if (rect_count % 20 == 0) {
+        write_png_file(DATA_ROOT "rect_output.png");
+        }*/
+    }
+    int new_land_pixel_count = 0;
+    for (int y = 0; y < height; y++) {
+        png_byte* row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            int b = PIXELBIT(row, x);
+            if (b) {
+                new_land_pixel_count++;
+            }
+        }
+    }
+    printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
+
+    if (write_dump) {
+        // dump final result to portable format
+        std::vector<xyxy> write_buffer;
+        write_buffer.reserve(rtree_ptr->size());
+        rtree_bounds = rtree_ptr->bounds();
+        for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
+            xyxy v;
+            v.xy0.x = it->first.min_corner().get<0>();
+            v.xy0.y = it->first.min_corner().get<1>();
+            v.xy1.x = it->first.max_corner().get<0>();
+            v.xy1.y = it->first.max_corner().get<1>();
+            write_buffer.push_back(v);
+        }
+        FILE* fout = fopen(dump_filename, "wb");
+        fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
+        fclose(fout);
+        printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xyxy), write_buffer.size());
+    }
+}
+
+void change_working_directory() {
     auto cwd = boost::filesystem::current_path();
     do {
         auto assets = cwd;
@@ -1323,6 +1473,11 @@ int main(int argc, char **argv) {
     if (cwd.empty()) {
         abort();
     }
+}
+
+int main(int argc, char **argv) {
+    std::cout << "sea-route v0.1" << std::endl;
+    change_working_directory();
 
     //read_png_file(DATA_ROOT "water_land_20k.png");
     //read_png_file(DATA_ROOT "water_16k.png");
@@ -1344,140 +1499,29 @@ int main(int argc, char **argv) {
     //read_png_file(DATA_ROOT "dissection_islands.png");
     //read_png_file(DATA_ROOT "dissection_four.png");
     //read_png_file(DATA_ROOT "dissection_tetris.png");
-    read_png_file(DATA_ROOT "water_16384x8192.png", 0);
+    //read_png_file(DATA_ROOT "water_16384x8192.png", 0);
     //read_png_file(DATA_ROOT "max_rect_1.png", 0);
-    
+
     //first_pass();
     //second_pass(); //-------!!!
     //write_png_file(DATA_ROOT "dissection_output.png");
 
     //create_worldmap_rtrees();
 
-    //test_astar_rtree();
-    
     //test_astar();
-    
-    //auto r1 = max_rectangle_size(histogram_from_row(4000));
-    
-    bi::managed_mapped_file file(bi::open_or_create, DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE);
-    allocator_t alloc(file.get_segment_manager());
-    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
-    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
-    
-    int old_land_pixel_count = 0;
-    for (int y = 0; y < height; y++) {
-        png_byte* row = row_pointers[y];
-        for (int x = 0; x < width; x++) {
-            int b = PIXELBIT(row, x);
-            if (b) {
-                old_land_pixel_count++;
-            }
-        }
-    }
 
-    printf("Total land pixel count (original): %d\n", old_land_pixel_count);
-	//printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
-	std::vector<value_t> to_be_removed;
-	auto rtree_bounds = rtree_ptr->bounds();
-    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
-        int x = it->first.min_corner().get<0>();
-        int y = it->first.min_corner().get<1>();
-        int w = it->first.max_corner().get<0>() - x;
-        int h = it->first.max_corner().get<1>() - y;
-		if (x < 0 || y < 0 || w == 0 || h == 0) {
-			to_be_removed.push_back(*it);
-			printf("Invalid R-tree node (x=%d,y=%d,w=%d,h=%d) will be removed.\n", x, y, w, h);
-		} else {
-			invert_area(x, y, w, h);
-		}
-    }
-	for (auto v : to_be_removed) {
-		rtree_ptr->remove(v);
-	}
-	//printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
-    int remaining_land_pixel_count = 0;
-    for (int y = 0; y < height; y++) {
-        png_byte* row = row_pointers[y];
-        for (int x = 0; x < width; x++) {
-            int b = PIXELBIT(row, x);
-            if (b) {
-                remaining_land_pixel_count++;
-            }
-        }
-    }
+    /*dump_max_rect(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME,
+                  WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE,
+                  DATA_ROOT "land_raw_xyxy.bin",
+                  1,
+                  0);*/
+    //dump_max_rect(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME,
+    //              WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
+    //              DATA_ROOT "water_raw_xyxy.bin",
+    //              1,
+    //              255);
 
-    printf("Total land pixel count (remaining): %d\n", remaining_land_pixel_count);
-    
-    int rect_count = 0;
-	int last_max_area = -1;
-	int scan_start_row = 0;
-    while (true) {
-		//printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
-		//printf("last_max_area = %d, scan_start_row = %d\n", last_max_area, scan_start_row);
-        auto r2 = get_max_size(last_max_area, scan_start_row);
-		if (r2.area() == last_max_area) {
-			// turn on fast search next time
-			scan_start_row = r2.row;
-		} else if (scan_start_row != 0 && r2.area() != last_max_area) {
-			// search again
-			scan_start_row = 0;
-			r2 = get_max_size(last_max_area, scan_start_row);
-		}
-		int area = r2.area();
-		last_max_area = area;
-        remaining_land_pixel_count -= area;
-        
-		if (area > 0) {
-			printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
-				r2.col,
-				r2.row,
-				r2.width,
-				r2.height,
-				area,
-				remaining_land_pixel_count,
-				(float)remaining_land_pixel_count / old_land_pixel_count * 100,
-				omit_row.size());
-			invert_area(r2.col, r2.row, r2.width, r2.height);
+    test_astar_rtree();
 
-			rect_count++;
-			box_t box(point_t(r2.col, r2.row), point_t(r2.col + r2.width, r2.row + r2.height));
-			rtree_ptr->insert(std::make_pair(box, rect_count));
-		}
-        
-		if (remaining_land_pixel_count <= 0) {
-			break;
-		}
-		/*if (rect_count % 20 == 0) {
-            write_png_file(DATA_ROOT "rect_output.png");
-        }*/
-    }
-    int new_land_pixel_count = 0;
-    for (int y = 0; y < height; y++) {
-        png_byte* row = row_pointers[y];
-        for (int x = 0; x < width; x++) {
-            int b = PIXELBIT(row, x);
-            if (b) {
-                new_land_pixel_count++;
-            }
-        }
-    }
-    printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
-
-	// dump final result to portable format
-	std::vector<xyxy> write_buffer;
-	write_buffer.reserve(rtree_ptr->size());
-	rtree_bounds = rtree_ptr->bounds();
-	for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
-		xyxy v;
-		v.xy0.x = it->first.min_corner().get<0>();
-		v.xy0.y = it->first.min_corner().get<1>();
-		v.xy1.x = it->first.max_corner().get<0>();
-		v.xy1.y = it->first.max_corner().get<1>();
-		write_buffer.push_back(v);
-	}
-	FILE* fout = fopen(DATA_ROOT "land_raw.dat", "wb");
-	fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
-	fclose(fout);
-	printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xyxy), write_buffer.size());
     return 0;
 }
