@@ -18,3 +18,14 @@ struct xyi {
     xy p;
     size_t i;
 };
+
+enum XYIB_ENTER_EXIT {
+    XEE_ENTER,
+    XEE_EXIT,
+};
+
+struct xyib {
+    xy p;
+    size_t i;
+    XYIB_ENTER_EXIT ee;
+};

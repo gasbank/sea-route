@@ -944,19 +944,19 @@ void test_astar_rtree_water() {
         // TEST POS (WATER: SHORT ROUTE)
         xy pathFrom = { 14065, 2496 };
         xy pathTo = { 14043, 2512 };
-        astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (WATER: VERY LONG)
         xy pathFrom = { 14065, 2496 };
         xy pathTo = { 2693, 2501 };
-        astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (WATER: VERY LONG II)
         xy pathFrom = { 9553, 2240 };
         xy pathTo = { 14348, 1604 };
-        astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
 }
 
@@ -965,31 +965,31 @@ void test_astar_rtree_land() {
         // TEST POS (LAND: VERY SHORT ROUTE - debugging)
         xy pathFrom = { 1, 1 };
         xy pathTo = { 4, 4 };
-        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: SHORT ROUTE)
         xy pathFrom = { 14066, 2488 };
         xy pathTo = { 14039, 2479 };
-        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: MID ROUTE)
         xy pathFrom = { 14066, 2488 };
         xy pathTo = { 13492, 753 };
-        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: LONG ROUTE)
         xy pathFrom = { 9031, 5657 };
         xy pathTo = { 16379, 955 };
-        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: NO ROUTE)
         xy pathFrom = { 13528, 5192 };
         xy pathTo = { 11716, 3620 };
-        astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
+        astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
 }
 
@@ -1406,15 +1406,15 @@ int main(int argc, char **argv) {
     dump_max_rect(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME,
                   WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE,
                   DATA_ROOT "land_raw_xyxy.bin",
-                  1,
+                  0,
                   0);
     dump_max_rect(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME,
                   WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
                   DATA_ROOT "water_raw_xyxy.bin",
-                  1,
+                  0,
                   255);
 
-    //test_astar_rtree_land();
+    test_astar_rtree_land();
     test_astar_rtree_water();
 
     return 0;
