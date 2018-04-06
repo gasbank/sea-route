@@ -40,6 +40,10 @@ ENDMACRO(ADD_MSVC_PRECOMPILED_HEADER)
 # pthread deps on Linux server build
 find_package(Threads)
 
+#####################################
+# Sea Route
+#####################################
+
 SET(SeaRouteSources
 searoute.cpp
 searoute.hpp
@@ -52,3 +56,13 @@ xy.hpp)
 ADD_MSVC_PRECOMPILED_HEADER("precompiled.hpp" "precompiled.cpp" SeaRouteSources)
 ADD_EXECUTABLE(sea-route ${SeaRouteSources} AStar.c AStar.h)
 target_link_libraries(sea-route png_static ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+
+
+#####################################
+# PNG Writer
+#####################################
+
+SET(PngWriterSources pngwriter.c)
+ADD_MSVC_PRECOMPILED_HEADER("precompiled.h" "precompiled.c" PngWriterSources)
+ADD_EXECUTABLE(png-writer ${PngWriterSources})
+target_link_libraries(png-writer png_static ${CMAKE_THREAD_LIBS_INIT})
