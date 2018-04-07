@@ -1236,18 +1236,18 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
 
     load_from_dump_if_empty(rtree_ptr, dump_filename);
 
-    int old_land_pixel_count = 0;
+    size_t old_pixel_count = 0;
     for (int y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
         for (int x = 0; x < width; x++) {
             int b = PIXELBIT(row, x);
             if (b) {
-                old_land_pixel_count++;
+                old_pixel_count++;
             }
         }
     }
 
-    printf("Total land pixel count (original): %d\n", old_land_pixel_count);
+    printf("Total land pixel count (original): %zu\n", old_pixel_count);
     //printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
     std::vector<value_t> to_be_removed;
     auto rtree_bounds = rtree_ptr->bounds();
@@ -1267,18 +1267,18 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
         rtree_ptr->remove(v);
     }
     //printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
-    int remaining_land_pixel_count = 0;
+    size_t remaining_pixel_count = 0;
     for (int y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
         for (int x = 0; x < width; x++) {
             int b = PIXELBIT(row, x);
             if (b) {
-                remaining_land_pixel_count++;
+                remaining_pixel_count++;
             }
         }
     }
 
-    printf("Total land pixel count (remaining): %d\n", remaining_land_pixel_count);
+    printf("Total land pixel count (remaining): %zu\n", remaining_pixel_count);
 
     int rect_count = 0;
     int last_max_area = -1;
@@ -1297,7 +1297,7 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
         }
         int area = r2.area();
         last_max_area = area;
-        remaining_land_pixel_count -= area;
+        remaining_pixel_count -= area;
 
         if (area > 0) {
             printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
@@ -1306,8 +1306,8 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
                    r2.width,
                    r2.height,
                    area,
-                   remaining_land_pixel_count,
-                   (float)remaining_land_pixel_count / old_land_pixel_count * 100,
+                   remaining_pixel_count,
+                   (float)remaining_pixel_count / old_pixel_count * 100,
                    omit_row.size());
             invert_area(r2.col, r2.row, r2.width, r2.height);
 
@@ -1316,24 +1316,24 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
             rtree_ptr->insert(std::make_pair(box, rect_count));
         }
 
-        if (remaining_land_pixel_count <= 0) {
+        if (remaining_pixel_count <= 0) {
             break;
         }
         /*if (rect_count % 20 == 0) {
         write_png_file(DATA_ROOT "rect_output.png");
         }*/
     }
-    int new_land_pixel_count = 0;
+    size_t new_pixel_count = 0;
     for (int y = 0; y < height; y++) {
         png_byte* row = row_pointers[y];
         for (int x = 0; x < width; x++) {
             int b = PIXELBIT(row, x);
             if (b) {
-                new_land_pixel_count++;
+                new_pixel_count++;
             }
         }
     }
-    printf("After land pixel count: %d (should be zero)\n", new_land_pixel_count);
+    printf("After land pixel count: %zu (should be zero)\n", new_pixel_count);
 
     if (write_dump) {
         // dump final result to portable format
