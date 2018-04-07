@@ -1300,7 +1300,7 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
         remaining_pixel_count -= area;
 
         if (area > 0) {
-            printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %d - %.2f%%), omit row = %zu\n",
+            printf("x=%d, y=%d, w=%d, h=%d, area=%d (Remaining %zu - %.2f%%), omit row = %zu\n",
                    r2.col,
                    r2.row,
                    r2.width,
