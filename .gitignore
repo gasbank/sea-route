@@ -1,4 +1,5 @@
 /build
 /build-x64
+/build-xcode
 /assets/*.dat
 /assets/rect_output.png
