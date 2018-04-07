@@ -19,6 +19,7 @@
 #include <boost/geometry/index/rtree.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>
+#include <boost/program_options.hpp>
 
 #define PNG_DEBUG 3
 #include <png.h>

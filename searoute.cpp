@@ -6,14 +6,18 @@
 
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
 #define DATA_ROOT "assets/"
-#define WORLDMAP_LAND_RTREE_FILENAME "worldmap_land.dat"
-#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
-#define WORLDMAP_WATER_RTREE_FILENAME "worldmap_water.dat"
-#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
-#define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "worldmap_land_max_rect.dat"
-#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
-#define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "worldmap_water_max_rect.dat"
-#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (8 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_RTREE_FILENAME "land.dat"
+#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_RTREE_FILENAME "water.dat"
+#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "land_max_rect.dat"
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "water_max_rect.dat"
+#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+
+//#define WORLDMAP_INPUT_PNG DATA_ROOT "water_16384x8192.png"
+//#define WORLDMAP_INPUT_PNG "C:\\sea-server\\modis\\png-8x4\\w6-h2.png"
+#define WORLDMAP_INPUT_PNG "C:\\sea-server\\modis\\png-2x1\\w0-h0.png"
 
 enum LINE_CHECK_RESULT {
     LCR_GOOD_CUT,
@@ -88,7 +92,7 @@ namespace bg = boost::geometry;
 namespace bgm = bg::model;
 namespace bgi = bg::index;
 
-typedef bgm::point<short, 2, bg::cs::cartesian> point_t;
+typedef bgm::point<unsigned int, 2, bg::cs::cartesian> point_t;
 typedef bgm::box<point_t> box_t;
 typedef std::pair<box_t, int> value_t;
 typedef bgi::linear<32, 8> params_t;
@@ -1222,8 +1226,8 @@ void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
     }
 }
 
-void dump_max_rect(const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
-    read_png_file(DATA_ROOT "water_16384x8192.png", red);
+void dump_max_rect(const char* input_png_filename, const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
+    read_png_file(input_png_filename, red);
 
     bi::managed_mapped_file file(bi::open_or_create, rtree_filename, rtree_memory_size);
     allocator_t alloc(file.get_segment_manager());
@@ -1368,54 +1372,102 @@ void change_working_directory() {
     }
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char* argv[]) {
     std::cout << "sea-route v0.1" << std::endl;
     change_working_directory();
 
-    //read_png_file(DATA_ROOT "water_land_20k.png");
-    //read_png_file(DATA_ROOT "water_16k.png");
-    //read_png_file(DATA_ROOT "water_16k_first_pass.png");
-    //read_png_file(DATA_ROOT "bw.png");
-    //read_png_file(DATA_ROOT "dissection_1.png");
-    //read_png_file(DATA_ROOT "dissection_2.png");
-    //read_png_file(DATA_ROOT "dissection_3.png");
-    //read_png_file(DATA_ROOT "dissection_stackoverflow_example.png");
-    //read_png_file(DATA_ROOT "dissection_center_hole.png");
-    //read_png_file(DATA_ROOT "dissection_6.png");
-    //read_png_file(DATA_ROOT "dissection_big_arrow.png");
-    //read_png_file(DATA_ROOT "dissection_8.png");
-    //read_png_file(DATA_ROOT "dissection_9.png");
-    //read_png_file(DATA_ROOT "dissection_cross.png");
-    //read_png_file(DATA_ROOT "dissection_64x64.png");
-    //read_png_file(DATA_ROOT "dissection_framed.png");
-    //read_png_file(DATA_ROOT "dissection_framed_small.png");
-    //read_png_file(DATA_ROOT "dissection_islands.png");
-    //read_png_file(DATA_ROOT "dissection_four.png");
-    //read_png_file(DATA_ROOT "dissection_tetris.png");
-    //read_png_file(DATA_ROOT "water_16384x8192.png", 0);
-    //read_png_file(DATA_ROOT "max_rect_1.png", 0);
+    try {
+        boost::program_options::options_description desc{ "options" };
+        desc.add_options()
+            ("help,h", "Help screen")
+            ("png2rtree", boost::program_options::value<std::string>(), "PNG to R-tree (max-rect)")
+            ("land", boost::program_options::bool_switch(), "Build land mask")
+            ("water", boost::program_options::bool_switch(), "Build water mask")
+            ("dump", boost::program_options::bool_switch(), "Create dump file")
+            ("test", boost::program_options::bool_switch(), "Test")
+            ;
 
-    //first_pass();
-    //second_pass(); //-------!!!
-    //write_png_file(DATA_ROOT "dissection_output.png");
+        boost::program_options::variables_map vm;
+        boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);
+        boost::program_options::notify(vm);
 
-    //create_worldmap_rtrees();
+        //read_png_file(DATA_ROOT "water_land_20k.png");
+        //read_png_file(DATA_ROOT "water_16k.png");
+        //read_png_file(DATA_ROOT "water_16k_first_pass.png");
+        //read_png_file(DATA_ROOT "bw.png");
+        //read_png_file(DATA_ROOT "dissection_1.png");
+        //read_png_file(DATA_ROOT "dissection_2.png");
+        //read_png_file(DATA_ROOT "dissection_3.png");
+        //read_png_file(DATA_ROOT "dissection_stackoverflow_example.png");
+        //read_png_file(DATA_ROOT "dissection_center_hole.png");
+        //read_png_file(DATA_ROOT "dissection_6.png");
+        //read_png_file(DATA_ROOT "dissection_big_arrow.png");
+        //read_png_file(DATA_ROOT "dissection_8.png");
+        //read_png_file(DATA_ROOT "dissection_9.png");
+        //read_png_file(DATA_ROOT "dissection_cross.png");
+        //read_png_file(DATA_ROOT "dissection_64x64.png");
+        //read_png_file(DATA_ROOT "dissection_framed.png");
+        //read_png_file(DATA_ROOT "dissection_framed_small.png");
+        //read_png_file(DATA_ROOT "dissection_islands.png");
+        //read_png_file(DATA_ROOT "dissection_four.png");
+        //read_png_file(DATA_ROOT "dissection_tetris.png");
+        //read_png_file(DATA_ROOT "water_16384x8192.png", 0);
+        //read_png_file(DATA_ROOT "max_rect_1.png", 0);
 
-    //test_astar();
+        //first_pass();
+        //second_pass(); //-------!!!
+        //write_png_file(DATA_ROOT "dissection_output.png");
 
-    dump_max_rect(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME,
-                  WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE,
-                  DATA_ROOT "land_raw_xyxy.bin",
-                  0,
-                  0);
-    dump_max_rect(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME,
-                  WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
-                  DATA_ROOT "water_raw_xyxy.bin",
-                  0,
-                  255);
+        //create_worldmap_rtrees();
 
-    test_astar_rtree_land();
-    test_astar_rtree_water();
+        //test_astar();
 
+        if (vm.empty() || vm.count("help")) {
+            std::cout << desc << '\n';
+            return 0;
+        }
+
+        if (vm.count("png2rtree")) {
+            auto input_png_filename = vm["png2rtree"].as<std::string>();
+
+            auto dump = vm.count("dump") && vm["dump"].as<bool>();
+
+            if (vm.count("land") && vm["land"].as<bool>()) {
+                auto rtree_filename = input_png_filename + ".land.rtree";
+                auto dump_filename = input_png_filename + ".land.dump";
+
+                dump_max_rect(input_png_filename.c_str(),
+                              rtree_filename.c_str(),
+                              WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE,
+                              dump_filename.c_str(),
+                              dump ? 1 : 0,
+                              0);
+            }
+        
+            if (vm.count("water") && vm["water"].as<bool>()) {
+                auto rtree_filename = input_png_filename + ".water.rtree";
+                auto dump_filename = input_png_filename + ".water.dump";
+
+                dump_max_rect(input_png_filename.c_str(),
+                              rtree_filename.c_str(),
+                              WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
+                              dump_filename.c_str(),
+                              dump ? 1 : 0,
+                              0);
+            }
+        }
+
+        if (vm.count("test") && vm["test"].as<bool>()) {
+            if (vm.count("land") && vm["land"].as<bool>()) {
+                test_astar_rtree_land();
+            }
+
+            if (vm.count("water") && vm["water"].as<bool>()) {
+                test_astar_rtree_water();
+            }
+        }
+    } catch (const boost::program_options::error &ex) {
+        std::cerr << ex.what() << '\n';
+    }
     return 0;
 }

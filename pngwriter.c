@@ -26,7 +26,7 @@ static int nearest_8_mul(int v) {
     return (v + ((1 << 3) - 1)) >> 3;
 }
 
-static void write_png_file(const char* input_filename, const char* output_filename) {
+static void write_png_file(const char* input_filename, const char* output_filename, int slice_size) {
     /* create file */
     FILE *fp = fopen(output_filename, "wb");
     if (!fp)
@@ -55,8 +55,8 @@ static void write_png_file(const char* input_filename, const char* output_filena
 
     color_type = PNG_COLOR_TYPE_PALETTE;
     bit_depth = 1;
-    width = 21603;
-    height = 21603;
+    width = slice_size;
+    height = slice_size;
 
     row_pointers = calloc(height, sizeof(void*));
     FILE* fin = fopen(input_filename, "rb");
@@ -108,17 +108,21 @@ static void write_png_file(const char* input_filename, const char* output_filena
     fclose(fp);
 }
 
-int main() {
-    for (int hi = 0; hi < 4; hi++) {
-        for (int wi = 0; wi < 8; wi++) {
+static void convert_dat_to_png(const char* input_filename_format, const char* output_filename_format, int wc, int hc, int slice_size) {
+    for (int hi = 0; hi < hc; hi++) {
+        for (int wi = 0; wi < wc; wi++) {
             char input_filename[128];
-            sprintf(input_filename, "C:\\sea-server\\modis\\w%d-h%d.dat", wi, hi);
             char output_filename[128];
-            sprintf(output_filename, "C:\\sea-server\\modis\\w%d-h%d.png", wi, hi);
+            sprintf(input_filename, input_filename_format, wi, hi);
+            sprintf(output_filename, output_filename_format, wi, hi);
             printf("Writing %s...\n", output_filename);
-            write_png_file(input_filename, output_filename);
+            write_png_file(input_filename, output_filename, slice_size);
         }
     }
-    
+}
+
+int main() {
+    //convert_dat_to_png("C:\\sea-server\\modis\\w%d-h%d.dat", "C:\\sea-server\\modis\\w%d-h%d.png", 4, 2, 21603 * 2);
+    convert_dat_to_png("d:\\bin\\w%d-h%d.dat", "d:\\bin\\w%d-h%d.png", 2, 1, 21603 * 2 * 2);
     return 0;
 }
