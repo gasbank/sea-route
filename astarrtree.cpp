@@ -227,7 +227,7 @@ void RTreePixelPathNodeNeighbors(ASNeighborList neighbors, void *node, void *con
     xy32xy32* n1c;
     xy32xy32* n2c;
     XYIB_ENTER_EXIT next_ee = XEE_ENTER;
-    int next_i = 0;
+    size_t next_i = 0;
     if (n->ee == XEE_ENTER) {
         // Get exit nodes at the same cell node
         n1c = reinterpret_cast<xy32xy32*>(ASPathGetNode(cell_path, n->i + 1)); // Next Cell node
@@ -343,7 +343,7 @@ std::vector<xy32> calculate_pixel_waypoints(xy32 from, xy32 to, ASPath cell_path
         {
             for (size_t i = 0; i < pixel_path_count; i++) {
                 xy32ib* pixel_node = reinterpret_cast<xy32ib*>(ASPathGetNode(pixel_path, i));
-                printf("Pixel Path %zu: (%d, %d) [Cell index=%d]\n",
+                printf("Pixel Path %zu: (%d, %d) [Cell index=%zu]\n",
                        i,
                        pixel_node->p.x,
                        pixel_node->p.y,

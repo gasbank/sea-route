@@ -4,6 +4,9 @@
 #include "xy.hpp"
 #include "astarrtree.hpp"
 
+// w0-h0 : 180
+// w1-h0 : ?
+
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
 #define DATA_ROOT "assets/"
 #define WORLDMAP_LAND_RTREE_FILENAME "land.dat"
