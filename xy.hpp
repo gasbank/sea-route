@@ -5,6 +5,11 @@ struct xy {
     int y : 16;
 };
 
+struct xy32 {
+    int x;
+    int y;
+};
+
 inline bool operator < (const xy& lhs, const xy& rhs) {
     return (lhs.y << 16 | lhs.x) < (rhs.y << 16 | rhs.x);
 }
@@ -12,6 +17,11 @@ inline bool operator < (const xy& lhs, const xy& rhs) {
 struct xyxy {
     xy xy0;
     xy xy1;
+};
+
+struct xy32xy32 {
+    xy32 xy0;
+    xy32 xy1;
 };
 
 struct xyi {

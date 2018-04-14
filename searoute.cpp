@@ -7,13 +7,13 @@
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
 #define DATA_ROOT "assets/"
 #define WORLDMAP_LAND_RTREE_FILENAME "land.dat"
-#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (320 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_RTREE_FILENAME "water.dat"
-#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (320 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "land_max_rect.dat"
-#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (320 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "water_max_rect.dat"
-#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (160 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (320 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 
 //#define WORLDMAP_INPUT_PNG DATA_ROOT "water_16384x8192.png"
 //#define WORLDMAP_INPUT_PNG "C:\\sea-server\\modis\\png-8x4\\w6-h2.png"
@@ -128,6 +128,9 @@ std::vector<xyset> seed_pixels;
 #define PIXELCLEARBITXY(x, y) PIXELCLEARBIT(row_pointers[(y)], (x))
 #define PIXELSETBITXY(x, y) PIXELSETBIT(row_pointers[(y)], (x))
 #define PIXELINVERTBITXY(x, y) PIXELINVERTBIT(row_pointers[(y)], (x))
+
+void write_dump_file(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds, const char * dump_filename);
+void write_dump_file_32(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds, const char * dump_filename);
 
 void abort_(const char * s, ...) {
     va_list args;
@@ -1227,12 +1230,21 @@ void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
 }
 
 void dump_max_rect(const char* input_png_filename, const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
-    read_png_file(input_png_filename, red);
+    if (input_png_filename) {
+        read_png_file(input_png_filename, red);
+    }
 
     bi::managed_mapped_file file(bi::open_or_create, rtree_filename, rtree_memory_size);
     allocator_t alloc(file.get_segment_manager());
     rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
     printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
+
+    if (!input_png_filename) {
+        printf("Writing dump file...\n");
+        auto rtree_bounds = rtree_ptr->bounds();
+        write_dump_file_32(rtree_ptr, rtree_bounds, dump_filename);
+        return;
+    }
 
     load_from_dump_if_empty(rtree_ptr, dump_filename);
 
@@ -1336,23 +1348,46 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
     printf("After land pixel count: %zu (should be zero)\n", new_pixel_count);
 
     if (write_dump) {
-        // dump final result to portable format
-        std::vector<xyxy> write_buffer;
-        write_buffer.reserve(rtree_ptr->size());
-        rtree_bounds = rtree_ptr->bounds();
-        for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
-            xyxy v;
-            v.xy0.x = it->first.min_corner().get<0>();
-            v.xy0.y = it->first.min_corner().get<1>();
-            v.xy1.x = it->first.max_corner().get<0>();
-            v.xy1.y = it->first.max_corner().get<1>();
-            write_buffer.push_back(v);
-        }
-        FILE* fout = fopen(dump_filename, "wb");
-        fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
-        fclose(fout);
-        printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xyxy), write_buffer.size());
+        write_dump_file(rtree_ptr, rtree_bounds, dump_filename);
     }
+}
+
+void write_dump_file_32(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds, const char * dump_filename) {
+    // dump final result to portable format
+    std::vector<xy32xy32> write_buffer;
+    write_buffer.reserve(rtree_ptr->size());
+    rtree_bounds = rtree_ptr->bounds();
+    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
+        xy32xy32 v;
+        v.xy0.x = it->first.min_corner().get<0>();
+        v.xy0.y = it->first.min_corner().get<1>();
+        v.xy1.x = it->first.max_corner().get<0>();
+        v.xy1.y = it->first.max_corner().get<1>();
+        write_buffer.push_back(v);
+    }
+    FILE* fout = fopen(dump_filename, "wb");
+    fwrite(&write_buffer[0], sizeof(xy32xy32), write_buffer.size(), fout);
+    fclose(fout);
+    printf("Dumped. (32-bit) (element size: %zu, element count: %zu)\n", sizeof(xy32xy32), write_buffer.size());
+}
+
+void write_dump_file(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds, const char * dump_filename) {
+    // dump final result to portable format
+    std::vector<xyxy> write_buffer;
+    write_buffer.reserve(rtree_ptr->size());
+    rtree_bounds = rtree_ptr->bounds();
+    for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
+        xyxy v;
+        v.xy0.x = it->first.min_corner().get<0>();
+        v.xy0.y = it->first.min_corner().get<1>();
+        v.xy1.x = it->first.max_corner().get<0>();
+        v.xy1.y = it->first.max_corner().get<1>();
+        write_buffer.push_back(v);
+    }
+    FILE* fout = fopen(dump_filename, "wb");
+    fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
+    fclose(fout);
+    printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xyxy), write_buffer.size());
 }
 
 void change_working_directory() {
@@ -1381,6 +1416,7 @@ int main(int argc, char* argv[]) {
         desc.add_options()
             ("help,h", "Help screen")
             ("png2rtree", boost::program_options::value<std::string>(), "PNG to R-tree (max-rect)")
+            ("rtree2dump", boost::program_options::value<std::string>(), "R-tree to dump")
             ("land", boost::program_options::bool_switch(), "Build land mask")
             ("water", boost::program_options::bool_switch(), "Build water mask")
             ("dump", boost::program_options::bool_switch(), "Create dump file")
@@ -1427,6 +1463,7 @@ int main(int argc, char* argv[]) {
             return 0;
         }
 
+        // Save R-tree file from PNG
         if (vm.count("png2rtree")) {
             auto input_png_filename = vm["png2rtree"].as<std::string>();
 
@@ -1443,7 +1480,7 @@ int main(int argc, char* argv[]) {
                               dump ? 1 : 0,
                               0);
             }
-        
+
             if (vm.count("water") && vm["water"].as<bool>()) {
                 auto rtree_filename = input_png_filename + ".water.rtree";
                 auto dump_filename = input_png_filename + ".water.dump";
@@ -1455,6 +1492,21 @@ int main(int argc, char* argv[]) {
                               dump ? 1 : 0,
                               0);
             }
+        }
+
+        // Save Dump file from R-tree file
+        if (vm.count("rtree2dump")) {
+            auto input_rtree_filename = vm["rtree2dump"].as<std::string>();
+
+            auto rtree_filename = input_rtree_filename;
+            auto dump_filename = input_rtree_filename + ".dump";
+
+            dump_max_rect(nullptr,
+                          rtree_filename.c_str(),
+                          WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE,
+                          dump_filename.c_str(),
+                          0,
+                          0);
         }
 
         if (vm.count("test") && vm["test"].as<bool>()) {
