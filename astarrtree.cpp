@@ -4,8 +4,8 @@
 
 using namespace astarrtree;
 
-xyxy xyxy_from_box_t(const box_t& v) {
-    xyxy r;
+xy32xy32 xyxy_from_box_t(const box_t& v) {
+    xy32xy32 r;
     r.xy0.x = v.min_corner().get<0>();
     r.xy0.y = v.min_corner().get<1>();
     r.xy1.x = v.max_corner().get<0>();
@@ -13,7 +13,7 @@ xyxy xyxy_from_box_t(const box_t& v) {
     return r;
 }
 
-box_t box_t_from_xyxy(const xyxy& v) {
+box_t box_t_from_xyxy(const xy32xy32& v) {
     box_t r;
     r.min_corner().set<0>(v.xy0.x);
     r.min_corner().set<1>(v.xy0.y);
@@ -23,7 +23,7 @@ box_t box_t_from_xyxy(const xyxy& v) {
 }
 
 void RTreePathNodeNeighbors(ASNeighborList neighbors, void *node, void *context) {
-    xyxy* n = reinterpret_cast<xyxy*>(node);
+    xy32xy32* n = reinterpret_cast<xy32xy32*>(node);
     rtree_t* rtree_ptr = reinterpret_cast<rtree_t*>(context);
     box_t query_box = box_t_from_xyxy(*n);
     std::vector<value_t> result_s;
@@ -35,8 +35,8 @@ void RTreePathNodeNeighbors(ASNeighborList neighbors, void *node, void *context)
 }
 
 float RTreePathNodeHeuristic(void *fromNode, void *toNode, void *context) {
-    xyxy* from = reinterpret_cast<xyxy*>(fromNode);
-    xyxy* to = reinterpret_cast<xyxy*>(toNode);
+    xy32xy32* from = reinterpret_cast<xy32xy32*>(fromNode);
+    xy32xy32* to = reinterpret_cast<xy32xy32*>(toNode);
     float fromMedX = (from->xy1.x - from->xy0.x) / 2.0f;
     float fromMedY = (from->xy1.y - from->xy0.y) / 2.0f;
     float toMedX = (to->xy1.x - to->xy0.x) / 2.0f;
@@ -45,9 +45,9 @@ float RTreePathNodeHeuristic(void *fromNode, void *toNode, void *context) {
 }
 
 int RTreePathNodeComparator(void *node1, void *node2, void *context) {
-    xyxy* n1 = reinterpret_cast<xyxy*>(node1);
+    xy32xy32* n1 = reinterpret_cast<xy32xy32*>(node1);
     int n1v = n1->xy0.y << 16 | n1->xy0.x;
-    xyxy* n2 = reinterpret_cast<xyxy*>(node2);
+    xy32xy32* n2 = reinterpret_cast<xy32xy32*>(node2);
     int n2v = n2->xy0.y << 16 | n2->xy0.x;
     int d = n1v - n2v;
     if (d == 0) {
@@ -60,22 +60,22 @@ int RTreePathNodeComparator(void *node1, void *node2, void *context) {
 }
 
 
-float xyib_distance(const xyib& a, const xyib& b) {
+float xyib_distance(const xy32ib& a, const xy32ib& b) {
     int dx = a.p.x - b.p.x;
     int dy = a.p.y - b.p.y;
     return static_cast<float>(abs(dx) + abs(dy)); // sqrtf(static_cast<float>(dx * dx + dy * dy));
 }
 
 struct pixel_waypoint_search {
-    xy from;
-    xy to;
+    xy32 from;
+    xy32 to;
     ASPath cell_path;
 };
 
 void RTreePixelPathNodeNeighbors(ASNeighborList neighbors, void *node, void *context);
 
-void AddNeighborWithLog(ASNeighborList neighbors, xyib* n, pixel_waypoint_search* pws, int x, int y, size_t i, XYIB_ENTER_EXIT ee) {
-    xyib neighbor = { { x, y }, i, ee };
+void AddNeighborWithLog(ASNeighborList neighbors, xy32ib* n, pixel_waypoint_search* pws, int x, int y, size_t i, XYIB_ENTER_EXIT ee) {
+    xy32ib neighbor = { { x, y }, i, ee };
     if (n->p.x == x && n->p.y == y && n->ee == XEE_ENTER && ee == XEE_EXIT && n->i == i) {
         // if 'n' and 'neighbor' have the same coordinates...
         // make 'n' exit node and rerun RTreePixelPathNodeNeighbors()
@@ -106,7 +106,7 @@ enum RECT_RELATION {
 };
 
 
-RECT_RELATION rect_relation(const xyxy* n1c, const xyxy* n2c) {
+RECT_RELATION rect_relation(const xy32xy32* n1c, const xy32xy32* n2c) {
     bool d = false, u = false, r = false, l = false;
     if (n1c->xy1.y <= n2c->xy0.y) {
         // [D]OWN
@@ -158,7 +158,7 @@ RECT_RELATION rect_relation(const xyxy* n1c, const xyxy* n2c) {
     }
 }
 
-RECT_RELATION rect_neighbor_relation(const xyxy* n1c, const xyxy* n2c) {
+RECT_RELATION rect_neighbor_relation(const xy32xy32* n1c, const xy32xy32* n2c) {
     bool d = false, u = false, r = false, l = false;
     if (n1c->xy1.y == n2c->xy0.y) {
         // [D]OWN
@@ -211,7 +211,7 @@ RECT_RELATION rect_neighbor_relation(const xyxy* n1c, const xyxy* n2c) {
 }
 
 void RTreePixelPathNodeNeighbors(ASNeighborList neighbors, void *node, void *context) {
-    xyib* n = reinterpret_cast<xyib*>(node);
+    xy32ib* n = reinterpret_cast<xy32ib*>(node);
     pixel_waypoint_search* pws = reinterpret_cast<pixel_waypoint_search*>(context);
     ASPath cell_path = pws->cell_path;
     size_t cell_path_count = ASPathGetCount(cell_path);
@@ -224,20 +224,20 @@ void RTreePixelPathNodeNeighbors(ASNeighborList neighbors, void *node, void *con
         AddNeighborWithLog(neighbors, n, pws, pws->to.x, pws->to.y, cell_path_count - 1, XEE_EXIT);
         return;
     }
-    xyxy* n1c;
-    xyxy* n2c;
+    xy32xy32* n1c;
+    xy32xy32* n2c;
     XYIB_ENTER_EXIT next_ee = XEE_ENTER;
     int next_i = 0;
     if (n->ee == XEE_ENTER) {
         // Get exit nodes at the same cell node
-        n1c = reinterpret_cast<xyxy*>(ASPathGetNode(cell_path, n->i + 1)); // Next Cell node
-        n2c = reinterpret_cast<xyxy*>(ASPathGetNode(cell_path, n->i + 0)); // Cell node containing 'n'
+        n1c = reinterpret_cast<xy32xy32*>(ASPathGetNode(cell_path, n->i + 1)); // Next Cell node
+        n2c = reinterpret_cast<xy32xy32*>(ASPathGetNode(cell_path, n->i + 0)); // Cell node containing 'n'
         next_ee = XEE_EXIT;
         next_i = n->i; // the same cell node
     } else if (n->ee == XEE_EXIT) {
         // Get enter nodes at the next cell node
-        n1c = reinterpret_cast<xyxy*>(ASPathGetNode(cell_path, n->i + 0)); // Cell node containing 'n'
-        n2c = reinterpret_cast<xyxy*>(ASPathGetNode(cell_path, n->i + 1)); // Next Cell node
+        n1c = reinterpret_cast<xy32xy32*>(ASPathGetNode(cell_path, n->i + 0)); // Cell node containing 'n'
+        n2c = reinterpret_cast<xy32xy32*>(ASPathGetNode(cell_path, n->i + 1)); // Next Cell node
         next_ee = XEE_ENTER;
         next_i = n->i + 1; // the next cell node
     } else {
@@ -287,15 +287,15 @@ void RTreePixelPathNodeNeighbors(ASNeighborList neighbors, void *node, void *con
 }
 
 float RTreePixelPathNodeHeuristic(void *fromNode, void *toNode, void *context) {
-    xyib* from = reinterpret_cast<xyib*>(fromNode);
-    xyib* to = reinterpret_cast<xyib*>(toNode);
+    xy32ib* from = reinterpret_cast<xy32ib*>(fromNode);
+    xy32ib* to = reinterpret_cast<xy32ib*>(toNode);
     return fabsf(static_cast<float>(from->p.x - to->p.x)) + fabsf(static_cast<float>(from->p.y - to->p.y));
 }
 
 int RTreePixelPathNodeComparator(void *node1, void *node2, void *context) {
-    xyib* n1 = reinterpret_cast<xyib*>(node1);
+    xy32ib* n1 = reinterpret_cast<xy32ib*>(node1);
     int n1v = n1->p.y << 16 | n1->p.x;
-    xyib* n2 = reinterpret_cast<xyib*>(node2);
+    xy32ib* n2 = reinterpret_cast<xy32ib*>(node2);
     int n2v = n2->p.y << 16 | n2->p.x;
     int d = n1v - n2v;
     if (d == 0) {
@@ -307,19 +307,19 @@ int RTreePixelPathNodeComparator(void *node1, void *node2, void *context) {
     }
 }
 
-box_t box_t_from_xy(xy v) {
+box_t box_t_from_xy(xy32 v) {
     return box_t(point_t(v.x, v.y), point_t(v.x + 1, v.y + 1));
 }
 
-xyxy xyxy_from_xy(xy v) {
-    return xyxy{ { v.x, v.y },{ v.x + 1, v.y + 1 } };
+xy32xy32 xyxy_from_xy(xy32 v) {
+    return xy32xy32{ { v.x, v.y },{ v.x + 1, v.y + 1 } };
 }
 
-std::vector<xy> calculate_pixel_waypoints(xy from, xy to, ASPath cell_path) {
-    std::vector<xy> waypoints;
+std::vector<xy32> calculate_pixel_waypoints(xy32 from, xy32 to, ASPath cell_path) {
+    std::vector<xy32> waypoints;
     ASPathNodeSource PathNodeSource =
     {
-        sizeof(xyib),
+        sizeof(xy32ib),
         RTreePixelPathNodeNeighbors,
         RTreePixelPathNodeHeuristic,
         NULL,
@@ -330,8 +330,8 @@ std::vector<xy> calculate_pixel_waypoints(xy from, xy to, ASPath cell_path) {
         std::cerr << "calculate_pixel_waypoints: cell_path_count is 0." << std::endl;
         abort();
     }
-    xyib from_rect = { from, 0, XEE_ENTER };
-    xyib to_rect = { to, cell_path_count - 1, XEE_EXIT };
+    xy32ib from_rect = { from, 0, XEE_ENTER };
+    xy32ib to_rect = { to, cell_path_count - 1, XEE_EXIT };
     pixel_waypoint_search pws = { from, to, cell_path };
     ASPath pixel_path = ASPathCreate(&PathNodeSource, &pws, &from_rect, &to_rect);
     size_t pixel_path_count = ASPathGetCount(pixel_path);
@@ -342,7 +342,7 @@ std::vector<xy> calculate_pixel_waypoints(xy from, xy to, ASPath cell_path) {
         /*if (pixel_path_cost < 6000)*/
         {
             for (size_t i = 0; i < pixel_path_count; i++) {
-                xyib* pixel_node = reinterpret_cast<xyib*>(ASPathGetNode(pixel_path, i));
+                xy32ib* pixel_node = reinterpret_cast<xy32ib*>(ASPathGetNode(pixel_path, i));
                 printf("Pixel Path %zu: (%d, %d) [Cell index=%d]\n",
                        i,
                        pixel_node->p.x,
@@ -358,14 +358,14 @@ std::vector<xy> calculate_pixel_waypoints(xy from, xy to, ASPath cell_path) {
     return waypoints;
 }
 
-void astarrtree::astar_rtree(const char* rtree_filename, size_t output_max_size, xy from, xy to) {
+void astarrtree::astar_rtree(const char* rtree_filename, size_t output_max_size, xy32 from, xy32 to) {
     bi::managed_mapped_file file(bi::open_or_create, rtree_filename, output_max_size);
     allocator_t alloc(file.get_segment_manager());
     rtree_t* rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
     astar_rtree_memory(rtree_ptr, from, to);
 }
 
-bool find_nearest_point_if_empty(rtree_t* rtree_ptr, xy& from, box_t& from_box, std::vector<value_t>& from_result_s) {
+bool find_nearest_point_if_empty(rtree_t* rtree_ptr, xy32& from, box_t& from_box, std::vector<value_t>& from_result_s) {
     if (from_result_s.size() == 0) {
         auto nearest_it = rtree_ptr->qbegin(bgi::nearest(from_box, 1));
         if (nearest_it == rtree_ptr->qend()) {
@@ -427,12 +427,12 @@ bool find_nearest_point_if_empty(rtree_t* rtree_ptr, xy& from, box_t& from_box, 
     }
 }
 
-std::vector<xy> astarrtree::astar_rtree_memory(rtree_t* rtree_ptr, xy from, xy to) {
+std::vector<xy32> astarrtree::astar_rtree_memory(rtree_t* rtree_ptr, xy32 from, xy32 to) {
     float distance = static_cast<float>(abs(from.x - to.x) + abs(from.y - to.y));
     std::cout << boost::format("Pathfinding from (%1%,%2%) -> (%3%,%4%) [distance = %5%]\n")
         % (int)from.x % (int)from.y % (int)to.x % (int)to.y % distance;
 
-    std::vector<xy> waypoints;
+    std::vector<xy32> waypoints;
     printf("R Tree size: %zu\n", rtree_ptr->size());
     if (rtree_ptr->size() == 0) {
         return waypoints;
@@ -456,14 +456,14 @@ std::vector<xy> astarrtree::astar_rtree_memory(rtree_t* rtree_ptr, xy from, xy t
         // Phase 1 - R Tree rectangular node searching
         ASPathNodeSource PathNodeSource =
         {
-            sizeof(xyxy),
+            sizeof(xy32xy32),
             RTreePathNodeNeighbors,
             RTreePathNodeHeuristic,
             NULL,
             RTreePathNodeComparator
         };
-        xyxy from_rect = xyxy_from_box_t(from_result_s[0].first);
-        xyxy to_rect = xyxy_from_box_t(to_result_s[0].first);
+        xy32xy32 from_rect = xyxy_from_box_t(from_result_s[0].first);
+        xy32xy32 to_rect = xyxy_from_box_t(to_result_s[0].first);
         ASPath path = ASPathCreate(&PathNodeSource, rtree_ptr, &from_rect, &to_rect);
         size_t pathCount = ASPathGetCount(path);
         if (pathCount > 0) {
@@ -473,7 +473,7 @@ std::vector<xy> astarrtree::astar_rtree_memory(rtree_t* rtree_ptr, xy from, xy t
             /*if (pathCost < 6000)*/
             {
                 for (size_t i = 0; i < pathCount; i++) {
-                    xyxy* node = reinterpret_cast<xyxy*>(ASPathGetNode(path, i));
+                    xy32xy32* node = reinterpret_cast<xy32xy32*>(ASPathGetNode(path, i));
                     printf("Cell Path %zu: (%d, %d)-(%d, %d) [%d x %d = %d]\n",
                            i,
                            node->xy0.x,

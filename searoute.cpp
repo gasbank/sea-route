@@ -31,14 +31,14 @@ enum VERTEX_TYPE {
     VT_CONCAVE,
 };
 
-struct xyv {
-    xy coords;
+struct xy32v {
+    xy32 coords;
     VERTEX_TYPE v;
 };
 
-typedef std::unordered_map<int, std::vector<xyv> > int_xyvvector_map;
-typedef std::vector<xyxy> xyxyvector;
-typedef std::set<xy> xyset;
+typedef std::unordered_map<int, std::vector<xy32v> > int_xy32vvector_map;
+typedef std::vector<xy32xy32> xy32xy32vector;
+typedef std::set<xy32> xyset;
 typedef MaxMatch<std::string> MaxMatchString;
 typedef MaxMatch<int> MaxMatchInt;
 
@@ -112,10 +112,10 @@ png_infop info_ptr;
 int number_of_passes;
 png_bytep * row_pointers;
 
-int_xyvvector_map row_key_convex_concaves;
-int_xyvvector_map col_key_convex_concaves;
-xyxyvector hori_lines;
-xyxyvector vert_lines;
+int_xy32vvector_map row_key_convex_concaves;
+int_xy32vvector_map col_key_convex_concaves;
+xy32xy32vector hori_lines;
+xy32xy32vector vert_lines;
 MaxMatchInt bipartite;
 int land_color_index;
 xyset cut_boundary_pixels;
@@ -323,7 +323,7 @@ void detect_concave_vertices(void) {
                 total_convex_vertices_count++;
             }
             if (concave || convex) {
-                xyv xycombined;
+                xy32v xycombined;
                 xycombined.coords.x = x;
                 xycombined.coords.y = y;
                 xycombined.v = concave ? VT_CONCAVE : VT_CONVEX;
@@ -336,7 +336,7 @@ void detect_concave_vertices(void) {
     printf("Total convex vertices: %d\n", total_convex_vertices_count);
 }
 
-LINE_CHECK_RESULT check_line(const xyxy& line) {
+LINE_CHECK_RESULT check_line(const xy32xy32& line) {
     int dx = line.xy1.x - line.xy0.x;
     int dy = line.xy1.y - line.xy0.y;
     if (dx && !dy) {
@@ -437,7 +437,7 @@ LINE_CHECK_RESULT check_line(const xyxy& line) {
     return LCR_BUG;
 }
 
-void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
+void get_lines(xy32xy32vector& lines, const int_xy32vvector_map& concaves) {
 
     int verbose = height <= 64 && width <= 64;
 
@@ -448,7 +448,7 @@ void get_lines(xyxyvector& lines, const int_xyvvector_map& concaves) {
                 continue;
             }
             // pull two elements at once
-            xyxy line;
+            xy32xy32 line;
             line.xy0 = cit2->coords; // FIRST CIT2
             ++cit2;
             if (cit2 != cit->second.cend()) {
@@ -553,7 +553,7 @@ int max_match_test() {
     return 0;
 }
 
-bool line_cross(const xyxy& hori, const xyxy& vert) {
+bool line_cross(const xy32xy32& hori, const xy32xy32& vert) {
     return hori.xy0.x <= vert.xy0.x && vert.xy0.x <= hori.xy1.x
         && vert.xy0.y <= hori.xy0.y && hori.xy0.y <= vert.xy1.y;
 }
@@ -637,7 +637,7 @@ void maximum_matching() {
             // cut boundary caching
             xyset boundary_up, boundary_down;
             for (int k = it.xy0.x; k < it.xy1.x; k++) {
-                xy boundary;
+                xy32 boundary;
                 boundary.x = k + 1;
                 boundary.y = it.xy0.y + 0;
                 cut_boundary_pixels.insert(boundary);
@@ -674,7 +674,7 @@ void maximum_matching() {
             // cut boundary caching
             xyset boundary_left, boundary_right;
             for (int k = it.xy0.y; k < it.xy1.y; k++) {
-                xy boundary;
+                xy32 boundary;
                 boundary.x = it.xy0.x + 0;
                 boundary.y = k + 1;
                 cut_boundary_pixels.insert(boundary);
@@ -730,7 +730,7 @@ void propagate_seed_pixels() {
             for (const auto& pixel : start_seed) {
                 int offsets[][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 } };
                 for (const auto& off : offsets) {
-                    xy pixel_pos = { pixel.x + off[0], pixel.y + off[1] };
+                    xy32 pixel_pos = { pixel.x + off[0], pixel.y + off[1] };
                     // out of bounds
                     if (pixel_pos.x < 0 || pixel_pos.x >= width || pixel_pos.y < 0 || pixel_pos.y >= height) {
                         continue;
@@ -949,20 +949,20 @@ void create_worldmap_rtrees() {
 void test_astar_rtree_water() {
     {
         // TEST POS (WATER: SHORT ROUTE)
-        xy pathFrom = { 14065, 2496 };
-        xy pathTo = { 14043, 2512 };
+        xy32 pathFrom = { 14065, 2496 };
+        xy32 pathTo = { 14043, 2512 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (WATER: VERY LONG)
-        xy pathFrom = { 14065, 2496 };
-        xy pathTo = { 2693, 2501 };
+        xy32 pathFrom = { 14065, 2496 };
+        xy32 pathTo = { 2693, 2501 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (WATER: VERY LONG II)
-        xy pathFrom = { 9553, 2240 };
-        xy pathTo = { 14348, 1604 };
+        xy32 pathFrom = { 9553, 2240 };
+        xy32 pathTo = { 14348, 1604 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
 }
@@ -970,61 +970,61 @@ void test_astar_rtree_water() {
 void test_astar_rtree_land() {
     {
         // TEST POS (LAND: VERY SHORT ROUTE - debugging)
-        xy pathFrom = { 1, 1 };
-        xy pathTo = { 4, 4 };
+        xy32 pathFrom = { 1, 1 };
+        xy32 pathTo = { 4, 4 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: SHORT ROUTE)
-        xy pathFrom = { 14066, 2488 };
-        xy pathTo = { 14039, 2479 };
+        xy32 pathFrom = { 14066, 2488 };
+        xy32 pathTo = { 14039, 2479 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: MID ROUTE)
-        xy pathFrom = { 14066, 2488 };
-        xy pathTo = { 13492, 753 };
+        xy32 pathFrom = { 14066, 2488 };
+        xy32 pathTo = { 13492, 753 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: LONG ROUTE)
-        xy pathFrom = { 9031, 5657 };
-        xy pathTo = { 16379, 955 };
+        xy32 pathFrom = { 9031, 5657 };
+        xy32 pathTo = { 16379, 955 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
     {
         // TEST POS (LAND: NO ROUTE)
-        xy pathFrom = { 13528, 5192 };
-        xy pathTo = { 11716, 3620 };
+        xy32 pathFrom = { 13528, 5192 };
+        xy32 pathTo = { 11716, 3620 };
         astarrtree::astar_rtree(DATA_ROOT WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME, WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE, pathFrom, pathTo);
     }
 }
 
 void PathNodeNeighbors(ASNeighborList neighbors, void *node, void *context) {
-    xy* n = reinterpret_cast<xy*>(node);
+    xy32* n = reinterpret_cast<xy32*>(node);
     short offsets[][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 } };
     for (const auto& off : offsets) {
         short x2 = n->x + off[0];
         short y2 = n->y + off[1];
         if (out_of_bounds(x2, y2) == 0 && PIXELBITXY(x2, y2) == 0) {
-            xy n2 = { x2, y2 };
+            xy32 n2 = { x2, y2 };
             ASNeighborListAdd(neighbors, &n2, 1);
         }
     }
 }
 
 float PathNodeHeuristic(void *fromNode, void *toNode, void *context) {
-    xy* from = reinterpret_cast<xy*>(fromNode);
-    xy* to = reinterpret_cast<xy*>(toNode);
+    xy32* from = reinterpret_cast<xy32*>(fromNode);
+    xy32* to = reinterpret_cast<xy32*>(toNode);
 
     // using the manhatten distance since this is a simple grid and you can only move in 4 directions
     return (fabsf(static_cast<float>(from->x - to->x)) + fabsf(static_cast<float>(from->y - to->y)));
 }
 
 int PathNodeComparator(void *node1, void *node2, void *context) {
-    xy* n1 = reinterpret_cast<xy*>(node1);
+    xy32* n1 = reinterpret_cast<xy32*>(node1);
     int n1v = n1->y << 16 | n1->x;
-    xy* n2 = reinterpret_cast<xy*>(node2);
+    xy32* n2 = reinterpret_cast<xy32*>(node2);
     int n2v = n2->y << 16 | n2->x;
     int d = n1v - n2v;
     if (d == 0) {
@@ -1041,16 +1041,16 @@ void test_astar() {
 
     ASPathNodeSource PathNodeSource =
     {
-        sizeof(xy),
+        sizeof(xy32),
         PathNodeNeighbors,
         PathNodeHeuristic,
         NULL,
         PathNodeComparator
     };
-    xy pathFrom = { 14092, 2452 };
-    xy pathTo = { 13626, 2370 }; // china
-                                 //xy pathTo = { 14601, 2466 }; // japan
-                                 //xy pathTo = { 14956, 5826 }; // austrailia
+    xy32 pathFrom = { 14092, 2452 };
+    xy32 pathTo = { 13626, 2370 }; // china
+                                 //xy32 pathTo = { 14601, 2466 }; // japan
+                                 //xy32 pathTo = { 14956, 5826 }; // austrailia
     ASPath path = ASPathCreate(&PathNodeSource, NULL, &pathFrom, &pathTo);
     size_t pathCount = ASPathGetCount(path);
     printf("Path Count: %zu\n", pathCount);
@@ -1058,7 +1058,7 @@ void test_astar() {
     printf("Path Cost: %f\n", pathCost);
     if (pathCost < 2000) {
         for (size_t i = 0; i < pathCount; i++) {
-            xy* node = reinterpret_cast<xy*>(ASPathGetNode(path, i));
+            xy32* node = reinterpret_cast<xy32*>(ASPathGetNode(path, i));
             printf("Path %zu: (%d, %d)\n", i, node->x, node->y);
         }
     }
@@ -1211,12 +1211,12 @@ void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
         FILE* fin = fopen(dump_filename, "rb");
         if (fin) {
             size_t read_max_count = 100000; // elements
-            void* read_buf = malloc(sizeof(xyxy) * read_max_count);
+            void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
             fseek(fin, 0, SEEK_SET);
-            while (size_t read_count = fread(read_buf, sizeof(xyxy), read_max_count, fin)) {
+            while (size_t read_count = fread(read_buf, sizeof(xy32xy32), read_max_count, fin)) {
                 for (size_t i = 0; i < read_count; i++) {
                     rect_count++;
-                    xyxy* r = reinterpret_cast<xyxy*>(read_buf) + i;
+                    xy32xy32* r = reinterpret_cast<xy32xy32*>(read_buf) + i;
                     box_t box(point_t(r->xy0.x, r->xy0.y), point_t(r->xy1.x, r->xy1.y));
                     rtree_ptr->insert(std::make_pair(box, rect_count));
                 }
@@ -1373,11 +1373,11 @@ void write_dump_file_32(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds,
 
 void write_dump_file(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds, const char * dump_filename) {
     // dump final result to portable format
-    std::vector<xyxy> write_buffer;
+    std::vector<xy32xy32> write_buffer;
     write_buffer.reserve(rtree_ptr->size());
     rtree_bounds = rtree_ptr->bounds();
     for (auto it = rtree_ptr->qbegin(bgi::intersects(rtree_bounds)); it != rtree_ptr->qend(); it++) {
-        xyxy v;
+        xy32xy32 v;
         v.xy0.x = it->first.min_corner().get<0>();
         v.xy0.y = it->first.min_corner().get<1>();
         v.xy1.x = it->first.max_corner().get<0>();
@@ -1385,9 +1385,9 @@ void write_dump_file(rtree_t * rtree_ptr, rtree_t::bounds_type &rtree_bounds, co
         write_buffer.push_back(v);
     }
     FILE* fout = fopen(dump_filename, "wb");
-    fwrite(&write_buffer[0], sizeof(xyxy), write_buffer.size(), fout);
+    fwrite(&write_buffer[0], sizeof(xy32xy32), write_buffer.size(), fout);
     fclose(fout);
-    printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xyxy), write_buffer.size());
+    printf("Dumped. (element size: %zu, element count: %zu)\n", sizeof(xy32xy32), write_buffer.size());
 }
 
 void change_working_directory() {

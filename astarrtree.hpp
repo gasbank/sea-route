@@ -17,6 +17,6 @@ namespace astarrtree {
     typedef bi::allocator<value_t, bi::managed_mapped_file::segment_manager> allocator_t;
     typedef bgi::rtree<value_t, params_t, indexable_t, equal_to_t, allocator_t> rtree_t;
 
-    void astar_rtree(const char* output, size_t output_max_size, xy from, xy to);
-    std::vector<xy> astar_rtree_memory(rtree_t* rtree_ptr, xy from, xy to);
+    void astar_rtree(const char* output, size_t output_max_size, xy32 from, xy32 to);
+    std::vector<xy32> astar_rtree_memory(rtree_t* rtree_ptr, xy32 from, xy32 to);
 }
