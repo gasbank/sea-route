@@ -66,3 +66,12 @@ SET(PngWriterSources pngwriter.c)
 ADD_MSVC_PRECOMPILED_HEADER("precompiled.h" "precompiled.c" PngWriterSources)
 ADD_EXECUTABLE(png-writer ${PngWriterSources})
 target_link_libraries(png-writer png_static ${CMAKE_THREAD_LIBS_INIT})
+
+#####################################
+# PNG Merger
+#####################################
+
+SET(PngMergerSources pngmerger.c)
+ADD_MSVC_PRECOMPILED_HEADER("precompiled.h" "precompiled.c" PngMergerSources)
+ADD_EXECUTABLE(png-merger ${PngMergerSources})
+target_link_libraries(png-merger png_static ${CMAKE_THREAD_LIBS_INIT})
