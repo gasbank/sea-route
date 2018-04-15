@@ -1,5 +1,10 @@
 #pragma once
 
+struct xy16 {
+    short x;
+    short y;
+};
+
 struct xy32 {
     int x;
     int y;
@@ -11,6 +16,11 @@ inline bool operator < (const xy32& lhs, const xy32& rhs) {
     }
     return lhs.x < rhs.x;
 }
+
+struct xy16xy16 {
+    xy16 xy0;
+    xy16 xy1;
+};
 
 struct xy32xy32 {
     xy32 xy0;

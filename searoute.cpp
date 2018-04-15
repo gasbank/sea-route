@@ -11,15 +11,17 @@
 
 #define RTREE_SIZE_IN_MB (300)
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
+#define WORLDMAP_RTREE_MMAP_MAX_SIZE(mb) ((mb) * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define DATA_ROOT "assets/"
 #define WORLDMAP_LAND_RTREE_FILENAME "land.dat"
-#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE WORLDMAP_RTREE_MMAP_MAX_SIZE(RTREE_SIZE_IN_MB)
 #define WORLDMAP_WATER_RTREE_FILENAME "water.dat"
-#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE WORLDMAP_RTREE_MMAP_MAX_SIZE(RTREE_SIZE_IN_MB)
 #define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "land_max_rect.dat"
-#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE WORLDMAP_RTREE_MMAP_MAX_SIZE(RTREE_SIZE_IN_MB)
 #define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "water_max_rect.dat"
-#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE WORLDMAP_RTREE_MMAP_MAX_SIZE(RTREE_SIZE_IN_MB)
+
 
 enum LINE_CHECK_RESULT {
     LCR_GOOD_CUT,
@@ -1341,6 +1343,56 @@ void dumpmerge(const char* dump1_filename, const char* dump2_filename, const cha
     printf("Finished.\n");
 }
 
+void dumprescale(const char* dump_filename, const char* output_filename) {
+    printf("Rescale Source : %s\n", dump_filename);
+    printf("Rescale Target : %s\n", output_filename);
+
+    size_t rect_count = 0;
+    FILE* fin = fopen(dump_filename, "rb");
+    FILE* fout = fopen(output_filename, "wb");
+    
+    const float scale = 172824.0f / 16384;
+
+    if (fin && fout) {
+        size_t read_max_count = 100000; // elements
+        void* read_buf = malloc(sizeof(xy16xy16) * read_max_count);
+        fseek(fin, 0, SEEK_SET);
+        while (size_t read_count = fread(read_buf, sizeof(xy16xy16), read_max_count, fin)) {
+            for (size_t i = 0; i < read_count; i++) {
+                rect_count++;
+                xy16xy16* r16 = reinterpret_cast<xy16xy16*>(read_buf) + i;
+                xy32xy32 r32;
+                r32.xy0.x = static_cast<int>(roundf(r16->xy0.x * scale));
+                r32.xy0.y = static_cast<int>(roundf(r16->xy0.y * scale));
+                r32.xy1.x = static_cast<int>(roundf(r16->xy1.x * scale));
+                r32.xy1.y = static_cast<int>(roundf(r16->xy1.y * scale));
+                fwrite(&r32, 1, sizeof(xy32xy32), fout);
+            }
+        }
+        fclose(fin);
+        free(read_buf);
+    } else {
+        abort_("fin2 invalid");
+    }
+    printf("%zu rectangles written so far...\n", rect_count);
+
+    if (fout) {
+        fclose(fout);
+    } else {
+        abort_("fout invalid");
+    }
+    printf("Finished.\n");
+}
+
+void dump_to_rtree(const char* dump_filename, const char* rtree_filename, size_t rtree_memory_size) {
+    bi::managed_mapped_file file(bi::create_only, rtree_filename, rtree_memory_size);
+    allocator_t alloc(file.get_segment_manager());
+    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
+    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
+
+    load_from_dump_if_empty(rtree_ptr, dump_filename);
+}
+
 void dump_max_rect(const char* input_png_filename, const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
     if (input_png_filename) {
         read_png_file(input_png_filename, red);
@@ -1553,6 +1605,10 @@ int main(int argc, char* argv[]) {
             ("dumpmergeout", boost::program_options::value<std::string>(), "Dump merge target")
             ("loadrtree", boost::program_options::value<std::string>(), "R-tree file to load")
             ("fromto", boost::program_options::value<std::string>(), "from_x,from_y,to_x,to_y")
+            ("dumprescale", boost::program_options::value<std::string>(), "Dump file (xy16) to be rescaled")
+            ("dumprescaleout", boost::program_options::value<std::string>(), "Dump file (xy32) rescaled output")
+            ("dump2rtree", boost::program_options::value<std::string>(), "Dump file to be converted to R-tree")
+            ("rtreesizemb", boost::program_options::value<int>(), "R-tree maximum size in memory (MB)")
             ;
 
         boost::program_options::variables_map vm;
@@ -1626,6 +1682,13 @@ int main(int argc, char* argv[]) {
             }
         }
 
+        if (vm.count("dump2rtree") && vm.count("rtreesizemb")) {
+            auto dump_filename = vm["dump2rtree"].as<std::string>();
+            auto rtree_size_in_mb = vm["rtreesizemb"].as<int>();
+            auto rtree_filename = dump_filename + ".rtree";
+            dump_to_rtree(dump_filename.c_str(), rtree_filename.c_str(), WORLDMAP_RTREE_MMAP_MAX_SIZE(rtree_size_in_mb));
+        }
+
         // Save Dump file from R-tree file
         if (vm.count("rtree2dump")) {
             auto input_rtree_filename = vm["rtree2dump"].as<std::string>();
@@ -1676,6 +1739,12 @@ int main(int argc, char* argv[]) {
             if (sscanf(fromto.c_str(), "%d,%d,%d,%d", &from_x, &from_y, &to_x, &to_y) == 4) {
                 load_and_query(rtree_filename.c_str(), from_x, from_y, to_x, to_y);
             }
+        }
+
+        if (vm.count("dumprescale") && vm.count("dumprescaleout")) {
+            auto dump_filename = vm["dumprescale"].as<std::string>();
+            auto output_filename = vm["dumprescaleout"].as<std::string>();
+            dumprescale(dump_filename.c_str(), output_filename.c_str());
         }
     } catch (const boost::program_options::error &ex) {
         std::cerr << ex.what() << '\n';
