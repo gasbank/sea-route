@@ -37,19 +37,20 @@ void RTreePathNodeNeighbors(ASNeighborList neighbors, void *node, void *context)
 float RTreePathNodeHeuristic(void *fromNode, void *toNode, void *context) {
     xy32xy32* from = reinterpret_cast<xy32xy32*>(fromNode);
     xy32xy32* to = reinterpret_cast<xy32xy32*>(toNode);
-    float fromMedX = (from->xy1.x - from->xy0.x) / 2.0f;
+    /*float fromMedX = (from->xy1.x - from->xy0.x) / 2.0f;
     float fromMedY = (from->xy1.y - from->xy0.y) / 2.0f;
     float toMedX = (to->xy1.x - to->xy0.x) / 2.0f;
     float toMedY = (to->xy1.y - to->xy0.y) / 2.0f;
-    return fabsf(fromMedX - toMedX) + fabsf(fromMedY - toMedY);
+    return fabsf(fromMedX - toMedX) + fabsf(fromMedY - toMedY);*/
+    return static_cast<float>(abs(from->xy0.x - to->xy0.x) + abs(from->xy0.y - to->xy0.y));
 }
 
 int RTreePathNodeComparator(void *node1, void *node2, void *context) {
     xy32xy32* n1 = reinterpret_cast<xy32xy32*>(node1);
-    int n1v = n1->xy0.y << 16 | n1->xy0.x;
+    int64_t n1v = static_cast<int64_t>(n1->xy0.y) << 32 | n1->xy0.x;
     xy32xy32* n2 = reinterpret_cast<xy32xy32*>(node2);
-    int n2v = n2->xy0.y << 16 | n2->xy0.x;
-    int d = n1v - n2v;
+    int64_t n2v = static_cast<int64_t>(n2->xy0.y) << 32 | n2->xy0.x;
+    int64_t d = n1v - n2v;
     if (d == 0) {
         return 0;
     } else if (d > 0) {
@@ -58,7 +59,6 @@ int RTreePathNodeComparator(void *node1, void *node2, void *context) {
         return -1;
     }
 }
-
 
 float xyib_distance(const xy32ib& a, const xy32ib& b) {
     int dx = a.p.x - b.p.x;
@@ -289,15 +289,15 @@ void RTreePixelPathNodeNeighbors(ASNeighborList neighbors, void *node, void *con
 float RTreePixelPathNodeHeuristic(void *fromNode, void *toNode, void *context) {
     xy32ib* from = reinterpret_cast<xy32ib*>(fromNode);
     xy32ib* to = reinterpret_cast<xy32ib*>(toNode);
-    return fabsf(static_cast<float>(from->p.x - to->p.x)) + fabsf(static_cast<float>(from->p.y - to->p.y));
+    return static_cast<float>(abs(from->p.x - to->p.x) + abs(from->p.y - to->p.y));
 }
 
 int RTreePixelPathNodeComparator(void *node1, void *node2, void *context) {
     xy32ib* n1 = reinterpret_cast<xy32ib*>(node1);
-    int n1v = n1->p.y << 16 | n1->p.x;
+    int64_t n1v = static_cast<int64_t>(n1->p.y) << 32 | n1->p.x;
     xy32ib* n2 = reinterpret_cast<xy32ib*>(node2);
-    int n2v = n2->p.y << 16 | n2->p.x;
-    int d = n1v - n2v;
+    int64_t n2v = static_cast<int64_t>(n2->p.y) << 32 | n2->p.x;
+    int64_t d = n1v - n2v;
     if (d == 0) {
         return 0;
     } else if (d > 0) {
@@ -429,8 +429,12 @@ bool find_nearest_point_if_empty(rtree_t* rtree_ptr, xy32& from, box_t& from_box
 
 std::vector<xy32> astarrtree::astar_rtree_memory(rtree_t* rtree_ptr, xy32 from, xy32 to) {
     float distance = static_cast<float>(abs(from.x - to.x) + abs(from.y - to.y));
-    std::cout << boost::format("Pathfinding from (%1%,%2%) -> (%3%,%4%) [distance = %5%]\n")
-        % (int)from.x % (int)from.y % (int)to.x % (int)to.y % distance;
+    std::cout << boost::format("Pathfinding from (%1%,%2%) -> (%3%,%4%) [Manhattan distance = %5%]\n")
+        % from.x
+        % from.y
+        % to.x
+        % to.y
+        % distance;
 
     std::vector<xy32> waypoints;
     printf("R Tree size: %zu\n", rtree_ptr->size());
@@ -442,14 +446,18 @@ std::vector<xy32> astarrtree::astar_rtree_memory(rtree_t* rtree_ptr, xy32 from, 
     std::vector<value_t> from_result_s;
     rtree_ptr->query(bgi::contains(from_box), std::back_inserter(from_result_s));
     if (find_nearest_point_if_empty(rtree_ptr, from, from_box, from_result_s)) {
-        std::cout << boost::format("  'From' point changed to (%1%,%2%)\n") % (int)from.x % (int)from.y;
+        std::cout << boost::format("  'From' point changed to (%1%,%2%)\n")
+            % from.x 
+            % from.y;
     }
 
     auto to_box = box_t_from_xy(to);
     std::vector<value_t> to_result_s;
     rtree_ptr->query(bgi::contains(to_box), std::back_inserter(to_result_s));
     if (find_nearest_point_if_empty(rtree_ptr, to, to_box, to_result_s)) {
-        std::cout << boost::format("  'To' point changed to (%1%,%2%)\n") % (int)to.x % (int)to.y;
+        std::cout << boost::format("  'To' point changed to (%1%,%2%)\n")
+            % to.x
+            % to.y;
     }
 
     if (from_result_s.size() == 1 && to_result_s.size() == 1) {

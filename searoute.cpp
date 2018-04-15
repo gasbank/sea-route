@@ -1025,10 +1025,10 @@ float PathNodeHeuristic(void *fromNode, void *toNode, void *context) {
 
 int PathNodeComparator(void *node1, void *node2, void *context) {
     xy32* n1 = reinterpret_cast<xy32*>(node1);
-    int n1v = n1->y << 16 | n1->x;
+    int64_t n1v = static_cast<int64_t>(n1->y) << 32 | n1->x;
     xy32* n2 = reinterpret_cast<xy32*>(node2);
-    int n2v = n2->y << 16 | n2->x;
-    int d = n1v - n2v;
+    int64_t n2v = static_cast<int64_t>(n2->y) << 32 | n2->x;
+    int64_t d = n1v - n2v;
     if (d == 0) {
         return 0;
     } else if (d > 0) {
@@ -1521,6 +1521,18 @@ void change_working_directory() {
     }
 }
 
+void load_and_query(const char* rtree_filename, int from_x, int from_y, int to_x, int to_y) {
+    bi::managed_mapped_file file(bi::open_only, rtree_filename, 0);
+    allocator_t alloc(file.get_segment_manager());
+    rtree_t * rtree_ptr = file.find_or_construct<rtree_t>("rtree")(params_t(), indexable_t(), equal_to_t(), alloc);
+    printf("Max rect R Tree size: %zu\n", rtree_ptr->size());
+
+    printf("From: (%d, %d)\n", from_x, from_y);
+    printf("  To: (%d, %d)\n", to_x, to_y);
+    astarrtree::astar_rtree_memory(rtree_ptr, xy32{ from_x, from_y }, xy32{ to_x, to_y });
+    printf("Finished.\n");
+}
+
 int main(int argc, char* argv[]) {
     std::cout << "sea-route v0.1" << std::endl;
     change_working_directory();
@@ -1539,6 +1551,8 @@ int main(int argc, char* argv[]) {
             ("dumpmerge1", boost::program_options::value<std::string>(), "Dump merge source 1")
             ("dumpmerge2", boost::program_options::value<std::string>(), "Dump merge source 2")
             ("dumpmergeout", boost::program_options::value<std::string>(), "Dump merge target")
+            ("loadrtree", boost::program_options::value<std::string>(), "R-tree file to load")
+            ("fromto", boost::program_options::value<std::string>(), "from_x,from_y,to_x,to_y")
             ;
 
         boost::program_options::variables_map vm;
@@ -1653,6 +1667,15 @@ int main(int argc, char* argv[]) {
             auto dump2_filename = vm["dumpmerge2"].as<std::string>();
             auto output_filename = vm["dumpmergeout"].as<std::string>();
             dumpmerge(dump1_filename.c_str(), dump2_filename.c_str(), output_filename.c_str());
+        }
+
+        if (vm.count("loadrtree") && vm.count("fromto")) {
+            auto rtree_filename = vm["loadrtree"].as<std::string>();
+            auto fromto = vm["fromto"].as<std::string>();
+            int from_x, from_y, to_x, to_y;
+            if (sscanf(fromto.c_str(), "%d,%d,%d,%d", &from_x, &from_y, &to_x, &to_y) == 4) {
+                load_and_query(rtree_filename.c_str(), from_x, from_y, to_x, to_y);
+            }
         }
     } catch (const boost::program_options::error &ex) {
         std::cerr << ex.what() << '\n';

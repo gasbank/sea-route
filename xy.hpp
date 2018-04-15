@@ -6,7 +6,10 @@ struct xy32 {
 };
 
 inline bool operator < (const xy32& lhs, const xy32& rhs) {
-    return (lhs.y << 16 | lhs.x) < (rhs.y << 16 | rhs.x);
+    if (lhs.x == rhs.x) {
+        return lhs.y < rhs.y;
+    }
+    return lhs.x < rhs.x;
 }
 
 struct xy32xy32 {
