@@ -4,23 +4,21 @@
 #include "xy.hpp"
 #include "astarrtree.hpp"
 
-// w0-h0 : 180
-// w1-h0 : ?
+// --------------------------------
+// w0-h0 : 180 MB (8,636,451 nodes)
+// w1-h0 : 120 MB (5,631,895 nodes)
+// --------------------------------
 
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
 #define DATA_ROOT "assets/"
 #define WORLDMAP_LAND_RTREE_FILENAME "land.dat"
-#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (640 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (120 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_RTREE_FILENAME "water.dat"
-#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (640 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (120 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "land_max_rect.dat"
-#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (640 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (120 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "water_max_rect.dat"
-#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (640 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
-
-//#define WORLDMAP_INPUT_PNG DATA_ROOT "water_16384x8192.png"
-//#define WORLDMAP_INPUT_PNG "C:\\sea-server\\modis\\png-8x4\\w6-h2.png"
-#define WORLDMAP_INPUT_PNG "C:\\sea-server\\modis\\png-2x1\\w0-h0.png"
+#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (120 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 
 enum LINE_CHECK_RESULT {
     LCR_GOOD_CUT,
@@ -1232,6 +1230,48 @@ void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
     }
 }
 
+// move all rectangles to +Y direction by 2251 pixel
+void dumpfix(const char* dump_filename) {
+    int rect_count = 0;
+    FILE* fin = fopen(dump_filename, "rb");
+    int min_x = INT_MAX;
+    int max_x = INT_MIN;
+    int min_y = INT_MAX;
+    int max_y = INT_MIN;
+    if (fin) {
+        size_t read_max_count = 100000; // elements
+        void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
+        fseek(fin, 0, SEEK_SET);
+        while (size_t read_count = fread(read_buf, sizeof(xy32xy32), read_max_count, fin)) {
+            for (size_t i = 0; i < read_count; i++) {
+                rect_count++;
+                xy32xy32* r = reinterpret_cast<xy32xy32*>(read_buf) + i;
+                if (min_x > r->xy0.x) {
+                    min_x = r->xy0.x;
+                }
+                if (max_x < r->xy1.x) {
+                    max_x = r->xy1.x;
+                }
+                if (min_y > r->xy0.y) {
+                    min_y = r->xy0.y;
+                }
+                if (max_y < r->xy1.y) {
+                    max_y = r->xy1.y;
+                }
+                if (r->xy0.x == 0 && r->xy0.y == 0) {
+                    printf("First point rectangle size: (%d, %d)", r->xy1.x, r->xy1.y);
+                }
+                if (r->xy1.x == 86412 && r->xy1.y == 86412) {
+                    printf("Last point rectangle size: (%d, %d)", r->xy1.x - r->xy0.x, r->xy1.y - r->xy0.y);
+                }
+            }
+        }
+        fclose(fin);
+    } else {
+        printf("Dump file %s not exist.\n", dump_filename);
+    }
+}
+
 void dump_max_rect(const char* input_png_filename, const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
     if (input_png_filename) {
         read_png_file(input_png_filename, red);
@@ -1424,6 +1464,7 @@ int main(int argc, char* argv[]) {
             ("water", boost::program_options::bool_switch(), "Build water mask")
             ("dump", boost::program_options::bool_switch(), "Create dump file")
             ("test", boost::program_options::bool_switch(), "Test")
+            ("dumpfix", boost::program_options::value<std::string>(), "Dump offset fix")
             ;
 
         boost::program_options::variables_map vm;
@@ -1493,7 +1534,7 @@ int main(int argc, char* argv[]) {
                               WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE,
                               dump_filename.c_str(),
                               dump ? 1 : 0,
-                              0);
+                              1);
             }
         }
 
@@ -1520,6 +1561,11 @@ int main(int argc, char* argv[]) {
             if (vm.count("water") && vm["water"].as<bool>()) {
                 test_astar_rtree_water();
             }
+        }
+
+        if (vm.count("dumpfix")) {
+            auto dump_filename = vm["dumpfix"].as<std::string>();
+            dumpfix(dump_filename.c_str());
         }
     } catch (const boost::program_options::error &ex) {
         std::cerr << ex.what() << '\n';
