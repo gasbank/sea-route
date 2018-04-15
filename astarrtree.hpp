@@ -8,7 +8,7 @@ namespace astarrtree {
     namespace bgm = bg::model;
     namespace bgi = bg::index;
 
-    typedef bgm::point<short, 2, bg::cs::cartesian> point_t;
+    typedef bgm::point<int, 2, bg::cs::cartesian> point_t;
     typedef bgm::box<point_t> box_t;
     typedef std::pair<box_t, int> value_t;
     typedef bgi::linear<32, 8> params_t;

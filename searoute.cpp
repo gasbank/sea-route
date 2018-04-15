@@ -9,16 +9,17 @@
 // w1-h0 : 120 MB (5,631,895 nodes)
 // --------------------------------
 
+#define RTREE_SIZE_IN_MB (300)
 #define WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO (sizeof(size_t) / 4)
 #define DATA_ROOT "assets/"
 #define WORLDMAP_LAND_RTREE_FILENAME "land.dat"
-#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (180 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_RTREE_FILENAME "water.dat"
-#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (180 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_LAND_MAX_RECT_RTREE_RTREE_FILENAME "land_max_rect.dat"
-#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (180 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_LAND_MAX_RECT_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 #define WORLDMAP_WATER_MAX_RECT_RTREE_RTREE_FILENAME "water_max_rect.dat"
-#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (180 * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
+#define WORLDMAP_WATER_MAX_RECT_RTREE_MMAP_MAX_SIZE (RTREE_SIZE_IN_MB * 1024 * 1024 * WORLDMAP_RTREE_MMAP_MAX_SIZE_RATIO)
 
 enum LINE_CHECK_RESULT {
     LCR_GOOD_CUT,
@@ -93,7 +94,7 @@ namespace bg = boost::geometry;
 namespace bgm = bg::model;
 namespace bgi = bg::index;
 
-typedef bgm::point<unsigned int, 2, bg::cs::cartesian> point_t;
+typedef bgm::point<int, 2, bg::cs::cartesian> point_t;
 typedef bgm::box<point_t> box_t;
 typedef std::pair<box_t, int> value_t;
 typedef bgi::linear<32, 8> params_t;
@@ -1003,10 +1004,10 @@ void test_astar_rtree_land() {
 
 void PathNodeNeighbors(ASNeighborList neighbors, void *node, void *context) {
     xy32* n = reinterpret_cast<xy32*>(node);
-    short offsets[][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 } };
+    int offsets[][2] = { { -1, 0 },{ 1, 0 },{ 0, -1 },{ 0, 1 } };
     for (const auto& off : offsets) {
-        short x2 = n->x + off[0];
-        short y2 = n->y + off[1];
+        int x2 = n->x + off[0];
+        int y2 = n->y + off[1];
         if (out_of_bounds(x2, y2) == 0 && PIXELBITXY(x2, y2) == 0) {
             xy32 n2 = { x2, y2 };
             ASNeighborListAdd(neighbors, &n2, 1);
@@ -1231,13 +1232,18 @@ void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
 }
 
 // move all rectangles to +Y direction by 2251 pixel
-void dumpfix(const char* dump_filename) {
-    int rect_count = 0;
+void dumpfix_land(const char* dump_filename) {
+    size_t rect_count = 0;
     FILE* fin = fopen(dump_filename, "rb");
+    char output_filename[1024];
+    strcpy(output_filename, dump_filename);
+    strcat(output_filename, "fix.dump");
+    FILE* fout = fopen(output_filename, "wb");
     int min_x = INT_MAX;
     int max_x = INT_MIN;
     int min_y = INT_MAX;
     int max_y = INT_MIN;
+    int offset_y = -2251;
     if (fin) {
         size_t read_max_count = 100000; // elements
         void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
@@ -1258,18 +1264,81 @@ void dumpfix(const char* dump_filename) {
                 if (max_y < r->xy1.y) {
                     max_y = r->xy1.y;
                 }
-                if (r->xy0.x == 0 && r->xy0.y == 0) {
-                    printf("First point rectangle size: (%d, %d)", r->xy1.x, r->xy1.y);
+                if (r->xy0.y + offset_y < 0) {
+                    abort_("error duing offset fix");
                 }
-                if (r->xy1.x == 86412 && r->xy1.y == 86412) {
-                    printf("Last point rectangle size: (%d, %d)", r->xy1.x - r->xy0.x, r->xy1.y - r->xy0.y);
+                if (r->xy1.y + offset_y < 0) {
+                    abort_("error duing offset fix");
                 }
+                // fix offset
+                r->xy0.y += offset_y;
+                r->xy1.y += offset_y;
             }
+            fwrite(read_buf, read_count, sizeof(xy32xy32), fout);
         }
         fclose(fin);
+        fclose(fout);
     } else {
         printf("Dump file %s not exist.\n", dump_filename);
     }
+}
+
+void dumpfix_water(const char* dump_filename) {
+    abort_("not implemented yet.");
+}
+
+void dumpmerge(const char* dump1_filename, const char* dump2_filename, const char* output_filename) {
+    printf("Merge Source 1: %s\n", dump1_filename);
+    printf("Merge Source 2: %s\n", dump2_filename);
+    printf("Merge Target: %s\n", output_filename);
+
+    size_t rect_count = 0;
+    FILE* fin1 = fopen(dump1_filename, "rb");
+    FILE* fin2 = fopen(dump2_filename, "rb");
+    FILE* fout = fopen(output_filename, "wb");
+    if (fin1 && fout) {
+        size_t read_max_count = 100000; // elements
+        void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
+        fseek(fin1, 0, SEEK_SET);
+        while (size_t read_count = fread(read_buf, sizeof(xy32xy32), read_max_count, fin1)) {
+            rect_count += read_count;
+            fwrite(read_buf, read_count, sizeof(xy32xy32), fout);
+        }
+        fclose(fin1);
+        free(read_buf);
+    } else {
+        abort_("fin1 invalid");
+    }
+    printf("%zu rectangles written so far...\n", rect_count);
+
+    const int slice_width = 86412;
+
+    if (fin2 && fout) {
+        size_t read_max_count = 100000; // elements
+        void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
+        fseek(fin2, 0, SEEK_SET);
+        while (size_t read_count = fread(read_buf, sizeof(xy32xy32), read_max_count, fin2)) {
+            for (size_t i = 0; i < read_count; i++) {
+                rect_count++;
+                xy32xy32* r = reinterpret_cast<xy32xy32*>(read_buf) + i;
+                r->xy0.x += slice_width;
+                r->xy1.x += slice_width;
+            }
+            fwrite(read_buf, read_count, sizeof(xy32xy32), fout);
+        }
+        fclose(fin2);
+        free(read_buf);
+    } else {
+        abort_("fin2 invalid");
+    }
+    printf("%zu rectangles written so far...\n", rect_count);
+
+    if (fout) {
+        fclose(fout);
+    } else {
+        abort_("fout invalid");
+    }
+    printf("Finished.\n");
 }
 
 void dump_max_rect(const char* input_png_filename, const char* rtree_filename, size_t rtree_memory_size, const char* dump_filename, int write_dump, png_byte red) {
@@ -1302,7 +1371,9 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
         }
     }
 
-    printf("Total land pixel count (original): %zu\n", old_pixel_count);
+    const char* mask_type = red == 0 ? "land" : "water";
+
+    printf("Total %s pixel count (original): %zu\n", mask_type, old_pixel_count);
     //printf("BUG PIXEL VALUE = %d\n", PIXELBITXY(5127, 6634));
     std::vector<value_t> to_be_removed;
     auto rtree_bounds = rtree_ptr->bounds();
@@ -1333,7 +1404,7 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
         }
     }
 
-    printf("Total land pixel count (remaining): %zu\n", remaining_pixel_count);
+    printf("Total %s pixel count (remaining): %zu\n", mask_type, remaining_pixel_count);
 
     int rect_count = 0;
     int last_max_area = -1;
@@ -1388,7 +1459,7 @@ void dump_max_rect(const char* input_png_filename, const char* rtree_filename, s
             }
         }
     }
-    printf("After land pixel count: %zu (should be zero)\n", new_pixel_count);
+    printf("After %s pixel count: %zu (should be zero)\n", mask_type, new_pixel_count);
 
     if (write_dump) {
         write_dump_file(rtree_ptr, rtree_bounds, dump_filename);
@@ -1465,6 +1536,9 @@ int main(int argc, char* argv[]) {
             ("dump", boost::program_options::bool_switch(), "Create dump file")
             ("test", boost::program_options::bool_switch(), "Test")
             ("dumpfix", boost::program_options::value<std::string>(), "Dump offset fix")
+            ("dumpmerge1", boost::program_options::value<std::string>(), "Dump merge source 1")
+            ("dumpmerge2", boost::program_options::value<std::string>(), "Dump merge source 2")
+            ("dumpmergeout", boost::program_options::value<std::string>(), "Dump merge target")
             ;
 
         boost::program_options::variables_map vm;
@@ -1565,7 +1639,20 @@ int main(int argc, char* argv[]) {
 
         if (vm.count("dumpfix")) {
             auto dump_filename = vm["dumpfix"].as<std::string>();
-            dumpfix(dump_filename.c_str());
+            if (vm.count("land") && vm["land"].as<bool>()) {
+                dumpfix_land(dump_filename.c_str());
+            }
+
+            if (vm.count("water") && vm["water"].as<bool>()) {
+                dumpfix_water(dump_filename.c_str());
+            }
+        }
+
+        if (vm.count("dumpmerge1") && vm.count("dumpmerge2") && vm.count("dumpmergeout")) {
+            auto dump1_filename = vm["dumpmerge1"].as<std::string>();
+            auto dump2_filename = vm["dumpmerge2"].as<std::string>();
+            auto output_filename = vm["dumpmergeout"].as<std::string>();
+            dumpmerge(dump1_filename.c_str(), dump2_filename.c_str(), output_filename.c_str());
         }
     } catch (const boost::program_options::error &ex) {
         std::cerr << ex.what() << '\n';
