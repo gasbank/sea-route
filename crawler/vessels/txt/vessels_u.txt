@@ -1,0 +1,1860 @@
+IMO number: 9124392
+1st name: NORDSEA
+flag
+/ nationality: Cyprus
+owner: Deutsche Africa Line
+operator:
+completion year: 1996 / 12
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 186/3/08
+engine design: SUL
+engine type: 6RTA62U
+power output (KW): 13.320
+maximum speed (Kn): 19,0
+overall length (m): 179,20
+overall beam (m): 25,40
+maximum draught (m): 9,90
+maximum TEU capacity: 1684
+container capacity at 14t (TEU):
+reefer containers (TEU): 120
+deadweight (ton): 22.420
+gross tonnage (ton): 16.202
+handling gear: 3 x 45
+exname 1: PANAUSTRAL-98
+exname 2: PACIFIC VOYXAGER-03
+exname 3: MOL SPRINTER-06
+exname 4: NORDSEA-07
+exname 5: CSAV MAYA-09
+exname 6: R. SEA-12
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9400174
+1st name: JPO TAURUS
+flag
+/ nationality: Liberia
+owner: Oltmann Verwaltung
+operator: UASC
+completion year: 2010 / 01
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 933
+engine design: SUL
+engine type: 7RT-flex96C
+power output (KW): 40.044
+maximum speed (Kn): 24,5
+overall length (m): 267,70
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4250
+container capacity at 14t (TEU): 2811
+reefer containers (TEU): 700
+deadweight (ton): 51.870
+gross tonnage (ton): 42.800
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9397585
+1st name: BEATRICE SCHULTE
+flag
+/ nationality: Liberia
+owner: Schulte Thomas Reederei
+operator: UASC
+completion year: 2009 / 05
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1704
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 800
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9445576
+1st name: CPO JACKSONVILLE
+flag
+/ nationality: Liberia
+owner: Offen Claus-Peter Reederei
+operator: UASC
+completion year: 2009 / 09
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2070
+engine design: SUL
+engine type: 8RTA 82C
+power output (KW): 36.160
+maximum speed (Kn): 24,1
+overall length (m): 262,00
+overall beam (m): 32,30
+maximum draught (m): 12,50
+maximum TEU capacity: 4255
+container capacity at 14t (TEU): 3000
+reefer containers (TEU): 560
+deadweight (ton): 51.540
+gross tonnage (ton): 39.250
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9695028
+1st name: SYMI
+flag
+/ nationality: Liberia
+owner: International Maritime Enterprises
+operator:
+completion year: 2014 08
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S
+engine design:
+engine type:
+power output (KW):
+maximum speed (Kn):
+overall length (m):
+overall beam (m):
+maximum draught (m):
+maximum TEU capacity: 9300
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton):
+gross tonnage (ton):
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9401063
+1st name: BENEDICHT SCHULTE
+flag
+/ nationality: Liberia
+owner: Schulte Thomas Reederei
+operator: UASC
+completion year: 2009 / 09
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1706
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 800
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9445588
+1st name: CPO MIAMI
+flag
+/ nationality: Liberia
+owner: Offen Claus-Peter Reederei
+operator: UASC
+completion year: 2009 / 10
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2071
+engine design: SUL
+engine type: 8RTA 82C
+power output (KW): 36.160
+maximum speed (Kn): 24,1
+overall length (m): 262,00
+overall beam (m): 32,30
+maximum draught (m): 12,50
+maximum TEU capacity: 4255
+container capacity at 14t (TEU): 3000
+reefer containers (TEU): 560
+deadweight (ton): 51.540
+gross tonnage (ton): 39.250
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9440825
+1st name: CPO CHARLESTON
+flag
+/ nationality: Liberia
+owner: Offen Claus-Peter Reederei
+operator: UASC
+completion year: 2009 / 08
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2063
+engine design: SUL
+engine type: 8RTA 82C
+power output (KW): 36.160
+maximum speed (Kn): 24,1
+overall length (m): 262,00
+overall beam (m): 32,30
+maximum draught (m): 12,50
+maximum TEU capacity: 4255
+container capacity at 14t (TEU): 3000
+reefer containers (TEU): 560
+deadweight (ton): 51.540
+gross tonnage (ton): 39.250
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9401075
+1st name: BENITA SCHULTE
+flag
+/ nationality: Liberia
+owner: Schulte Thomas Reederei
+operator: UASC
+completion year: 2009 / 10
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1707
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 800
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9440837
+1st name: CPO SAVANNAH
+flag
+/ nationality: Liberia
+owner: Offen Claus-Peter Reederei
+operator: UASC
+completion year: 2009 / 08
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2064
+engine design: SUL
+engine type: 8RTA 82C
+power output (KW): 36.160
+maximum speed (Kn): 24,1
+overall length (m): 262,00
+overall beam (m): 32,30
+maximum draught (m): 12,50
+maximum TEU capacity: 4255
+container capacity at 14t (TEU): 3000
+reefer containers (TEU): 560
+deadweight (ton): 51.540
+gross tonnage (ton): 39.250
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9401051
+1st name: BENJAMIN SCHULTE
+flag
+/ nationality: Liberia
+owner: Schulte Thomas Reederei
+operator: UASC
+completion year: 2009 / 08
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1705
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 800
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9397913
+1st name: AMALTHEA
+flag
+/ nationality: Liberia
+owner: Doehle Peter Schiffahrts
+operator: UASC
+completion year: 2009 / 10
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 932
+engine design: SUL
+engine type: 7RT-flex96C
+power output (KW): 40.044
+maximum speed (Kn): 24,5
+overall length (m): 267,70
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4250
+container capacity at 14t (TEU): 2811
+reefer containers (TEU): 700
+deadweight (ton): 51.870
+gross tonnage (ton): 42.800
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9695016
+1st name: SKYROS
+flag
+/ nationality: Liberia
+owner: International Maritime Enterprises
+operator:
+completion year: 2014 06
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S
+engine design:
+engine type:
+power output (KW):
+maximum speed (Kn):
+overall length (m):
+overall beam (m):
+maximum draught (m):
+maximum TEU capacity: 9300
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton):
+gross tonnage (ton):
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9226413
+1st name: ULF RITSCHER
+flag
+/ nationality: Germany
+owner: Transeste Schiffahrt
+operator: CMA-CGM
+completion year: 2001 / 04
+shipyard: Kvaerner Warnow-Werft GmbH, Germany
+yard / hull number: 022
+engine design: B&W;
+engine type: 7L70MC
+power output (KW): 19.810
+maximum speed (Kn): 21,0
+overall length (m): 208,30
+overall beam (m): 29,80
+maximum draught (m): 12,50
+maximum TEU capacity: 2524
+container capacity at 14t (TEU): 1800
+reefer containers (TEU): 394
+deadweight (ton): 33.750
+gross tonnage (ton): 25.705
+handling gear: 3 x 45
+exname 1: SEA TIGER-04
+exname 2: NYK ESPIRITO-09
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9613020
+1st name: LEVERKUSSEN EXPRESS
+flag
+/ nationality: Germany
+owner: Hapag-Lloyd
+operator: Hapag-Lloyd
+completion year: 2013 / 11
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2500
+engine design: SUL
+engine type: 12K 98ME-C7
+power output (KW): 68.840
+maximum speed (Kn): 24,6
+overall length (m): 366,50
+overall beam (m): 48,20
+maximum draught (m): 15,50
+maximum TEU capacity: 13092
+container capacity at 14t (TEU): 9082
+reefer containers (TEU): 800
+deadweight (ton): 140.580
+gross tonnage (ton): 135.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9004255
+1st name: NORDWOGE
+flag
+/ nationality: Liberia
+owner: Briese Schiffahrt
+operator: GS Line
+completion year: 1993 / 06
+shipyard: Kvaerner Warnow-Werft GmbH, Germany
+yard / hull number: 422
+engine design: SUL
+engine type: 7RTA58
+power output (KW): 11.130
+maximum speed (Kn): 18,6
+overall length (m): 167,20
+overall beam (m): 25,00
+maximum draught (m): 9,80
+maximum TEU capacity: 1388
+container capacity at 14t (TEU): 1030
+reefer containers (TEU): 75
+deadweight (ton): 20.200
+gross tonnage (ton): 14.885
+handling gear: 3 x 40
+exname 1: CONTSHIP LE HAVRE-95
+exname 2: NORDWOGE-96
+exname 3: CCNI ANTOFAGASTA-97
+exname 4: NORDWOGE-98
+exname 5: SCL AFRICA-02
+exname 6: NORDWOGE-02
+exname 7: AMADA SPRINTER-03
+exname 8: CALA PANTANAL-09
+exname 9:
+IMO number: 9364203
+1st name: ULYSSES
+flag
+/ nationality: Antigua
+owner: Projex Schiffahrt
+operator: Maruba
+completion year: 2006 / 09
+shipyard: SSW Schichau Seebeck Shipyard GmbH, Germany
+yard / hull number: 2011
+engine design: SUL
+engine type: 7RTA72
+power output (KW): 21.560
+maximum speed (Kn): 22,2
+overall length (m): 211,90
+overall beam (m): 29,80
+maximum draught (m): 11,40
+maximum TEU capacity: 2496
+container capacity at 14t (TEU): 1810
+reefer containers (TEU): 344
+deadweight (ton): 33.800
+gross tonnage (ton): 26.400
+handling gear:
+exname 1: MARUBA PAMPERO-11
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9184213
+1st name: UMEKO
+flag
+/ nationality: Panama
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1999
+shipyard: Kyokuyo Shipyard Corp. , Japan
+yard / hull number: 423
+engine design: B&W;
+engine type: 6S50MC
+power output (KW): 6.488
+maximum speed (Kn): 17,5
+overall length (m): 138,30
+overall beam (m): 22,40
+maximum draught (m): 7,80
+maximum TEU capacity: 564
+container capacity at 14t (TEU):
+reefer containers (TEU): 222
+deadweight (ton): 9.509
+gross tonnage (ton): 8.957
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9525857
+1st name: UMM SALAL
+flag
+/ nationality: Qutar
+owner: United Arab shipping
+operator: UASC
+completion year: 2011 / 04
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1876
+engine design: B&W;
+engine type: 12K98ME-7
+power output (KW): 71.760
+maximum speed (Kn): 26,0
+overall length (m): 366,00
+overall beam (m): 48,40
+maximum draught (m): 15,50
+maximum TEU capacity: 13296
+container capacity at 14t (TEU): 9200
+reefer containers (TEU): 1.000
+deadweight (ton): 142.400
+gross tonnage (ton): 158.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9525871
+1st name: UNAYZAH
+flag
+/ nationality: Qutar
+owner: United Arab shipping
+operator: UASC
+completion year: 2012 / 02
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1878
+engine design: B&W;
+engine type: 12K98ME-7
+power output (KW): 71.760
+maximum speed (Kn): 26,0
+overall length (m): 366,00
+overall beam (m): 48,40
+maximum draught (m): 15,50
+maximum TEU capacity: 13296
+container capacity at 14t (TEU): 9200
+reefer containers (TEU): 1.000
+deadweight (ton): 142.400
+gross tonnage (ton): 158.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9430090
+1st name: O M UNDARUM
+flag
+/ nationality: Cyprus
+owner: Marten O. Reederei
+operator: ZIM
+completion year: 2009 / 10
+shipyard: Yangfan Ship Group, China
+yard / hull number: 2064
+engine design: MAK
+engine type: 7M43
+power output (KW): 6.300
+maximum speed (Kn): 17,5
+overall length (m): 132,60
+overall beam (m): 19,20
+maximum draught (m): 7,20
+maximum TEU capacity: 704
+container capacity at 14t (TEU): 430
+reefer containers (TEU): 116
+deadweight (ton): 8.329
+gross tonnage (ton): 6.586
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130535
+1st name: UNI ACCORD
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1997 / 10
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1019
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1: COSCO REDSEA-03
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130547
+1st name: UNI ACTIVE
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1998 / 01
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1021
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130559
+1st name: UNI ADROIT
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1998 / 05
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1022
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9143348
+1st name: UNI AHEAD
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1997
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 642
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 150,00
+overall beam (m): 27,10
+maximum draught (m): 8,50
+maximum TEU capacity: 1160
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.477
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9143336
+1st name: UNI AMPLE
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1998
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 641
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 150,00
+overall beam (m): 27,10
+maximum draught (m): 8,50
+maximum TEU capacity: 1160
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.477
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9143350
+1st name: UNI ANGEL
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1997
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 643
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 150,00
+overall beam (m): 27,10
+maximum draught (m): 8,50
+maximum TEU capacity: 1160
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.477
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130561
+1st name: UNI ARDENT
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1998 / 06
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1023
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9143362
+1st name: UNI ARISE
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1997
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 644
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130573
+1st name: UNI ASPIRE
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1998 / 04
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1025
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130585
+1st name: UNI ASSENT
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1999 / 02
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1026
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.511
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130597
+1st name: UNI ASSURE
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1999 / 04
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1027
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,7
+overall length (m): 165,00
+overall beam (m): 27,10
+maximum draught (m): 6,70
+maximum TEU capacity: 1162
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 15.300
+gross tonnage (ton): 14.807
+handling gear: None
+exname 1: UNI ASSURE-04
+exname 2: EVER ASSURE-05
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9012848
+1st name: UNI CHART
+flag
+/ nationality: Taiwan
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1992 / 06
+shipyard: Kanda Shipbuilding Co. Ltd., Japan
+yard / hull number: 343
+engine design: B&W;
+engine type: 7L50MC
+power output (KW): 7.646
+maximum speed (Kn): 17,0
+overall length (m): 152,30
+overall beam (m): 25,60
+maximum draught (m): 9,50
+maximum TEU capacity: 1038
+container capacity at 14t (TEU):
+reefer containers (TEU): 94
+deadweight (ton): 17.446
+gross tonnage (ton): 12.405
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9012874
+1st name: UNI CONCERT
+flag
+/ nationality: Taiwan
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1993 / 05
+shipyard: Kanda Shipbuilding Co. Ltd., Japan
+yard / hull number: 346
+engine design: B&W;
+engine type: 7L50MC
+power output (KW): 5.884
+maximum speed (Kn): 14,0
+overall length (m): 141,00
+overall beam (m): 25,60
+maximum draught (m): 9,50
+maximum TEU capacity: 1038
+container capacity at 14t (TEU):
+reefer containers (TEU): 94
+deadweight (ton): 17.445
+gross tonnage (ton): 12.405
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9012862
+1st name: UNI CONCORD
+flag
+/ nationality: Taiwan
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1992 / 12
+shipyard: Kanda Shipbuilding Co. Ltd., Japan
+yard / hull number: 345
+engine design: B&W;
+engine type: 7L50MC
+power output (KW): 7.646
+maximum speed (Kn): 17,0
+overall length (m): 152,30
+overall beam (m): 25,60
+maximum draught (m): 9,50
+maximum TEU capacity: 1038
+container capacity at 14t (TEU):
+reefer containers (TEU): 94
+deadweight (ton): 17.446
+gross tonnage (ton): 12.405
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9012850
+1st name: UNI CORONA
+flag
+/ nationality: Taiwan
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1992 / 09
+shipyard: Kanda Shipbuilding Co. Ltd., Japan
+yard / hull number: 344
+engine design: B&W;
+engine type: 7L50MC
+power output (KW): 7.646
+maximum speed (Kn): 17,0
+overall length (m): 152,30
+overall beam (m): 25,60
+maximum draught (m): 9,50
+maximum TEU capacity: 1038
+container capacity at 14t (TEU):
+reefer containers (TEU): 94
+deadweight (ton): 17.446
+gross tonnage (ton): 12.405
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9012836
+1st name: UNI CROWN
+flag
+/ nationality: Taiwan
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1992
+shipyard: Kanda Shipbuilding Co. Ltd., Japan
+yard / hull number: 342
+engine design: B&W;
+engine type: 7L50MC
+power output (KW): 7.646
+maximum speed (Kn): 17,0
+overall length (m): 152,30
+overall beam (m): 25,60
+maximum draught (m): 9,50
+maximum TEU capacity: 1038
+container capacity at 14t (TEU):
+reefer containers (TEU): 94
+deadweight (ton): 17.446
+gross tonnage (ton): 12.405
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7806647
+1st name: EVER FOREVER
+flag
+/ nationality: Taiwan
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1978 / 00
+shipyard: NKK Corp. (Nippon Kokan K.K.), Japan
+yard / hull number: 920
+engine design: SUL
+engine type: 7RND68
+power output (KW): 7.723
+maximum speed (Kn): 16,5
+overall length (m): 161,50
+overall beam (m): 26,80
+maximum draught (m): 10,50
+maximum TEU capacity: 956
+container capacity at 14t (TEU):
+reefer containers (TEU): 40
+deadweight (ton): 18.813
+gross tonnage (ton): 13.993
+handling gear: 1x36,1x20
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8108884
+1st name: EVER ORDER
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1982 / 00
+shipyard: Hakodate Dock Co. Ltd., Japan
+yard / hull number: 712
+engine design: SUL
+engine type: 6RND68M
+power output (KW): 10.500
+maximum speed (Kn): 15,0
+overall length (m): 183,00
+overall beam (m): 23,60
+maximum draught (m): 10,70
+maximum TEU capacity: 1170
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 26.639
+gross tonnage (ton): 18.337
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202156
+1st name: UNI PACIFIC
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1999 / 08
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1030
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 19.309
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202168
+1st name: UNI PATRIOT
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1999 / 10
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1031
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 19.100
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202182
+1st name: UNI PERFECT
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2000 / 04
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1033
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 19.500
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202170
+1st name: UNI PHOENIX
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2000 / 01
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1032
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202209
+1st name: UNI POPULAR
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2001 / 10
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1036
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1: LT POPULAR-04
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202223
+1st name: UNI PREMIER
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2001 / 04
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1038
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202235
+1st name: UNI PROBITY
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2001 / 08
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1039
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202211
+1st name: UNI PROMOTE
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2001 / 01
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1037
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202247
+1st name: UNI PROSPER
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2000 / 11
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1035
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9202194
+1st name: UNI PRUDENT
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 2001 / 08
+shipyard: Evergreen Heavy Industries, Japan
+yard / hull number: 1035
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10.915
+maximum speed (Kn): 18,9
+overall length (m): 181,80
+overall beam (m): 28,00
+maximum draught (m): 9,00
+maximum TEU capacity: 1618
+container capacity at 14t (TEU): 1150
+reefer containers (TEU): 256
+deadweight (ton): 21.000
+gross tonnage (ton): 17.887
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7728118
+1st name: EVER VIGOR
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1979 / 00
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 89
+engine design: SUL
+engine type: 6RND90M
+power output (KW): 14.799
+maximum speed (Kn): 21,0
+overall length (m): 186,80
+overall beam (m): 25,50
+maximum draught (m): 10,30
+maximum TEU capacity: 1214
+container capacity at 14t (TEU):
+reefer containers (TEU): 84
+deadweight (ton): 20.025
+gross tonnage (ton): 16.584
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7728106
+1st name: EVER VITAL
+flag
+/ nationality: Panama
+owner: Evergreen Marine Coorperation
+operator: Evergreen
+completion year: 1979 / 00
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 88
+engine design: SUL
+engine type: 6RND90M
+power output (KW): 14.779
+maximum speed (Kn): 21,0
+overall length (m): 186,80
+overall beam (m): 25,50
+maximum draught (m): 10,30
+maximum TEU capacity: 1214
+container capacity at 14t (TEU):
+reefer containers (TEU): 84
+deadweight (ton): 20.152
+gross tonnage (ton): 16.584
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9130901
+1st name: WELLINGTON EXPRESS
+flag
+/ nationality: Moldavia
+owner: Paradise marine co.
+operator: Sinokor
+completion year: 1996 / 05
+shipyard: Peene-Werft GmbH, Germany
+yard / hull number: 439
+engine design: MAN
+engine type: 12V32/40
+power output (KW): 5.280
+maximum speed (Kn): 16,5
+overall length (m): 118,00
+overall beam (m): 19,70
+maximum draught (m): 7,50
+maximum TEU capacity: 597
+container capacity at 14t (TEU):
+reefer containers (TEU): 80
+deadweight (ton): 6.850
+gross tonnage (ton): 5.544
+handling gear: 2 x 40
+exname 1: MAREIKE
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7809871
+1st name: FORT DESAIX
+flag
+/ nationality: Panama
+owner: CMA-CGM
+operator: CMA-CGM
+completion year: 1980 / 00
+shipyard: Chantiers d' Atlantique, France
+yard / hull number: Z26
+engine design: SUL
+engine type: 9RND90M
+power output (KW): 22.177
+maximum speed (Kn): 21,0
+overall length (m): 214,90
+overall beam (m): 31,00
+maximum draught (m): 11,00
+maximum TEU capacity: 1509
+container capacity at 14t (TEU):
+reefer containers (TEU): 594
+deadweight (ton): 28.782
+gross tonnage (ton): 30.401
+handling gear: None
+exname 1: CMA CGM TAGE-08
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9053919
+1st name: URANUS
+flag
+/ nationality: Antigua
+owner: Corleis H
+operator: Borchard Line
+completion year: 1992
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1030
+engine design: MAN
+engine type: 6L48/60
+power output (KW): 4.750
+maximum speed (Kn): 16,5
+overall length (m): 116,80
+overall beam (m): 18,20
+maximum draught (m): 6,90
+maximum TEU capacity: 510
+container capacity at 14t (TEU):
+reefer containers (TEU): 50
+deadweight (ton): 6.620
+gross tonnage (ton): 5.006
+handling gear: None
+exname 1: GRACECHURCH SUN-02
+exname 2: LUCY BORCHARD-06
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9163207
+1st name: URANUS
+flag
+/ nationality: Marshall Islands
+owner: Alpha Shipmanagement
+operator:
+completion year: 1999 / 02
+shipyard: Stocznia Gdynia S.A., Poland
+yard / hull number: 8138/08
+engine design: B&W;
+engine type: 6L70MC
+power output (KW): 15710
+maximum speed (Kn): 21,0
+overall length (m): 178,00
+overall beam (m): 28,20
+maximum draught (m): 9,70
+maximum TEU capacity: 1876
+container capacity at 14t (TEU): 1250
+reefer containers (TEU): 350
+deadweight (ton): 29.700
+gross tonnage (ton): 21.199
+handling gear: 3 x 45
+exname 1: ALIANCA ANTUERPIA-02
+exname 2: URANUS-06
+exname 3: CAP VAN DIEMEN-09
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9134672
+1st name: URSULA RICKMERS
+flag
+/ nationality: Liberia
+owner: Rickmers & Cie
+operator:
+completion year: 1997 / 08
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 170/3/08
+engine design: SUL
+engine type: 6RTA62U
+power output (KW): 13320
+maximum speed (Kn): 19,6
+overall length (m): 184,00
+overall beam (m): 25,30
+maximum draught (m): 10,00
+maximum TEU capacity: 1728
+container capacity at 14t (TEU): 1124
+reefer containers (TEU): 200
+deadweight (ton): 22.900
+gross tonnage (ton): 16.801
+handling gear: 3 x 45
+exname 1: ZIM SAO PAULO II
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8124395
+1st name: ETIENNE DENIS
+flag
+/ nationality: Bahamas
+owner: CMA-CGM
+operator: CMA-CGM
+completion year: 1984 / 00
+shipyard: Chantiers d' Atlantique, France
+yard / hull number: F28
+engine design: SUL
+engine type: 7RLB66
+power output (KW): 10.151
+maximum speed (Kn): 18,0
+overall length (m): 189,40
+overall beam (m): 32,20
+maximum draught (m): 11,40
+maximum TEU capacity: 1417
+container capacity at 14t (TEU):
+reefer containers (TEU): 180
+deadweight (ton): 32.709
+gross tonnage (ton): 30.750
+handling gear: 4 x 40
+exname 1: URSULA DELMAS-90
+exname 2: NEDLLOYD ZAANDAMM-91
+exname 3: SHERBRO-94
+exname 4: URSULA DELMAS-03
+exname 5: MSC IPANEMA-04
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9293234
+1st name: URU BHUM
+flag
+/ nationality: Thailand
+owner: Regional Container Line
+operator: RCL
+completion year: 2005 / 02
+shipyard: Mitsubishi Heavy Industries Ltd Nagasaki, Japan
+yard / hull number: 2198
+engine design: MIT
+engine type: 7UEC68LSE
+power output (KW):
+maximum speed (Kn): 21,5
+overall length (m): 194,90
+overall beam (m): 32,30
+maximum draught (m): 11,50
+maximum TEU capacity: 2588
+container capacity at 14t (TEU): 1920
+reefer containers (TEU): 300
+deadweight (ton): 35.000
+gross tonnage (ton): 25.000
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9369069
+1st name: UTA
+flag
+/ nationality: Antigua
+owner: Intersee Schiffahrt
+operator:
+completion year: 2006 / 11
+shipyard: Damen Hoogezand Scheepswerf B.V., Foxtol, Netherlands
+yard / hull number: 7301
+engine design: MAK
+engine type: 9M32
+power output (KW): 4.320
+maximum speed (Kn): 14,0
+overall length (m): 145,60
+overall beam (m): 18,30
+maximum draught (m): 7,50
+maximum TEU capacity: 667
+container capacity at 14t (TEU): 421
+reefer containers (TEU): 60
+deadweight (ton): 10.600
+gross tonnage (ton): 7.878
+handling gear: 2 x 60
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9153408
+1st name: UTE OLTMANN
+flag
+/ nationality: Germany
+owner: Oltmann Verwaltung
+operator: Hapag-Lloyd
+completion year: 1998 / 12
+shipyard: Volkswerft Stralsund GmbH, Germany
+yard / hull number: 421
+engine design: B&W;
+engine type: 6L70MC
+power output (KW): 17200
+maximum speed (Kn): 21,0
+overall length (m): 207,40
+overall beam (m): 29,80
+maximum draught (m): 11,40
+maximum TEU capacity: 2474
+container capacity at 14t (TEU): 1890
+reefer containers (TEU): 320
+deadweight (ton): 33.965
+gross tonnage (ton): 25.361
+handling gear: 3 x 45
+exname 1: CIELO DI SAN FRANCISCO-05
+exname 2: CONTSHIP RANGITOTO-05
+exname 3: CP RANGITOTO-06
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:

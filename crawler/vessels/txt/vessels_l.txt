@@ -1,0 +1,3844 @@
+IMO number: 9159866
+1st name: OOCL AMBITION
+flag
+/ nationality: Hong Kong
+owner: Filharmony Shipmanagement INC
+operator: OOCL
+completion year: 1997
+shipyard: Imabari Shipbuilding Co. Ltd., Japan
+yard / hull number: 1288
+engine design: B&W;
+engine type: 6S60MC
+power output (KW): 12.269
+maximum speed (Kn): 20,0
+overall length (m): 183,20
+overall beam (m): 27,60
+maximum draught (m): 10,00
+maximum TEU capacity: 1560
+container capacity at 14t (TEU): 1218
+reefer containers (TEU): 200
+deadweight (ton): 23.830
+gross tonnage (ton): 16.705
+handling gear: None
+exname 1: OOCL AMBITION-09
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9064774
+1st name: WIELAND
+flag
+/ nationality: Liberia
+owner: Uniteam Marine shipping
+operator:
+completion year: 1993 / 12
+shipyard: Kvaerner Warnow-Werft GmbH, Germany
+yard / hull number: 425
+engine design: SUL
+engine type: 7RTA58
+power output (KW): 11.130
+maximum speed (Kn): 18,6
+overall length (m): 167,20
+overall beam (m): 25,00
+maximum draught (m): 9,80
+maximum TEU capacity: 1388
+container capacity at 14t (TEU): 1014
+reefer containers (TEU): 150
+deadweight (ton): 20.100
+gross tonnage (ton): 14.865
+handling gear: 3 x 40
+exname 1: RED SEA EXPORTER-95
+exname 2: EXPORTER-97
+exname 3: WIELAND-98
+exname 4: SEABOAED TORONTO-01
+exname 5: KENT COURIE-01
+exname 6: CITY OF OXFORD-04
+exname 7: ESTETRADER-07
+exname 8: CMA CGM VENEZUELA-8
+exname 9: CMA CGM TUNIS-09
+IMO number: 9160401
+1st name: CLASEN  RICKMERS
+flag
+/ nationality: Panama
+owner: S hope Shipping
+operator:
+completion year: 1998 / 08
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 666
+engine design: B&W;
+engine type: 7S70MD
+power output (KW): 19.667
+maximum speed (Kn): 20,5
+overall length (m): 195,50
+overall beam (m): 30,20
+maximum draught (m): 11,00
+maximum TEU capacity: 2230
+container capacity at 14t (TEU): 1744
+reefer containers (TEU): 297
+deadweight (ton): 30.730
+gross tonnage (ton): 25.900
+handling gear: 3 x 45
+exname 1: CSAV ATLANTA
+exname 2: DELMAS BRAZZAVILLE-12
+exname 3: CLASEN  RICKMERS-13
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9641314
+1st name: ??? EIMSKIP, RONGSHENG-SE TYPE 875
+flag
+/ nationality: Antigua
+owner: Eimskipafelag Islands
+operator: Eimskip
+completion year: 2013 05
+shipyard: Rongsheng shenfei shipbuilding, China
+yard / hull number: SF311
+engine design:
+engine type:
+power output (KW):
+maximum speed (Kn): 18,3
+overall length (m): 140,70
+overall beam (m): 23,20
+maximum draught (m): 8,70
+maximum TEU capacity: 875
+container capacity at 14t (TEU):
+reefer containers (TEU): 230
+deadweight (ton): 12.000
+gross tonnage (ton):
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9301811
+1st name: TMM MORELOS
+flag
+/ nationality: Hong Kong
+owner: Seaspan Container Line
+operator: Hapag-Lloyd
+completion year: 2006 / 07
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1543
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4250
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.488
+gross tonnage (ton): 39.941
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8908179
+1st name: CONTSHIP LA SPECIA
+flag
+/ nationality: Liberia
+owner: NSB Niederelbe
+operator:
+completion year: 1990 / !0
+shipyard: A.G. Weser Seebeckwerft, Germany
+yard / hull number: 1085
+engine design: B&W;
+engine type: 6L50MC
+power output (KW): 14.498
+maximum speed (Kn): 18,0
+overall length (m): 163,30
+overall beam (m): 27,50
+maximum draught (m): 10,50
+maximum TEU capacity: 1597
+container capacity at 14t (TEU):
+reefer containers (TEU): 70
+deadweight (ton): 23.596
+gross tonnage (ton): 16.236
+handling gear: 3 x 40
+exname 1: BUXLADY-99
+exname 2: MSC AMAZONIA-01
+exname 3: AKA BHUM-07
+exname 4: OEL MUMBAI-09
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9045534
+1st name: LAL BAHADUR SHASTRI
+flag
+/ nationality: India
+owner: Shipping Corporation of India
+operator: SCI
+completion year: 1993 / 12
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 0819
+engine design: B&W;
+engine type: 7S60MC
+power output (KW): 14.280
+maximum speed (Kn): 18,0
+overall length (m): 188,70
+overall beam (m): 28,40
+maximum draught (m): 10,50
+maximum TEU capacity: 1869
+container capacity at 14t (TEU): 1534
+reefer containers (TEU): 80
+deadweight (ton): 29.902
+gross tonnage (ton): 21.603
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7930412
+1st name: MARITIME TRIUMPH
+flag
+/ nationality: Thailand
+owner: Unithai Shipping
+operator:
+completion year: 1981 / 00
+shipyard: Usuki Shipyard Co. Ltd. , Japan
+yard / hull number: 1512
+engine design: PIL
+engine type: 12PC2-2V-40
+power output (KW): 4.413
+maximum speed (Kn): 15,3
+overall length (m): 130,70
+overall beam (m): 20,10
+maximum draught (m): 6,70
+maximum TEU capacity: 558
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 8.737
+gross tonnage (ton): 6.139
+handling gear: 2 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9484522
+1st name: LANIA
+flag
+/ nationality: Panama
+owner: Wrden Tom
+operator: CSAV
+completion year: 2010 / 07
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4172
+engine design: B&W;
+engine type: 8K98MC-C
+power output (KW): 39.972
+maximum speed (Kn): 24,5
+overall length (m): 260,30
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4400
+container capacity at 14t (TEU): 2970
+reefer containers (TEU): 360
+deadweight (ton): 54.375
+gross tonnage (ton): 42.112
+handling gear: None
+exname 1: LANIA-11
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9301134
+1st name: LANGENESS
+flag
+/ nationality: Antigua
+owner: Briese Schiffahrt
+operator:
+completion year: 2005 / 12
+shipyard: Weihei Shipyard, China
+yard / hull number: CZ045
+engine design: B&W;
+engine type: 6S60MCC
+power output (KW): 13.560
+maximum speed (Kn): 19,0
+overall length (m): 161,40
+overall beam (m): 25,00
+maximum draught (m): 9,90
+maximum TEU capacity: 1306
+container capacity at 14t (TEU): 850
+reefer containers (TEU): 258
+deadweight (ton): 16.939
+gross tonnage (ton): 15.633
+handling gear: 2 x 45
+exname 1: LANGENESS-07
+exname 2: MSC VILNIUS-08
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9216353
+1st name: SANDY RICKMERS
+flag
+/ nationality: Marshall Islands
+owner: Kopping Reederei GmbH
+operator: St. John CL
+completion year: 2001 / 04
+shipyard: Hanjin Heavy Industries Co. Ltd., South Korea
+yard / hull number: 648
+engine design: SUL
+engine type: 8RTA62U
+power output (KW): 17.700
+maximum speed (Kn): 22,0
+overall length (m): 158,70
+overall beam (m): 25,60
+maximum draught (m): 9,00
+maximum TEU capacity: 1260
+container capacity at 14t (TEU): 840
+reefer containers (TEU): 200
+deadweight (ton): 15.315
+gross tonnage (ton): 14.278
+handling gear: None
+exname 1: AGLAIA-08
+exname 2: ST JOHN MIRACLE-11
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9220067
+1st name: BOSKO RICKMERS
+flag
+/ nationality: Marshall Islands
+owner: Kopping Reederei GmbH
+operator:
+completion year: 2001 / 09
+shipyard: Hanjin Heavy Industries Co. Ltd., South Korea
+yard / hull number: 650
+engine design: SUL
+engine type: 8RTA62U
+power output (KW): 17.700
+maximum speed (Kn): 22,0
+overall length (m): 158,70
+overall beam (m): 25,60
+maximum draught (m): 9,00
+maximum TEU capacity: 1260
+container capacity at 14t (TEU): 840
+reefer containers (TEU): 200
+deadweight (ton): 15.315
+gross tonnage (ton): 14.278
+handling gear: None
+exname 1: AMALTHEA-08
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9383596
+1st name: LANTAU BAY
+flag
+/ nationality: Antigua
+owner: Lantau Shipping
+operator: QC Cont. Line
+completion year: 2007 / 07
+shipyard: Daesun Shipbuilding & Engineering  Co Ltd, South Korea
+yard / hull number: 470
+engine design: B&W;
+engine type: 6S46MC-C
+power output (KW): 6.891
+maximum speed (Kn): 17,9
+overall length (m): 142,70
+overall beam (m): 22,60
+maximum draught (m): 8,20
+maximum TEU capacity: 1049
+container capacity at 14t (TEU): 655
+reefer containers (TEU): 180
+deadweight (ton): 12.400
+gross tonnage (ton): 9.850
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9392901
+1st name: LANTAU BEACH
+flag
+/ nationality: Antigua
+owner: Lantau Shipping
+operator: QC Cont. Line
+completion year: 2007 / 09
+shipyard: Daesun Shipbuilding & Engineering  Co Ltd, South Korea
+yard / hull number: 471
+engine design: B&W;
+engine type: 6S46MC-C
+power output (KW): 6.891
+maximum speed (Kn): 17,9
+overall length (m): 142,70
+overall beam (m): 22,60
+maximum draught (m): 8,20
+maximum TEU capacity: 1049
+container capacity at 14t (TEU): 655
+reefer containers (TEU): 180
+deadweight (ton): 12.400
+gross tonnage (ton): 9.850
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9404730
+1st name: LANTAU BEE
+flag
+/ nationality: Antigua
+owner: Lantau Shipping
+operator: Sinotrans
+completion year: 2008 / 11
+shipyard: Daesun Shipbuilding & Engineering  Co Ltd, South Korea
+yard / hull number: 479
+engine design: B&W;
+engine type: 6S46MC-C
+power output (KW): 6.891
+maximum speed (Kn): 17,9
+overall length (m): 142,70
+overall beam (m): 22,60
+maximum draught (m): 8,20
+maximum TEU capacity: 1049
+container capacity at 14t (TEU): 655
+reefer containers (TEU): 180
+deadweight (ton): 12.400
+gross tonnage (ton): 9.850
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9392913
+1st name: LANTAU BREEZE
+flag
+/ nationality: Antigua
+owner: Lantau Shipping
+operator: QC Cont. Line
+completion year: 2008 / 03
+shipyard: Daesun Shipbuilding & Engineering  Co Ltd, South Korea
+yard / hull number: 476
+engine design: B&W;
+engine type: 6S46MC-C
+power output (KW): 6.891
+maximum speed (Kn): 17,9
+overall length (m): 142,70
+overall beam (m): 22,60
+maximum draught (m): 8,20
+maximum TEU capacity: 1049
+container capacity at 14t (TEU): 655
+reefer containers (TEU): 180
+deadweight (ton): 12.400
+gross tonnage (ton): 9.850
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9404728
+1st name: LANTAU BRIDE
+flag
+/ nationality: Antigua
+owner: Lantau Shipping
+operator:
+completion year: 2008 / 08
+shipyard: Daesun Shipbuilding & Engineering  Co Ltd, South Korea
+yard / hull number: 478
+engine design: B&W;
+engine type: 6S46MC-C
+power output (KW): 6.891
+maximum speed (Kn): 17,9
+overall length (m): 142,70
+overall beam (m): 22,60
+maximum draught (m): 8,20
+maximum TEU capacity: 1049
+container capacity at 14t (TEU): 655
+reefer containers (TEU): 180
+deadweight (ton): 12.400
+gross tonnage (ton): 9.850
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9402768
+1st name: LANTAU BRIDGE
+flag
+/ nationality: Antigua
+owner: Lantau Shipping
+operator: Hanjin
+completion year: 2008 / 07
+shipyard: Daesun Shipbuilding & Engineering  Co Ltd, South Korea
+yard / hull number: 477
+engine design: B&W;
+engine type: 6S46MC-C
+power output (KW): 6.891
+maximum speed (Kn): 17,9
+overall length (m): 142,70
+overall beam (m): 22,60
+maximum draught (m): 8,20
+maximum TEU capacity: 1049
+container capacity at 14t (TEU): 655
+reefer containers (TEU): 180
+deadweight (ton): 12.400
+gross tonnage (ton): 9.850
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9274343
+1st name: BELUGA ENTERPRISE
+flag
+/ nationality: Antigua
+owner: Syrean General Authory
+operator:
+completion year: 2005
+shipyard: CSC Jiangdong Shipyard, China
+yard / hull number: 1200-3
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 15,5
+overall length (m): 138,00
+overall beam (m): 21,00
+maximum draught (m): 8,10
+maximum TEU capacity: 673
+container capacity at 14t (TEU):
+reefer containers (TEU): 0
+deadweight (ton): 12.850
+gross tonnage (ton): 9.600
+handling gear: 2 x 120
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9186388
+1st name: LAPPLAND
+flag
+/ nationality: Germany
+owner: Heinrich Petra KG
+operator: Delphis
+completion year: 1998
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1153
+engine design: B&W;
+engine type: 8L40/54
+power output (KW): 5.760
+maximum speed (Kn): 17,0
+overall length (m): 118,50
+overall beam (m): 18,20
+maximum draught (m): 7,10
+maximum TEU capacity: 658
+container capacity at 14t (TEU): 380
+reefer containers (TEU): 102
+deadweight (ton): 6.896
+gross tonnage (ton): 5.056
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9312432
+1st name: LARENTIA
+flag
+/ nationality: Liberia
+owner: Maritime Gesellschafft
+operator: COSCO
+completion year: 2005 / 05
+shipyard: Blohm + Voss GmbH, Germany
+yard / hull number: 964
+engine design: B&W;
+engine type: 7L70MCC
+power output (KW): 21.770
+maximum speed (Kn): 22,3
+overall length (m): 215,50
+overall beam (m): 29,80
+maximum draught (m): 11,60
+maximum TEU capacity: 2702
+container capacity at 14t (TEU): 2070
+reefer containers (TEU): 400
+deadweight (ton): 37.900
+gross tonnage (ton): 30.000
+handling gear: 3 x 40
+exname 1: COSCO BRISBANE-10
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9246566
+1st name: PIONEER GULF
+flag
+/ nationality: Cyprus
+owner: Doehle Peter Schiffahrts
+operator: WEC LINE
+completion year: 2004 / 02
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1070
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 18,5
+overall length (m): 134,00
+overall beam (m): 22,50
+maximum draught (m): 8,70
+maximum TEU capacity: 868
+container capacity at 14t (TEU):
+reefer containers (TEU): 201
+deadweight (ton): 11.200
+gross tonnage (ton): 9.990
+handling gear:
+exname 1: JUDITH BORCHARD
+exname 2: LARISSA-08
+exname 3: WEC VAN GOGH-13
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9294379
+1st name: LARS MAERSK
+flag
+/ nationality: Denmark
+owner: Maersk Line
+operator: Maersk
+completion year: 2004 / 10
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 193
+engine design: SUL
+engine type: 8RT-flex96C
+power output (KW): 45.588
+maximum speed (Kn): 25,0
+overall length (m): 266,00
+overall beam (m): 37,30
+maximum draught (m): 13,00
+maximum TEU capacity: 5057
+container capacity at 14t (TEU): 3700
+reefer containers (TEU): 1.003
+deadweight (ton): 62.994
+gross tonnage (ton): 50.721
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9242558
+1st name: LAURA ANN
+flag
+/ nationality: Antigua
+owner: Eicke Schiffahrt
+operator: Holland maas
+completion year: 2002 / 02
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1143
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 18,5
+overall length (m): 134,00
+overall beam (m): 22,50
+maximum draught (m): 8,70
+maximum TEU capacity: 868
+container capacity at 14t (TEU): 600
+reefer containers (TEU): 201
+deadweight (ton): 11.200
+gross tonnage (ton): 9.990
+handling gear:
+exname 1: RUTH BORCHARD-04
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9190731
+1st name: LAURA MAERSK
+flag
+/ nationality: Denmark
+owner: Maersk Line
+operator: Maersk
+completion year: 2001 / 04
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 171
+engine design: B&W;
+engine type: 10K90MC
+power output (KW): 45.588
+maximum speed (Kn): 25,0
+overall length (m): 266,00
+overall beam (m): 37,30
+maximum draught (m): 13,00
+maximum TEU capacity: 4500
+container capacity at 14t (TEU): 3700
+reefer containers (TEU): 1.010
+deadweight (ton): 63.000
+gross tonnage (ton): 50.721
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9190743
+1st name: LAUST MAERSK
+flag
+/ nationality: Denmark
+owner: Maersk Line
+operator: Maersk
+completion year: 2001 / 06
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 172
+engine design: B&W;
+engine type: 10K90MC
+power output (KW): 45.588
+maximum speed (Kn): 25,0
+overall length (m): 266,00
+overall beam (m): 37,30
+maximum draught (m): 13,00
+maximum TEU capacity: 4500
+container capacity at 14t (TEU): 3700
+reefer containers (TEU): 1.010
+deadweight (ton): 63.000
+gross tonnage (ton): 50.721
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9121857
+1st name: UWE KHARS
+flag
+/ nationality: Antigua
+owner: Ostetrans & Co
+operator:
+completion year: 1997 / 05
+shipyard: Elbewerft Boizenburg GmbH, Germany
+yard / hull number: 230
+engine design: MAK
+engine type: 9M32
+power output (KW): 3.960
+maximum speed (Kn): 17,5
+overall length (m): 100,00
+overall beam (m): 18,20
+maximum draught (m): 6,60
+maximum TEU capacity: 500
+container capacity at 14t (TEU):
+reefer containers (TEU): 75
+deadweight (ton): 5.500
+gross tonnage (ton): 3.999
+handling gear: None
+exname 1: MAERSK MESSINA-01
+exname 2: HMS GOODWILL-08
+exname 3: JOHN MITCHELL-11
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9186754
+1st name: GEORG OLDENDORFF
+flag
+/ nationality: Antigua
+owner: Marconsult Schiffahrt
+operator:
+completion year: 1999
+shipyard: Flensburger Schiffsbau-Gesellschaft MbH & Co. KG, Germany
+yard / hull number: 0703
+engine design: MIT
+engine type: 6UEC50LSII
+power output (KW): 8.250
+maximum speed (Kn): 17,0
+overall length (m): 153,20
+overall beam (m): 23,60
+maximum draught (m): 9,00
+maximum TEU capacity: 1300
+container capacity at 14t (TEU): 1000
+reefer containers (TEU): 63
+deadweight (ton): 20.567
+gross tonnage (ton): 13.066
+handling gear: 2 x 60
+exname 1: CSAV ESTAMBUL-00
+exname 2: LIBRA EQUADOR-02
+exname 3: GEORG OLDENDORF-03
+exname 4: MSC MARACAIBO-07
+exname 5: NILEDUTCH PRESTIGE-09
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8120387
+1st name: SIMON BOLIVAR
+flag
+/ nationality: Marshall Islands
+owner: Interorient Navigation
+operator:
+completion year: 1982 / 00
+shipyard: Guangzhou Wenchong Shipyard, China
+yard / hull number: 201
+engine design: B&W;
+engine type: 6DKRN67
+power output (KW): 6.655
+maximum speed (Kn): 17,8
+overall length (m): 148,70
+overall beam (m): 21,50
+maximum draught (m): 7,70
+maximum TEU capacity: 578
+container capacity at 14t (TEU):
+reefer containers (TEU): 30
+deadweight (ton): 11.060
+gross tonnage (ton): 9.548
+handling gear: None
+exname 1: SIMONS BOLIVARS-92
+exname 2: LATINUS-93
+exname 3: LEVANTE WESER-94
+exname 4: AUSMA LEADER-97
+exname 5: MARINCO LEADER-98
+exname 6: M.F. LEADER-01
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9438585
+1st name: LEANDRA
+flag
+/ nationality: Antigua
+owner: Intersee Schiffahrt
+operator:
+completion year: 2008 / 12
+shipyard: Damen Hoogezand Scheepswerf B.V., Foxtol, Netherlands
+yard / hull number: 7306
+engine design: MAK
+engine type: 9M32
+power output (KW): 4.320
+maximum speed (Kn): 14,0
+overall length (m): 145,60
+overall beam (m): 18,30
+maximum draught (m): 7,50
+maximum TEU capacity: 667
+container capacity at 14t (TEU): 421
+reefer containers (TEU): 60
+deadweight (ton): 10.600
+gross tonnage (ton): 7.878
+handling gear: 2 x 60
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9190755
+1st name: LEDA MAERSK
+flag
+/ nationality: Denmark
+owner: Maersk Line
+operator: Maersk
+completion year: 2001 / 08
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 173
+engine design: B&W;
+engine type: 10K90MC
+power output (KW): 45.588
+maximum speed (Kn): 25,0
+overall length (m): 266,00
+overall beam (m): 37,30
+maximum draught (m): 13,00
+maximum TEU capacity: 4500
+container capacity at 14t (TEU): 3700
+reefer containers (TEU): 1.010
+deadweight (ton): 63.000
+gross tonnage (ton): 50.721
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9213117
+1st name: LEDA TRADER
+flag
+/ nationality: Antigua
+owner: Buss Hermann
+operator:
+completion year: 2000 / 12
+shipyard: Thyssen Nordseewerke GmbH, Germany
+yard / hull number: 527
+engine design: B&W;
+engine type: 7L70MC
+power output (KW): 19.810
+maximum speed (Kn): 22,8
+overall length (m): 207,40
+overall beam (m): 29,80
+maximum draught (m): 11,60
+maximum TEU capacity: 2466
+container capacity at 14t (TEU): 1880
+reefer containers (TEU): 400
+deadweight (ton): 33.970
+gross tonnage (ton): 25.535
+handling gear: 3 x 45
+exname 1: CAP CASTILLO-06
+exname 2: LEDA TRADER-07
+exname 3: MOL SUNSHINE.09
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9159878
+1st name: OOCL AUTHORITY
+flag
+/ nationality: Panama
+owner: Tokai Kaiun
+operator: PIL
+completion year: 1997
+shipyard: Imabari Shipbuilding Co. Ltd., Japan
+yard / hull number: 1289
+engine design: B&W;
+engine type: 6S60MC
+power output (KW): 12.269
+maximum speed (Kn): 20,0
+overall length (m): 183,20
+overall beam (m): 27,60
+maximum draught (m): 10,00
+maximum TEU capacity: 1560
+container capacity at 14t (TEU): 1218
+reefer containers (TEU): 200
+deadweight (ton): 24.336
+gross tonnage (ton): 16.705
+handling gear: None
+exname 1: OOCL AUTHORITY-06
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9275373
+1st name: OOCL OSAKA
+flag
+/ nationality: Panama
+owner: Shoei Kisen
+operator:
+completion year: 2003 / 04
+shipyard: Koyo Dockyard Co. Ltd., Japan
+yard / hull number: 2143
+engine design: B&W;
+engine type: 8K80MC
+power output (KW): 28.880
+maximum speed (Kn): 22,6
+overall length (m): 235,60
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 2762
+container capacity at 14t (TEU): 2200
+reefer containers (TEU): 300
+deadweight (ton): 43.093
+gross tonnage (ton): 34610
+handling gear: None
+exname 1: SYDNEY-11
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9363390
+1st name: KOTA PERDANA
+flag
+/ nationality: Panama
+owner: Clio Marine Inc.
+operator: Wan Hai
+completion year: 2007 / 11
+shipyard: Naikai Zosen Corp., Japan
+yard / hull number: 705
+engine design: B&W;
+engine type: 7S70MC
+power output (KW): 21.771
+maximum speed (Kn): 22,5
+overall length (m): 199,90
+overall beam (m): 32,20
+maximum draught (m): 11,30
+maximum TEU capacity: 2483
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 33.280
+gross tonnage (ton): 27.094
+handling gear: 3 x 45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9162667
+1st name: HERM KIEPE
+flag
+/ nationality: Germany
+owner: Schepers R & Co
+operator:
+completion year: 1997 / 11
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1048
+engine design: MAK
+engine type: MA8M601C
+power output (KW): 10.000
+maximum speed (Kn): 19,0
+overall length (m): 139,10
+overall beam (m): 24,20
+maximum draught (m): 9,20
+maximum TEU capacity: 977
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 13.300
+gross tonnage (ton): 9.961
+handling gear: 2 x 45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9144146
+1st name: WEHR MUDEN
+flag
+/ nationality: Marshall Islands
+owner: Mediterranean Shipping Company
+operator: MSC
+completion year: 1998 / 12
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 170/3/12
+engine design: SUL
+engine type: 6RTA62U
+power output (KW): 13320
+maximum speed (Kn): 19,6
+overall length (m): 184,70
+overall beam (m): 25,30
+maximum draught (m): 10,00
+maximum TEU capacity: 1728
+container capacity at 14t (TEU): 1124
+reefer containers (TEU): 200
+deadweight (ton): 22.983
+gross tonnage (ton): 16.801
+handling gear: 3 x 45
+exname 1: CSAV RIMAC 99
+exname 2: CROWLEY EXPRESS 00
+exname 3: CSAC VALENCIA-01
+exname 4: WEHR MUDEN-01
+exname 5: TMM QUETZAL-02
+exname 6: WEHR MDEN-03
+exname 7: CSAV HOG KONG-04
+exname 8: WEHR MUDEN-06
+exname 9: CMA CGM AZTECA-10
+IMO number: 9272228
+1st name: LEOPOLD STAFF
+flag
+/ nationality: Cyprus
+owner: China-Polish Shipping
+operator: CPS
+completion year: 2004 / 12
+shipyard: Shanghai Shipyard, China
+yard / hull number: 0194
+engine design: SUL
+engine type: 7RT-flex60C
+power output (KW): 16.520
+maximum speed (Kn): 19,2
+overall length (m): 190,90
+overall beam (m): 27,80
+maximum draught (m): 11,00
+maximum TEU capacity: 1900
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 30.430
+gross tonnage (ton): 24.167
+handling gear: 2X320 2X50
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9162485
+1st name: NYK ANTARES
+flag
+/ nationality: Panama
+owner: Zodiac Maritime
+operator: MSC
+completion year: 1997 / 10
+shipyard: Ishikajima-Harima Heavy Industries Co. Ltd, Japan
+yard / hull number: 3086
+engine design: SUL
+engine type: 11RTA96C
+power output (KW): 60.436
+maximum speed (Kn): 23,0
+overall length (m): 299,90
+overall beam (m): 40,00
+maximum draught (m): 13,00
+maximum TEU capacity: 6214
+container capacity at 14t (TEU): 4610
+reefer containers (TEU): 434
+deadweight (ton): 81.819
+gross tonnage (ton): 75.637
+handling gear: None
+exname 1:
+exname 2: MSC LESOTHO
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9246683
+1st name: COSIMA
+flag
+/ nationality: Liberia
+owner: Doehle Peter Schiffahrts
+operator: CMA CGM
+completion year: 2004
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 178/I/11
+engine design: B&W;
+engine type: 7K80MC-C
+power output (KW): 26.270
+maximum speed (Kn): 22,5
+overall length (m): 220,50
+overall beam (m): 32,30
+maximum draught (m): 12,20
+maximum TEU capacity: 3104
+container capacity at 14t (TEU): 2430
+reefer containers (TEU): 500
+deadweight (ton): 41.800
+gross tonnage (ton): 35.800
+handling gear: 3 x 45
+exname 1: NORASIA ATLAS-06
+exname 2: EMIRATES FREEDOM-09
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8003929
+1st name: ALTONIA
+flag
+/ nationality: Zanzania
+owner: Thode GmbH & Co
+operator:
+completion year: 1980 / 00
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 0878
+engine design: MAK
+engine type: 8M551AK
+power output (KW): 2.942
+maximum speed (Kn): 14,0
+overall length (m): 113,20
+overall beam (m): 19,10
+maximum draught (m): 8,50
+maximum TEU capacity: 436
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 6.660
+gross tonnage (ton): 5.307
+handling gear: 2 x 35
+exname 1: ALTONA
+exname 2: MEKONG VALIANCE
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9005546
+1st name: REPULSE BAY
+flag
+/ nationality: United Kingdom
+owner: Blue Star Ship Managment GmbH
+operator: Maersk
+completion year: 1992
+shipyard: 3021
+yard / hull number: SUL
+engine design: 9RTA84C
+engine type: 34.412
+power output (KW): 23,4
+maximum speed (Kn): 292,20
+overall length (m): 32,30
+overall beam (m): 13,00
+maximum draught (m): 4038
+maximum TEU capacity: 2850
+container capacity at 14t (TEU): 7x28
+reefer containers (TEU): 59.093
+deadweight (ton): 50.350
+gross tonnage (ton): cont
+handling gear:
+exname 1: MSC DALTON-10
+exname 2: MAERSK DALTON-13
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9291987
+1st name: LEVANTE
+flag
+/ nationality: Malta
+owner: Bertling F H
+operator:
+completion year: 2004 / 12
+shipyard: Kouan Shipbuilding Industry, China
+yard / hull number: 207
+engine design: SUL
+engine type: 6RTA48TB
+power output (KW): 8.730
+maximum speed (Kn): 14,0
+overall length (m): 188,30
+overall beam (m): 27,70
+maximum draught (m): 10,10
+maximum TEU capacity: 1866
+container capacity at 14t (TEU):
+reefer containers (TEU): 0
+deadweight (ton): 35.200
+gross tonnage (ton): 24.960
+handling gear: 4 x 35
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9613006
+1st name: BEIJING EXPRESS
+flag
+/ nationality: Germany
+owner: Hapag-Lloyd
+operator: Hapag-Lloyd
+completion year: 2013 / 08
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2498
+engine design: SUL
+engine type: 12K 98ME-C7
+power output (KW): 68.840
+maximum speed (Kn): 24,6
+overall length (m): 366,50
+overall beam (m): 48,20
+maximum draught (m): 15,50
+maximum TEU capacity: 13092
+container capacity at 14t (TEU): 9082
+reefer containers (TEU): 800
+deadweight (ton): 140.580
+gross tonnage (ton): 135.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9190767
+1st name: LEXA MAERSK
+flag
+/ nationality: Denmark
+owner: Maersk Line
+operator: Maersk
+completion year: 2001 / 10
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 174
+engine design: B&W;
+engine type: 10K90MC
+power output (KW): 45.588
+maximum speed (Kn): 25,0
+overall length (m): 266,00
+overall beam (m): 37,30
+maximum draught (m): 13,00
+maximum TEU capacity: 4500
+container capacity at 14t (TEU): 3700
+reefer containers (TEU): 1.010
+deadweight (ton): 63.000
+gross tonnage (ton): 50.721
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9236286
+1st name: LEYLA KALKAVAN
+flag
+/ nationality: Marshall Islands
+owner: Turkish Interests
+operator: Turkon
+completion year: 2001
+shipyard: Sedef Shipbuilding Industry Inc., Turkey
+yard / hull number: 122
+engine design: B&W;
+engine type: 7S50MCC
+power output (KW): 11.217
+maximum speed (Kn): 19,0
+overall length (m): 149,00
+overall beam (m): 22,70
+maximum draught (m): 7,80
+maximum TEU capacity: 1250
+container capacity at 14t (TEU):
+reefer containers (TEU): 240
+deadweight (ton): 12.123
+gross tonnage (ton): 9.973
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8105985
+1st name: BIENA J
+flag
+/ nationality: Cyprus
+owner: Shanghai Nevest Navigation
+operator:
+completion year: 1985 / 00
+shipyard: Mie Shipyard Co. Ltd., Japan
+yard / hull number: 206
+engine design: MIT
+engine type: 7UEC45L
+power output (KW): 6.179
+maximum speed (Kn): 16,7
+overall length (m): 120,80
+overall beam (m): 20,90
+maximum draught (m): 7,90
+maximum TEU capacity: 520
+container capacity at 14t (TEU):
+reefer containers (TEU): 228
+deadweight (ton): 9.586
+gross tonnage (ton): 6.734
+handling gear: None
+exname 1: MAERSK MONDO-91
+exname 2: MAERSK ASIA QUINTO-97
+exname 3: SOUTH CHINA EXPRESS-98
+exname 4: SPARROW-02
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7403380
+1st name: EVEN HONESTY
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1975 / 00
+shipyard: NKK Corp. (Nippon Kokan K.K.), Japan
+yard / hull number: 884
+engine design: SUL
+engine type: 6RD68
+power output (KW): 5.884
+maximum speed (Kn): 14,7
+overall length (m): 153,00
+overall beam (m): 22,30
+maximum draught (m): 9,00
+maximum TEU capacity: 680
+container capacity at 14t (TEU):
+reefer containers (TEU): 102
+deadweight (ton): 16.534
+gross tonnage (ton): 11.863
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9370094
+1st name: LIBERTA
+flag
+/ nationality: Germany
+owner: Doehle Peter Schiffahrts
+operator:
+completion year: 2007 / 11
+shipyard: Jiangsu Yangzijiang Shipbuilding Co. Ltd, China
+yard / hull number: 693C
+engine design: B&W;
+engine type: 6K80MCC
+power output (KW): 28.879
+maximum speed (Kn): 23,0
+overall length (m): 196,90
+overall beam (m): 27,80
+maximum draught (m): 11,00
+maximum TEU capacity: 1850
+container capacity at 14t (TEU): 1300
+reefer containers (TEU): 300
+deadweight (ton): 24.277
+gross tonnage (ton): 21.932
+handling gear: 2 x 45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9388388
+1st name: LIBERTAS H
+flag
+/ nationality: Antigua
+owner: Reederei Hinsch
+operator: Maersk
+completion year: 2007 / 09
+shipyard: Cassens Schiffswerft und Maschinenfabrik GmbH, Germany
+yard / hull number: 250
+engine design: MAK
+engine type: 8 M 552 C
+power output (KW): 6.000
+maximum speed (Kn): 18,0
+overall length (m): 127,00
+overall beam (m): 20,40
+maximum draught (m): 7,60
+maximum TEU capacity: 724
+container capacity at 14t (TEU): 440
+reefer containers (TEU): 100
+deadweight (ton): 8.392
+gross tonnage (ton): 7.541
+handling gear:
+exname 1: CMA CGM SAFI-09
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9190779
+1st name: LICA MAERSK
+flag
+/ nationality: Denmark
+owner: Maersk Line
+operator: Maersk
+completion year: 2001 / 11
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 175
+engine design: B&W;
+engine type: 10K90MC
+power output (KW): 45.588
+maximum speed (Kn): 25,0
+overall length (m): 266,00
+overall beam (m): 37,30
+maximum draught (m): 13,00
+maximum TEU capacity: 4500
+container capacity at 14t (TEU): 3700
+reefer containers (TEU): 1.010
+deadweight (ton): 63.000
+gross tonnage (ton): 50.721
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7705403
+1st name: TFL FREEDOM
+flag
+/ nationality: Greece
+owner: Costamare Shipping
+operator:
+completion year: 1978 / 00
+shipyard: Hitachi Zosen Corp., Japan
+yard / hull number: 4592
+engine design: SUL
+engine type: 6RND76
+power output (KW): 8.872
+maximum speed (Kn): 18,5
+overall length (m): 157,10
+overall beam (m): 25,10
+maximum draught (m): 9,20
+maximum TEU capacity: 856
+container capacity at 14t (TEU):
+reefer containers (TEU): 80
+deadweight (ton): 15.451
+gross tonnage (ton): 14.050
+handling gear: None
+exname 1: FREEDOM-87
+exname 2: BRITISH SENATOR-88
+exname 3: JSS LOS ANGELES
+exname 4: ZIM VENEZIA
+exname 5: FREEDOM
+exname 6: LEON-91
+exname 7: PYLOS-91
+exname 8: RATANA THEVI-91
+exname 9: ACX ORCHID-95
+IMO number: 9143465
+1st name: LILA BHUM
+flag
+/ nationality: Singapore
+owner: Regional Container Line
+operator: RCL
+completion year: 1997
+shipyard: Miho Shipyard Co. Ltd., Japan
+yard / hull number: 1473
+engine design: MIT
+engine type: 6UEC45A
+power output (KW): 4.766
+maximum speed (Kn): 16,5
+overall length (m): 135,90
+overall beam (m): 22,30
+maximum draught (m): 8,00
+maximum TEU capacity: 889
+container capacity at 14t (TEU):
+reefer containers (TEU): 100
+deadweight (ton): 10.900
+gross tonnage (ton): 8.443
+handling gear: 2 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9314923
+1st name: CMA CGM LILAC
+flag
+/ nationality: Hong Kong
+owner: Papathomas
+operator: CMA-CGM
+completion year: 2005 / 09
+shipyard: Hyundai Mipo Dockyards Ltd. Co, South Korea
+yard / hull number: 0420
+engine design: B&W;
+engine type: 7K80MC-C
+power output (KW): 25.279
+maximum speed (Kn): 24,0
+overall length (m): 221,20
+overall beam (m): 30,00
+maximum draught (m): 12,00
+maximum TEU capacity: 2824
+container capacity at 14t (TEU): 2030
+reefer containers (TEU): 554
+deadweight (ton): 39.241
+gross tonnage (ton): 27.779
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9318905
+1st name: PIONEER
+flag
+/ nationality: Cyprus
+owner: Marlow Navigation
+operator: ATLANTIC
+completion year: 2004 / 06
+shipyard: Yangfan Ship Group, China
+yard / hull number: 2013
+engine design: MAK
+engine type: 7M43
+power output (KW): 6.300
+maximum speed (Kn): 18,0
+overall length (m): 132,60
+overall beam (m): 19,20
+maximum draught (m): 7,20
+maximum TEU capacity: 672
+container capacity at 14t (TEU): 408
+reefer containers (TEU): 116
+deadweight (ton): 9.500
+gross tonnage (ton): 8.500
+handling gear: 2 x 50
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8413277
+1st name: DOCTOR LYKES
+flag
+/ nationality: Bermuda
+owner: Hapag Lloyd
+operator: Hapag-Lloyd
+completion year: 1987
+shipyard: Mitsui Engineering & Shipbuilding Co. Ltd., Japan
+yard / hull number: 1323
+engine design: B&W;
+engine type: 9L90MCE
+power output (KW): 18.757
+maximum speed (Kn): 21,8
+overall length (m): 259,00
+overall beam (m): 32,30
+maximum draught (m): 11,90
+maximum TEU capacity: 3322
+container capacity at 14t (TEU):
+reefer containers (TEU): 186
+deadweight (ton): 45.688
+gross tonnage (ton): 39.132
+handling gear: None
+exname 1: PRESIDENT ARTUR-96
+exname 2: GENEVIEVE LYKES-98
+exname 3: LYKES EXPLORER-05
+exname 4: CP EXPLORE-05
+exname 5: COPENHAGEN EXPRESS-10
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9264245
+1st name: PAC SUNDA
+flag
+/ nationality: Antigua
+owner: Werse Schiffahrts
+operator: PIL
+completion year: 2003
+shipyard: Jing Jiang Shipyard, China
+yard / hull number:
+engine design: MAK
+engine type: 9M32C
+power output (KW): 4.320
+maximum speed (Kn): 15,5
+overall length (m): 109.4
+overall beam (m): 18,20
+maximum draught (m):
+maximum TEU capacity: 519
+container capacity at 14t (TEU): 290
+reefer containers (TEU):
+deadweight (ton): 5.650
+gross tonnage (ton): 5.234
+handling gear: 2 x 40
+exname 1: CALEDONIE EXPRESS-05
+exname 2: SOUTHERN PASIFIKA-09
+exname 3: INDIC-11
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8324725
+1st name:
+flag
+/ nationality: Antigua
+owner: Johnnes thode KG
+operator:
+completion year: 1984 / 00
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number:
+engine design: B&W;
+engine type:
+power output (KW): 2.940
+maximum speed (Kn): 15,0
+overall length (m): 117,50
+overall beam (m): 20,00
+maximum draught (m): 7,40
+maximum TEU capacity: 541
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 8.340
+gross tonnage (ton): 6.670
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8407747
+1st name: WIKING
+flag
+/ nationality: St Vincent
+owner: Alpex GmbH
+operator:
+completion year: 1984 / 00
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 896
+engine design: MAK
+engine type: 6M35
+power output (KW): 3.000
+maximum speed (Kn): 16,5
+overall length (m): 123,60
+overall beam (m): 21,70
+maximum draught (m): 8,80
+maximum TEU capacity: 754
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 12.167
+gross tonnage (ton): 8.639
+handling gear: 2 x 35
+exname 1: JORK EAGLE
+exname 2: DALSA
+exname 3: WIKING I
+exname 4: WOERMANN ULANGA
+exname 5: KAHIRA, WIKING
+exname 6: CITY OF SALERNO
+exname 7: KARYATEIN
+exname 8: WIKING
+exname 9: SLEIPNER
+IMO number: 9290816
+1st name: LIMARI
+flag
+/ nationality: Liberia
+owner: Doehle Peter Schiffahrts
+operator: CSAV
+completion year: 2005 / 06
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 830
+engine design: SUL
+engine type: 7RTA96C
+power output (KW): 40.044
+maximum speed (Kn): 24,3
+overall length (m): 268,80
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4043
+container capacity at 14t (TEU): 2881
+reefer containers (TEU): 879
+deadweight (ton): 51.870
+gross tonnage (ton): 42.300
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9371919
+1st name: MCP LIMASOL
+flag
+/ nationality: Cyprus
+owner: Intership Navigation Co
+operator: MPC
+completion year: 2007 / 05
+shipyard: Shandong Huanghai Shipyard, China
+yard / hull number: HCY 047
+engine design: DAI
+engine type: 8DKM-28L
+power output (KW): 2.500
+maximum speed (Kn): 15,0
+overall length (m): 117,00
+overall beam (m): 19,70
+maximum draught (m): 6,50
+maximum TEU capacity: 630
+container capacity at 14t (TEU): 406
+reefer containers (TEU): 60
+deadweight (ton): 8.204
+gross tonnage (ton): 5.272
+handling gear: 2 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9108908
+1st name: LIN YUAN
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1996
+shipyard: Qiuxin Shipyard, China
+yard / hull number: 1235
+engine design: MAK
+engine type: 8M552C
+power output (KW): 5.400
+maximum speed (Kn): 15,8
+overall length (m): 123,40
+overall beam (m): 20,80
+maximum draught (m): 7,50
+maximum TEU capacity: 504
+container capacity at 14t (TEU):
+reefer containers (TEU): 55
+deadweight (ton): 9.996
+gross tonnage (ton): 7.065
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9255763
+1st name: BELUGA SENSATION
+flag
+/ nationality: Gibralta
+owner: Hartmann Schiffahrt
+operator:
+completion year: 2004
+shipyard: Bodewes Scheepswerf Volharding B.V., Netherlands
+yard / hull number: 543
+engine design: MAK
+engine type: 8M43
+power output (KW): 7.200
+maximum speed (Kn): 18,3
+overall length (m): 134,70
+overall beam (m): 21,5
+maximum draught (m): 7,00
+maximum TEU capacity: 750
+container capacity at 14t (TEU): 515
+reefer containers (TEU): 100
+deadweight (ton): 9.450
+gross tonnage (ton): 7.680
+handling gear: None
+exname 1: BELUGA SENSATION-11
+exname 2: HAL SENTOSA-11
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9354325
+1st name: LINDA
+flag
+/ nationality: Finland
+owner: OY Langh Ship
+operator: Langh Shipping
+completion year: 2007 / 02
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1230
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 17,7
+overall length (m): 141,10
+overall beam (m): 22,50
+maximum draught (m): 8,70
+maximum TEU capacity: 907
+container capacity at 14t (TEU): 585
+reefer containers (TEU): 204
+deadweight (ton): 11.500
+gross tonnage (ton): 8.885
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9483334
+1st name: LINDAUNIS
+flag
+/ nationality: Liberia
+owner: Buss Hermann
+operator: MCC
+completion year: 2012 / 06
+shipyard: CSC Jiangdong Shipyard, China
+yard / hull number: JD1000-10
+engine design: MAK
+engine type: 9M43
+power output (KW): 9.000
+maximum speed (Kn):
+overall length (m): 157,10
+overall beam (m): 23,80
+maximum draught (m): 11,80
+maximum TEU capacity: 1036
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 12.236
+gross tonnage (ton): 9.000
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9122435
+1st name: LINDAVIA
+flag
+/ nationality: Liberia
+owner: Dauelsberg Hermann
+operator:
+completion year: 1996 / 08
+shipyard: Stocznia Gdansk S.A., Poland
+yard / hull number: 8113/03
+engine design: SUL
+engine type: 6RTA72
+power output (KW): 17930
+maximum speed (Kn): 21,5
+overall length (m): 188,10
+overall beam (m): 30,00
+maximum draught (m): 11,50
+maximum TEU capacity: 2078
+container capacity at 14t (TEU):
+reefer containers (TEU): 300
+deadweight (ton): 30.615
+gross tonnage (ton): 23.540
+handling gear: 3 x 45
+exname 1: SEA LINDAVIA-98
+exname 2: LINDAVIA-98
+exname 3: MAERSK SYDNEY-01
+exname 4: LINDAVIA-06
+exname 5: ACX JASMINE-10
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9261085
+1st name: BELUGA ENERGY
+flag
+/ nationality: Antigua
+owner: Winter Heino
+operator:
+completion year: 2005
+shipyard: Jiangzhou Shipyard Co, China
+yard / hull number: A461
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 15,5
+overall length (m): 138,10
+overall beam (m): 21,00
+maximum draught (m): 8,10
+maximum TEU capacity: 673
+container capacity at 14t (TEU):
+reefer containers (TEU): 0
+deadweight (ton): 12.850
+gross tonnage (ton): 9.600
+handling gear: 2 x 120
+exname 1: BELUGA ENERGY-11
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9223772
+1st name: LING YUN HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 2000
+shipyard: Shanghai Edwards Shipyard, China
+yard / hull number: 180
+engine design: B&W;
+engine type: 6L70MC
+power output (KW): 16.980
+maximum speed (Kn): 20,2
+overall length (m): 179,10
+overall beam (m): 27,60
+maximum draught (m): 10,70
+maximum TEU capacity: 1702
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 25.723
+gross tonnage (ton): 20.569
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9224518
+1st name: LIONS GATE BRIDGE
+flag
+/ nationality: Panama
+owner: Kawasaki Kisen Kaisha
+operator: K-Line
+completion year: 2001 / 09
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1344
+engine design: B&W;
+engine type: 11K98MC
+power output (KW): 58.840
+maximum speed (Kn): 25,0
+overall length (m): 284,60
+overall beam (m): 40,00
+maximum draught (m): 14,00
+maximum TEU capacity: 5610
+container capacity at 14t (TEU): 4856
+reefer containers (TEU): 500
+deadweight (ton): 71.376
+gross tonnage (ton): 68.687
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9287704
+1st name: ITALIA
+flag
+/ nationality: United Kingdom
+owner: Baum&Co; Nordenham
+operator: BG Line
+completion year: 2003 / 10
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 1217
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 19,3
+overall length (m): 137,50
+overall beam (m): 21,30
+maximum draught (m): 7,50
+maximum TEU capacity: 822
+container capacity at 14t (TEU): 516
+reefer containers (TEU): 150
+deadweight (ton): 8.720
+gross tonnage (ton): 7.519
+handling gear: None
+exname 1: OOCL NORPPA-04
+exname 2: GTALAND-12
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9108128
+1st name: CANMAR FORTUNE
+flag
+/ nationality: Bermuda
+owner: Anglo Eastern Ship Managment
+operator: Hapag-Lloyd
+completion year: 1996 / 01
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4037
+engine design: SUL
+engine type: 7RTA72U
+power output (KW): 20.600
+maximum speed (Kn): 20,0
+overall length (m): 216,00
+overall beam (m): 32,20
+maximum draught (m): 11,00
+maximum TEU capacity: 2400
+container capacity at 14t (TEU): 1680
+reefer containers (TEU): 149
+deadweight (ton): 34.330
+gross tonnage (ton): 33.725
+handling gear: None
+exname 1: CAST PROSPECT-05
+exname 2: CP PROSPECT-06
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9509607
+1st name: MEDAMUR
+flag
+/ nationality: Cyprus
+owner: Buss Hermann
+operator:
+completion year: 2009 / 10
+shipyard: Zhejiang Ouhua Shipbuilding Co, China
+yard / hull number: 0551
+engine design: B&W;
+engine type: 6S50MCC
+power output (KW): 8.800
+maximum speed (Kn): 15,0
+overall length (m): 179.40
+overall beam (m): 28,00
+maximum draught (m): 10,00
+maximum TEU capacity: 1158
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 30.500
+gross tonnage (ton): 22.000
+handling gear: 4 x 60
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9102497
+1st name: LISSY SCHULTE
+flag
+/ nationality: Liberia
+owner: Schulte Group
+operator:
+completion year: 1995 / 06
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 170/1/03
+engine design: SUL
+engine type: 6RTA62U
+power output (KW): 13320
+maximum speed (Kn): 19,6
+overall length (m): 184,70
+overall beam (m): 25,30
+maximum draught (m): 10,00
+maximum TEU capacity: 1728
+container capacity at 14t (TEU): 1124
+reefer containers (TEU): 200
+deadweight (ton): 21.679
+gross tonnage (ton): 16.801
+handling gear: 3 x 45
+exname 1: CSAV RUBENS-98
+exname 2: LISSY SCHULTE-02
+exname 3: P&O; NEDLLOYD TAKORADI-04
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9232565
+1st name: CONTSHIP AURORA
+flag
+/ nationality: Germany
+owner: Hapag-Lloyd
+operator: Hapag-Lloyd
+completion year: 2002 / 09
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4082
+engine design: SUL
+engine type: 9RTA96CB
+power output (KW): 51.480
+maximum speed (Kn): 25,2
+overall length (m): 281,00
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4115
+container capacity at 14t (TEU): 2718
+reefer containers (TEU): 1.300
+deadweight (ton): 54.157
+gross tonnage (ton): 45.803
+handling gear: None
+exname 1: CONTSHIP AURORA-05
+exname 2: CP AURORA-06
+exname 3: MAERSK DEXTER-07
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8905969
+1st name: CGM PASCAL
+flag
+/ nationality: United States
+owner: Hapag-Lloyd
+operator: Hapag-Lloyd
+completion year: 1991 / 07
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1074
+engine design: SUL
+engine type: RTA84
+power output (KW): 20.800
+maximum speed (Kn): 21,7
+overall length (m): 242,30
+overall beam (m): 32,20
+maximum draught (m): 11,50
+maximum TEU capacity: 2690
+container capacity at 14t (TEU): 2134
+reefer containers (TEU): 125
+deadweight (ton): 43.714
+gross tonnage (ton): 37.235
+handling gear: None
+exname 1: NEDLLOYD PASCAL-98
+exname 2: CGM PASCAL-00
+exname 3: VILLE DE JUPITER-02
+exname 4: LYKES MOTIVATOR-05
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9232759
+1st name: LIWIA
+flag
+/ nationality: Liberia
+owner: Patjens Reederei
+operator:
+completion year: 2001 / 12
+shipyard: Stocznia Gdynia S.A., Poland
+yard / hull number: 8184/06
+engine design: B&W;
+engine type: 7S70MC
+power output (KW): 21.735
+maximum speed (Kn): 22,5
+overall length (m): 211,80
+overall beam (m): 32,20
+maximum draught (m): 12,00
+maximum TEU capacity: 2732
+container capacity at 14t (TEU): 2267
+reefer containers (TEU): 450
+deadweight (ton): 39.300
+gross tonnage (ton): 32.214
+handling gear: None
+exname 1: MAERSK PARIS-01
+exname 2: MSC CANADA-03
+exname 3: SAFMARINE IKAPA-06
+exname 4: LIWIA-07
+exname 5: OOCL MUMBAI-09
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9290804
+1st name: LOA
+flag
+/ nationality: Liberia
+owner: Doehle Peter Schiffahrts
+operator: CSAV
+completion year: 2005 / 03
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 829
+engine design: SUL
+engine type: 7RTA96C
+power output (KW): 40.044
+maximum speed (Kn): 24,3
+overall length (m): 268,80
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4043
+container capacity at 14t (TEU): 2881
+reefer containers (TEU): 879
+deadweight (ton): 51.870
+gross tonnage (ton): 42.300
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9228564
+1st name: LOBIVIA
+flag
+/ nationality: Liberia
+owner: Dauelsberg Hermann
+operator: Costa CL
+completion year: 2001 / 03
+shipyard: Stocznia Gdynia S.A., Poland
+yard / hull number: 8229/03
+engine design: SUL
+engine type: 6RTA72
+power output (KW): 17930
+maximum speed (Kn): 21,5
+overall length (m): 188,00
+overall beam (m): 30,00
+maximum draught (m): 11,50
+maximum TEU capacity: 2078
+container capacity at 14t (TEU):
+reefer containers (TEU): 250
+deadweight (ton): 30.600
+gross tonnage (ton): 23.540
+handling gear: 3 x 45
+exname 1: CALA PINTADA-08
+exname 2: FATHULKHAIR-09
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471898
+1st name: LOG IN JATOBA
+flag
+/ nationality: Brazil
+owner: Logistica Intermodal
+operator:
+completion year: 2011 / 08
+shipyard: Eisa - Estaleiro Itajai S.A., Brazil
+yard / hull number:
+engine design: SUL
+engine type: 6RTflex 68
+power output (KW): 18.760
+maximum speed (Kn): 20,7
+overall length (m): 218,50
+overall beam (m): 29,80
+maximum draught (m): 10,60
+maximum TEU capacity: 2700
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 37.800
+gross tonnage (ton): 28.355
+handling gear: 3 X 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471903
+1st name: LOG IN JEQUITIBA
+flag
+/ nationality: Brazil
+owner: Logistica Intermodal
+operator:
+completion year: 2013 / 03
+shipyard: Eisa - Estaleiro Itajai S.A., Brazil
+yard / hull number: 506
+engine design: SUL
+engine type: 6RTflex 68
+power output (KW): 18.760
+maximum speed (Kn): 20,7
+overall length (m): 218,50
+overall beam (m): 29,80
+maximum draught (m): 10,60
+maximum TEU capacity: 2700
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 37.800
+gross tonnage (ton): 28.355
+handling gear: 3 X 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9348998
+1st name: CFS PARANAM
+flag
+/ nationality: Brazil
+owner: Log-In Logistics
+operator: Log-In
+completion year: 2007 / 04
+shipyard: Aker Ostsee, Germany
+yard / hull number: 133
+engine design: B&W;
+engine type: 9L 58/64
+power output (KW): 12.600
+maximum speed (Kn): 19,5
+overall length (m): 182,00
+overall beam (m): 25,20
+maximum draught (m): 10,00
+maximum TEU capacity: 1674
+container capacity at 14t (TEU): 1250
+reefer containers (TEU): 300
+deadweight (ton): 24.200
+gross tonnage (ton): 15.000
+handling gear: 3 x45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471886
+1st name: LOG-IN JACARANDA
+flag
+/ nationality: Brazil
+owner: Logistica Intermodal
+operator:
+completion year: 2010 / 11
+shipyard: Eisa - Estaleiro Itajai S.A., Brazil
+yard / hull number:
+engine design: SUL
+engine type: 6RTflex 68
+power output (KW): 18.760
+maximum speed (Kn): 20,7
+overall length (m): 218,50
+overall beam (m): 29,80
+maximum draught (m): 10,60
+maximum TEU capacity: 2700
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 37.800
+gross tonnage (ton): 28.355
+handling gear: 3 X 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471915
+1st name: ??? LOGISTICA. EISA TYPE 2700
+flag
+/ nationality: Brazil
+owner: Logistica Intermodal
+operator:
+completion year: 2013 / 09
+shipyard: Eisa - Estaleiro Itajai S.A., Brazil
+yard / hull number: 507
+engine design: SUL
+engine type: 6RTflex 68
+power output (KW): 18.760
+maximum speed (Kn): 20,7
+overall length (m): 218,50
+overall beam (m): 29,80
+maximum draught (m): 10,60
+maximum TEU capacity: 2700
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 37.800
+gross tonnage (ton): 28.355
+handling gear: 3 X 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9351799
+1st name: CFS PANAMA
+flag
+/ nationality: Brazil
+owner: Log-In Logistics
+operator: Log-In
+completion year: 2007 / 06
+shipyard: Aker Ostsee, Germany
+yard / hull number: 134
+engine design: B&W;
+engine type: 9L 58/64
+power output (KW): 12.600
+maximum speed (Kn): 19,5
+overall length (m): 182,00
+overall beam (m): 25,20
+maximum draught (m): 10,00
+maximum TEU capacity: 1674
+container capacity at 14t (TEU): 1250
+reefer containers (TEU): 300
+deadweight (ton): 24.200
+gross tonnage (ton): 17.000
+handling gear: 3 x45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9082817
+1st name: FRONTARIO
+flag
+/ nationality: Brazil
+owner: Log-In Logistica Intermodal
+operator:
+completion year: 1995
+shipyard: Idustrias Verolme Ishibras, Brazil
+yard / hull number: 412
+engine design: B&W;
+engine type: 6S50MCC.
+power output (KW): 10.230
+maximum speed (Kn): 18,0
+overall length (m): 168,80
+overall beam (m): 27,80
+maximum draught (m): 9,90
+maximum TEU capacity: 1258
+container capacity at 14t (TEU):
+reefer containers (TEU): 80
+deadweight (ton): 19.626
+gross tonnage (ton): 15.509
+handling gear: 3 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9082829
+1st name: FROTASANTOS
+flag
+/ nationality: Brazil
+owner: Log-In Logistica Intermodal
+operator:
+completion year: 1996
+shipyard: Idustrias Verolme Ishibras, Brazil
+yard / hull number: 413
+engine design: B&W;
+engine type: 6S50MCC.
+power output (KW): 10.230
+maximum speed (Kn): 18,0
+overall length (m): 168,80
+overall beam (m): 27,80
+maximum draught (m): 9,90
+maximum TEU capacity: 1258
+container capacity at 14t (TEU):
+reefer containers (TEU): 80
+deadweight (ton): 19.626
+gross tonnage (ton): 15.509
+handling gear: 3 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9309514
+1st name: LOMBARDIA
+flag
+/ nationality: Malta
+owner: Bertling F H
+operator:
+completion year: 2005 / 05
+shipyard: Kouan Shipbuilding Industry, China
+yard / hull number: 208
+engine design: SUL
+engine type: 6RTA48TB
+power output (KW): 8.730
+maximum speed (Kn): 14,0
+overall length (m): 188,30
+overall beam (m): 27,70
+maximum draught (m): 10,10
+maximum TEU capacity: 1866
+container capacity at 14t (TEU):
+reefer containers (TEU): 0
+deadweight (ton): 35.200
+gross tonnage (ton): 24.960
+handling gear: 4 x 35
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9143568
+1st name: LONDON EXPRESS
+flag
+/ nationality: Germany
+owner: Hapag-Lloyd
+operator: Hapag-Lloyd
+completion year: 1998 / 08
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1210
+engine design: B&W;
+engine type: 9K90MC
+power output (KW): 41.130
+maximum speed (Kn): 24,5
+overall length (m): 294,00
+overall beam (m): 32,30
+maximum draught (m): 13,50
+maximum TEU capacity: 4616
+container capacity at 14t (TEU): 3962
+reefer containers (TEU): 452
+deadweight (ton): 66.577
+gross tonnage (ton): 55.279
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9058397
+1st name: LONG HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1994
+shipyard: Guangzhou Wenchong Shipyard, China
+yard / hull number: 263
+engine design: B&W;
+engine type: 6L60MC
+power output (KW): 8.456
+maximum speed (Kn): 17,0
+overall length (m): 148,30
+overall beam (m): 22,50
+maximum draught (m): 8,10
+maximum TEU capacity: 725
+container capacity at 14t (TEU): 693
+reefer containers (TEU): 50
+deadweight (ton): 13.250
+gross tonnage (ton): 9.951
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9057484
+1st name: NORASIA KIEL
+flag
+/ nationality: China
+owner: Hainan Pan Ocean Shipping
+operator:
+completion year: 1994  / 03
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 287
+engine design: MIT
+engine type: 7UEC85LS
+power output (KW): 27.290
+maximum speed (Kn): 22,0
+overall length (m): 242,00
+overall beam (m): 32,20
+maximum draught (m): 12,00
+maximum TEU capacity: 3468
+container capacity at 14t (TEU): 2600
+reefer containers (TEU): 198
+deadweight (ton): 44.585
+gross tonnage (ton): 37.071
+handling gear: None
+exname 1: MSC NEW YORK-06
+exname 2: MARITIM KIEL
+exname 3: MSC NEW YORK-09
+exname 4: MARITIM KIEL-10
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9294836
+1st name: LONGAVI
+flag
+/ nationality: Liberia
+owner: Doehle Peter Schiffahrts
+operator: CSAV
+completion year: 2006 / 05
+shipyard: China Shipbuilding Corp. Kaohsiung Shipyard, Taiwan
+yard / hull number: 832
+engine design: SUL
+engine type: 7RTA96C
+power output (KW): 40.044
+maximum speed (Kn): 24,3
+overall length (m): 268,80
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4043
+container capacity at 14t (TEU): 2881
+reefer containers (TEU): 879
+deadweight (ton): 51.870
+gross tonnage (ton): 42.350
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9200017
+1st name: BOX ISTANBUL
+flag
+/ nationality: Philipphines
+owner: Intersee Schiffahrt
+operator:
+completion year: 1999 / 11
+shipyard: Sedef Shipbuilding Industry Inc., Turkey
+yard / hull number: 026
+engine design: MAK
+engine type: 6M60MC
+power output (KW): 7.500
+maximum speed (Kn): 18,0
+overall length (m): 133,20
+overall beam (m): 20,80
+maximum draught (m): 7,80
+maximum TEU capacity: 744
+container capacity at 14t (TEU):
+reefer containers (TEU):  No Info
+deadweight (ton): 9.500
+gross tonnage (ton): 7.870
+handling gear: 2 x 40
+exname 1: APL BRAZIL-02
+exname 2: CALA PUEBLA-03
+exname 3: MSC ACAPULCO-04
+exname 4: BOX ISTANBUL-08
+exname 5: TIGER CREEK-08
+exname 6: CREEK-08
+exname 7: OAK 1-10
+exname 8:
+exname 9:
+IMO number: 9264233
+1st name: SIEFKE
+flag
+/ nationality: Liberia
+owner: MSG-Moormerland
+operator: Niledutch
+completion year: 2002
+shipyard: Jing Jiang Shipyard, China
+yard / hull number: 2000-108
+engine design: MAK
+engine type: 9M32C
+power output (KW): 4.320
+maximum speed (Kn): 15,5
+overall length (m): 109.4
+overall beam (m): 18,20
+maximum draught (m):
+maximum TEU capacity: 519
+container capacity at 14t (TEU): 290
+reefer containers (TEU):
+deadweight (ton): 5.650
+gross tonnage (ton): 5.234
+handling gear: 2 x 40
+exname 1: PAC SULU-
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9100061
+1st name: DRTE
+flag
+/ nationality: Antigua
+owner: Draxl Manfred
+operator:
+completion year: 1994
+shipyard: Detlef Hegemann Rolandwerft GmbH & Co. KG, Germany
+yard / hull number: 172
+engine design: MWM
+engine type: TBD645-9
+power output (KW): 2.099
+maximum speed (Kn): 16,0
+overall length (m): 108,00
+overall beam (m): 16,40
+maximum draught (m): 6,00
+maximum TEU capacity: 448
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 5.388
+gross tonnage (ton): 3.957
+handling gear: None
+exname 1: MATHILDA-03
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9311763
+1st name: CAPE MAYOR
+flag
+/ nationality: Marshall Islands
+owner: Ofer Shipholding
+operator: Nile Dutch
+completion year: 2006 / 06
+shipyard: Aker Ostsee, Germany
+yard / hull number: 120
+engine design: B&W;
+engine type: 7L70MCC
+power output (KW): 21.770
+maximum speed (Kn): 22,0
+overall length (m): 221,60
+overall beam (m): 29,80
+maximum draught (m): 11,10
+maximum TEU capacity: 2742
+container capacity at 14t (TEU): 2115
+reefer containers (TEU): 400
+deadweight (ton): 37.854
+gross tonnage (ton): 27.786
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9451472
+1st name: LOS ANDES BRIDGE
+flag
+/ nationality: Panama
+owner: Temm Maritime Co.
+operator: K-Line
+completion year: 2009 / 03
+shipyard: Naikai Zosen Corp., Japan
+yard / hull number: 726
+engine design: B&W;
+engine type: 7S70MC
+power output (KW): 21.771
+maximum speed (Kn): 22,5
+overall length (m): 199,90
+overall beam (m): 32,20
+maximum draught (m): 11,30
+maximum TEU capacity: 2483
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 33.280
+gross tonnage (ton): 27.094
+handling gear: 3 x 45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9252541
+1st name: NORTHERN MAGNUM
+flag
+/ nationality: Germany
+owner: Norddeutsche Reederei NAV
+operator: Hapag-Lloyd
+completion year: 2003 / 10
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4092
+engine design: B&W;
+engine type: 10K98MCC
+power output (KW): 57.059
+maximum speed (Kn): 25,6
+overall length (m): 300,00
+overall beam (m): 40,00
+maximum draught (m): 14,50
+maximum TEU capacity: 6750
+container capacity at 14t (TEU): 4880
+reefer containers (TEU): 550
+deadweight (ton): 85.810
+gross tonnage (ton): 75.590
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8705486
+1st name: ALLIGATOR VICTORY
+flag
+/ nationality: Panama
+owner: Danaos Shipping
+operator: CSAV
+completion year: 1988 / 01
+shipyard: Imabari Shipbuilding Co. Ltd., Japan
+yard / hull number: 1162
+engine design: B&W;
+engine type: 9L80MC
+power output (KW): 27.860
+maximum speed (Kn): 21,5
+overall length (m): 253,30
+overall beam (m): 32,30
+maximum draught (m): 11,60
+maximum TEU capacity: 2914
+container capacity at 14t (TEU):
+reefer containers (TEU): 300
+deadweight (ton): 40.638
+gross tonnage (ton): 42.809
+handling gear: None
+exname 1: MOL VICTORY-04
+exname 2: VICTORY I-07
+exname 3: CMA CGM LOTUS-10
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9305013
+1st name: FRISIA KOPENHAGEN
+flag
+/ nationality: Marshall Islands
+owner: MTM Ship Management
+operator: COSCO
+completion year: 2005 / 09
+shipyard: Thyssen Nordseewerke GmbH, Germany
+yard / hull number: 547
+engine design: B&W;
+engine type: 7L70MC
+power output (KW): 20.930
+maximum speed (Kn): 22,3
+overall length (m): 215,50
+overall beam (m): 29,80
+maximum draught (m): 11,60
+maximum TEU capacity: 2702
+container capacity at 14t (TEU): 2100
+reefer containers (TEU): 400
+deadweight (ton): 37.590
+gross tonnage (ton): 30.000
+handling gear: None
+exname 1: COSCO KARACHI-10
+exname 2: FRISIA KOPENHAGEN-11
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9219381
+1st name: PATRICIA
+flag
+/ nationality: Antigua
+owner: Doehle Peter Schiffahrts
+operator: Libra
+completion year: 2002 / 03
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 178/I/05
+engine design: B&W;
+engine type: 7K80MC-C
+power output (KW): 26.270
+maximum speed (Kn): 22,5
+overall length (m): 220,50
+overall beam (m): 32,30
+maximum draught (m): 12,20
+maximum TEU capacity: 3104
+container capacity at 14t (TEU): 2430
+reefer containers (TEU): 500
+deadweight (ton): 41.800
+gross tonnage (ton): 35.645
+handling gear: 3 x 45
+exname 1: AMASIA-03
+exname 2: LIBRA SANTOS-03
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9336294
+1st name: KATHARINA SIBUM
+flag
+/ nationality: Antigua
+owner: Sibum Bernd Reederei
+operator: BCL
+completion year: 2006 / 03
+shipyard: Yangfan Ship Group, China
+yard / hull number: 2032
+engine design: MAK
+engine type: 7M43
+power output (KW): 6.300
+maximum speed (Kn): 19,0
+overall length (m): 132,60
+overall beam (m): 19,20
+maximum draught (m): 7,20
+maximum TEU capacity: 672
+container capacity at 14t (TEU): 408
+reefer containers (TEU): 116
+deadweight (ton): 8.236
+gross tonnage (ton): 6.701
+handling gear: 2 x 40
+exname 1: BCL IWONA-10
+exname 2: KATHARINA SIBUM-12
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9293753
+1st name: LT CORTESIA
+flag
+/ nationality: Germany
+owner: NSB Niederelbe
+operator: Evergreen
+completion year: 2005 / 04
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1512
+engine design: SUL
+engine type: 12RTA96C
+power output (KW): 65.880
+maximum speed (Kn): 25,8
+overall length (m): 339,90
+overall beam (m): 42,80
+maximum draught (m): 14,50
+maximum TEU capacity: 8073
+container capacity at 14t (TEU): 6170
+reefer containers (TEU): 700
+deadweight (ton): 100.836
+gross tonnage (ton): 90.449
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8818166
+1st name: NUOVA GENOVA
+flag
+/ nationality: Malta
+owner: Technomar Shipping
+operator: Evergreen
+completion year: 1993 / 08
+shipyard: Fincantieri-Cantieri Navali Italiani S.p.A., Italy
+yard / hull number: 5912
+engine design: SUL
+engine type: 7TRA84
+power output (KW): 23.700
+maximum speed (Kn): 23,0
+overall length (m): 234,00
+overall beam (m): 32,20
+maximum draught (m): 15,20
+maximum TEU capacity: 2987
+container capacity at 14t (TEU): 2350
+reefer containers (TEU): 150
+deadweight (ton): 42.164
+gross tonnage (ton): 38.395
+handling gear: None
+exname 1: LT GENOVA-12
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8618437
+1st name: NUOVA LLOYDDIANA
+flag
+/ nationality: Italy
+owner: Technomar Shipping
+operator: Evergreen
+completion year: 1989
+shipyard: Fincantieri-Cantieri Navali Italiani S.p.A., Italy
+yard / hull number: 5856
+engine design: SUL
+engine type: 7RTA84
+power output (KW): 23.170
+maximum speed (Kn): 20,5
+overall length (m): 231,60
+overall beam (m): 32,20
+maximum draught (m): 11,20
+maximum TEU capacity: 2758
+container capacity at 14t (TEU):
+reefer containers (TEU): 746
+deadweight (ton): 37.000
+gross tonnage (ton): 33.000
+handling gear: None
+exname 1: LT LLOYDIANA-00
+exname 2: NUOVA LLOYDIANA-01
+exname 3: LT LLOYDIANA-02
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8818178
+1st name: NUOVO TRIESTE
+flag
+/ nationality: Malta
+owner: Technomar Shipping
+operator: Evergreen
+completion year: 1993
+shipyard: Fincantieri-Cantieri Navali Italiani S.p.A., Italy
+yard / hull number: 5914
+engine design: SUL
+engine type: 7RTA84
+power output (KW): 23.700
+maximum speed (Kn): 23,0
+overall length (m): 234,00
+overall beam (m): 32,30
+maximum draught (m): 15,20
+maximum TEU capacity: 2987
+container capacity at 14t (TEU): 2350
+reefer containers (TEU): 150
+deadweight (ton): 41.500
+gross tonnage (ton): 38.395
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8322789
+1st name: SEA LION
+flag
+/ nationality: United States
+owner: Osprey Ship Management
+operator: APL
+completion year: 1985 / 00
+shipyard: Odense Steel Shipyard AS, Denmark
+yard / hull number: 112
+engine design: SUL
+engine type: 7RTA76
+power output (KW): 17.186
+maximum speed (Kn): 18,5
+overall length (m): 186,40
+overall beam (m): 32,20
+maximum draught (m): 11.00
+maximum TEU capacity: 2230
+container capacity at 14t (TEU):
+reefer containers (TEU): 100
+deadweight (ton): 36.026
+gross tonnage (ton): 34.318
+handling gear: 2 x G40
+exname 1: AMERICAN MICHIGAN
+exname 2: CALVIN P. TITUS
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8212714
+1st name: AMERICAN UTAH
+flag
+/ nationality: United States
+owner: Maersk Line
+operator: US Gov
+completion year: 1985 / 00
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4011
+engine design: SUL
+engine type: 7RLB90
+power output (KW): 20.596
+maximum speed (Kn): 17,9
+overall length (m): 289,50
+overall beam (m): 32,20
+maximum draught (m): 11,70
+maximum TEU capacity: 4614
+container capacity at 14t (TEU): 2600
+reefer containers (TEU): 146
+deadweight (ton): 59.810
+gross tonnage (ton): 57.075
+handling gear: None
+exname 1: LTC JOHN U.D. PAGE-10
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8405921
+1st name: JOHN WULFF
+flag
+/ nationality: St. Kitts
+owner: Osman Shipping
+operator:
+completion year: 1985 / 08
+shipyard: J.J. Sietas KG Schiffswerft GmbH & Co., Germany
+yard / hull number: 0938
+engine design: MAK
+engine type: 6M601AK
+power output (KW): 3.236
+maximum speed (Kn): 17,0
+overall length (m): 133,40
+overall beam (m): 21,80
+maximum draught (m): 7,60
+maximum TEU capacity: 754
+container capacity at 14t (TEU):
+reefer containers (TEU): 80
+deadweight (ton): 9.327
+gross tonnage (ton): 8.643
+handling gear: 2 x 35
+exname 1: VILE DE NADIR-86
+exname 2: JOHN WULFF
+exname 3: MAERSK PINTO
+exname 4: MAERSK JAKART 87
+exname 5: JOHN WULLT 87
+exname 6: KALKARA-93
+exname 7: RIDGE-93
+exname 8: GUATEMALA-00
+exname 9: JOHN WULLF-99
+IMO number: 9120748
+1st name: LUHE
+flag
+/ nationality: Panama
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1997
+shipyard: Kawasaki Heavy Industries Ltd, Japan
+yard / hull number: 1459
+engine design: B&W;
+engine type: 10L90MC
+power output (KW): 43.100
+maximum speed (Kn): 24,5
+overall length (m): 280,00
+overall beam (m): 39,80
+maximum draught (m): 12,50
+maximum TEU capacity: 5440
+container capacity at 14t (TEU): 4330
+reefer containers (TEU): 1.002
+deadweight (ton): 68.950
+gross tonnage (ton): 65.140
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9539509
+1st name: NORDIC STETTIN
+flag
+/ nationality: Cyprus
+owner: Nordic Hamburg Shipping
+operator:
+completion year: 2013 / 07
+shipyard: Rongcheng Shenfei Shipyard, China
+yard / hull number: SF306
+engine design:
+engine type:
+power output (KW): 26.160
+maximum speed (Kn): 22,3
+overall length (m): 227,50
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 3405
+container capacity at 14t (TEU): 2500
+reefer containers (TEU): 539
+deadweight (ton): 42.000
+gross tonnage (ton):
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7704590
+1st name: NEDLLOYD ROTTERDAM
+flag
+/ nationality: France
+owner: CMA CGM
+operator: CMA-CGM
+completion year: 1978 / 00
+shipyard: Verolme Botlek, Netherlands
+yard / hull number: 964
+engine design: SUL
+engine type:
+power output (KW):
+maximum speed (Kn): 20,0
+overall length (m): 196,70
+overall beam (m): 32,20
+maximum draught (m): 10,70
+maximum TEU capacity: 1351
+container capacity at 14t (TEU):
+reefer containers (TEU): 100
+deadweight (ton): 22.520
+gross tonnage (ton): 35.763
+handling gear: 1 x 40
+exname 1: ROTTERDAM
+exname 2: NEDLLOYD ROTTERDAM
+exname 3: KAGORO
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9242297
+1st name: LUCIEN G A
+flag
+/ nationality: Turkey
+owner: Arkas Group
+operator: MISC
+completion year: 2002 / 08
+shipyard: Peene-Werft GmbH, Germany
+yard / hull number: 435
+engine design: B&W;
+engine type: 7S50
+power output (KW): 11.060
+maximum speed (Kn): 19,3
+overall length (m): 148,00
+overall beam (m): 24,50
+maximum draught (m): 9,00
+maximum TEU capacity: 1221
+container capacity at 14t (TEU): 918
+reefer containers (TEU): 178
+deadweight (ton): 16.833
+gross tonnage (ton): 11.108
+handling gear:
+exname 1: SITC BANGKOK-06
+exname 2: TS KOBE-06
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9435686
+1st name: LUDWIG SCHULTE
+flag
+/ nationality: Cyprus
+owner: Schulte Group
+operator: Wan Hai
+completion year: 2008 / 03
+shipyard: Guangzhou Wenchong Shipyard, China
+yard / hull number: 368
+engine design: B&W;
+engine type: 7S60MC
+power output (KW): 14.325
+maximum speed (Kn): 20,5
+overall length (m): 175,00
+overall beam (m): 24,80
+maximum draught (m): 9,50
+maximum TEU capacity: 1740
+container capacity at 14t (TEU): 1330
+reefer containers (TEU): 296
+deadweight (ton): 23.580
+gross tonnage (ton): 18.334
+handling gear: 2 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9613018
+1st name: LUDWIGSHAFEN EXPRESS
+flag
+/ nationality: Germany
+owner: Hapag-Lloyd
+operator: Hapag-Lloyd
+completion year: 2013 / 11
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 2499
+engine design: SUL
+engine type: 12K 98ME-C7
+power output (KW): 68.840
+maximum speed (Kn): 24,6
+overall length (m): 366,50
+overall beam (m): 48,20
+maximum draught (m): 15,50
+maximum TEU capacity: 13092
+container capacity at 14t (TEU): 9082
+reefer containers (TEU): 800
+deadweight (ton): 140.580
+gross tonnage (ton): 135.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9013282
+1st name: CCNI AUSTRAL
+flag
+/ nationality: Antigua
+owner: Marconsult Schifahrt
+operator:
+completion year: 1992
+shipyard: Naikai Zosen Corp., Japan
+yard / hull number: 568
+engine design: B&W;
+engine type: 7S60MC
+power output (KW): 9.421
+maximum speed (Kn): 18,0
+overall length (m): 176,70
+overall beam (m): 27,10
+maximum draught (m): 10,00
+maximum TEU capacity: 1300
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 21.850
+gross tonnage (ton): 17.726
+handling gear: 3 x 40
+exname 1: MARGRET OLDENDORF-02
+exname 2: MSC DAMAS-03
+exname 3: NDS PROTEUS-03
+exname 4: TASMAN CHALLENGER
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9435674
+1st name: LUISA SCHULTE
+flag
+/ nationality: Cyprus
+owner: Schulte Group
+operator:
+completion year: 2007 / 12
+shipyard: Guangzhou Wenchong Shipyard, China
+yard / hull number: 367
+engine design: B&W;
+engine type: 7S60MC
+power output (KW): 14.325
+maximum speed (Kn): 20,5
+overall length (m): 175,00
+overall beam (m): 24,80
+maximum draught (m): 9,50
+maximum TEU capacity: 1740
+container capacity at 14t (TEU): 1330
+reefer containers (TEU): 296
+deadweight (ton): 23.580
+gross tonnage (ton): 18.334
+handling gear: 2 x 40
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9186742
+1st name: JOHANN OLDENDORFF
+flag
+/ nationality: Liberia
+owner: Eurodevopment
+operator:
+completion year: 1999
+shipyard: Flensburger Schiffsbau-Gesellschaft MbH & Co. KG, Germany
+yard / hull number: 0701
+engine design: MIT
+engine type: 6UEC50LSII
+power output (KW): 8.250
+maximum speed (Kn): 17,0
+overall length (m): 153,20
+overall beam (m): 23,60
+maximum draught (m): 9,00
+maximum TEU capacity: 1300
+container capacity at 14t (TEU): 1000
+reefer containers (TEU): 63
+deadweight (ton): 20.567
+gross tonnage (ton): 13.066
+handling gear: 2 x 60
+exname 1: MARUBA FITZ ROY-05
+exname 2: MSC CANADA-07
+exname 3: NILEDUTCH PORTUGAL-09
+exname 4: EILA-11
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8807571
+1st name: TRADE FAST
+flag
+/ nationality: Panama
+owner: GMS Ship Management
+operator: MSC
+completion year: 1992
+shipyard: Shanghai Shipyard, China
+yard / hull number: 0145
+engine design: SUL
+engine type: 6RTA48
+power output (KW):
+maximum speed (Kn): 16,0
+overall length (m): 147,5
+overall beam (m): 22,5
+maximum draught (m):
+maximum TEU capacity: 834
+container capacity at 14t (TEU): 609
+reefer containers (TEU): 50
+deadweight (ton): 13.453
+gross tonnage (ton): 9.870
+handling gear: None
+exname 1: MSC ALGERIE-12
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9139062
+1st name: LUOBAHE
+flag
+/ nationality: Panama
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1998 / 03
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1202
+engine design: B&W;
+engine type: 6L80MC
+power output (KW): 18.544
+maximum speed (Kn): 21,0
+overall length (m): 242,90
+overall beam (m): 32,20
+maximum draught (m): 10,80
+maximum TEU capacity: 3400
+container capacity at 14t (TEU): 2450
+reefer containers (TEU): 300
+deadweight (ton): 44.700
+gross tonnage (ton): 36.722
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8108793
+1st name: LUO HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1983
+shipyard: A.G. Weser Seebeckwerft, Germany
+yard / hull number: 1032
+engine design: MAN
+engine type: K7SZ70/150C
+power output (KW): 11.559
+maximum speed (Kn): 17,8
+overall length (m): 170,00
+overall beam (m): 28,50
+maximum draught (m): 10,70
+maximum TEU capacity: 1234
+container capacity at 14t (TEU):
+reefer containers (TEU): 60
+deadweight (ton): 26.025
+gross tonnage (ton): 19.915
+handling gear: 2 x 36
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8319756
+1st name: SOMERS BAY
+flag
+/ nationality: Hong Kong
+owner: Zhoushan Luoda
+operator:
+completion year: 1983 / 00
+shipyard: Watanabe Shipbuilding Co. Ltd., Japan
+yard / hull number: 225
+engine design: MIT
+engine type: 7UEC45HA
+power output (KW): 5.149
+maximum speed (Kn): 15,0
+overall length (m): 137,20
+overall beam (m): 21,00
+maximum draught (m): 7,90
+maximum TEU capacity: 540
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 12.083
+gross tonnage (ton): 8.654
+handling gear: 1 x 31
+exname 1: SEA LINK-05
+exname 2: MCC VANTAGE-07
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9246695
+1st name: COLETTA
+flag
+/ nationality: Liberia
+owner: Doehle Peter Schiffahrts
+operator:
+completion year: 2005 / 04
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 178/I/12
+engine design: B&W;
+engine type: 7K80MC-C
+power output (KW): 26.270
+maximum speed (Kn): 22,5
+overall length (m): 220,50
+overall beam (m): 32,30
+maximum draught (m): 12,20
+maximum TEU capacity: 3104
+container capacity at 14t (TEU): 2430
+reefer containers (TEU): 500
+deadweight (ton): 41.850
+gross tonnage (ton): 35.800
+handling gear: 3 x 45
+exname 1: CSAV RIO TRANCURA-07
+exname 2: EMIRATES MARINA-12
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9126962
+1st name: JORK
+flag
+/ nationality: Antigua
+owner: Fischer Reederei
+operator:
+completion year: 1996 / 04
+shipyard: Volkswerft Stralsund GmbH, Germany
+yard / hull number: 406
+engine design: SUL
+engine type: 7RTA52U
+power output (KW): 10920
+maximum speed (Kn): 19,6
+overall length (m): 157,10
+overall beam (m): 23,50
+maximum draught (m): 9,30
+maximum TEU capacity: 1122
+container capacity at 14t (TEU): 748
+reefer containers (TEU): 150
+deadweight (ton): 14.630
+gross tonnage (ton): 12.029
+handling gear: 2 x 45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 7820980
+1st name: SEALAND MARINER
+flag
+/ nationality: Marshall Islands
+owner: Target Marine S A
+operator:
+completion year: 1980 / 00
+shipyard: Mitsui Engineering & Shipbuilding Co. Ltd., Japan
+yard / hull number: 1200
+engine design: SUL
+engine type: 9RND90M
+power output (KW): 22.177
+maximum speed (Kn): 20,7
+overall length (m): 257,50
+overall beam (m): 30,70
+maximum draught (m): 10,70
+maximum TEU capacity: 2816
+container capacity at 14t (TEU): 2252
+reefer containers (TEU): 261
+deadweight (ton): 35.955
+gross tonnage (ton): 32.629
+handling gear: None
+exname 1: CMA CGM LYS-09
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:

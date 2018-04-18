@@ -3,3 +3,7 @@
 /build-xcode
 /assets/*.dat
 /assets/rect_output.png
+/crawler/.idea/workspace.xml
+/modis/tif
+/modis/*.pyc
+/modis/__pycache__

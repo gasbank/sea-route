@@ -1,0 +1,2418 @@
+IMO number: 9336282
+1st name: BERNHARD SIBUM
+flag
+/ nationality: Cyprus
+owner: Reider Shipping BV
+operator: SITC
+completion year: 2005 / 10
+shipyard: Yangfan Ship Group, China
+yard / hull number: 2031
+engine design: MAK
+engine type: 7M43
+power output (KW): 6.300
+maximum speed (Kn): 19,0
+overall length (m): 132,60
+overall beam (m): 19,20
+maximum draught (m): 7,20
+maximum TEU capacity: 672
+container capacity at 14t (TEU): 408
+reefer containers (TEU): 116
+deadweight (ton): 8.236
+gross tonnage (ton): 6.674
+handling gear: 2 x 40
+exname 1: SITC FORTUNE-09
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9109079
+1st name: GUDRUN
+flag
+/ nationality: Antigua
+owner: Draxl Manfred
+operator:
+completion year: 1995
+shipyard: Detlef Hegemann Rolandwerft GmbH & Co. KG, Germany
+yard / hull number: 173
+engine design: MWM
+engine type: TBD645L9
+power output (KW): 2.099
+maximum speed (Kn): 16,0
+overall length (m): 113,10
+overall beam (m): 16,40
+maximum draught (m): 6,10
+maximum TEU capacity: 510
+container capacity at 14t (TEU):
+reefer containers (TEU): 60
+deadweight (ton): 5.660
+gross tonnage (ton): 4.628
+handling gear: None
+exname 1: JANE-98
+exname 2: CITY OF OPORTO-98
+exname 3: PELAYO-01
+exname 4: CITY OF PORTO-04
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9111486
+1st name: HASSELWEDER
+flag
+/ nationality: Morocco
+owner: Bartels Gerd
+operator:
+completion year: 1995 / 08
+shipyard: Stocznia Szczecinska S.A., Poland
+yard / hull number: 183/2/26
+engine design: B&W;
+engine type: 6L50MC
+power output (KW): 6.930
+maximum speed (Kn): 17,7
+overall length (m): 162,8
+overall beam (m): 22,3
+maximum draught (m): 8,3
+maximum TEU capacity: 1162
+container capacity at 14t (TEU): 750
+reefer containers (TEU): 100
+deadweight (ton): 14.111
+gross tonnage (ton): 10.795
+handling gear: 3 x 40
+exname 1: CMBT OCEANIA-01
+exname 2: HASSELWEDER-02
+exname 3: CMA CGM BELEM-04
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9168324
+1st name: NYK SIRIUS
+flag
+/ nationality: Panama
+owner: Zodiac Maritime
+operator: MSC
+completion year: 1998 / 04
+shipyard: Mitsui Engineering & Shipbuilding Co. Ltd., Japan
+yard / hull number: 1445
+engine design: B&W;
+engine type: 12K90MC
+power output (KW): 60.436
+maximum speed (Kn): 23
+overall length (m): 299,9
+overall beam (m): 40
+maximum draught (m): 13
+maximum TEU capacity: 6148
+container capacity at 14t (TEU): 4912
+reefer containers (TEU): 500
+deadweight (ton): 72.238
+gross tonnage (ton): 71.847
+handling gear: None
+exname 1: MSC ZAMBIA-12
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9261451
+1st name: SHANGHAI BRIDGE
+flag
+/ nationality: Panama
+owner: Anglo Eastern Shipmanagement
+operator: APL
+completion year: 2002 / 07
+shipyard: Koyo Dockyard Co. Ltd., Japan
+yard / hull number: 2136
+engine design: SUL
+engine type: 11RTA96C
+power output (KW): 60.390
+maximum speed (Kn): 25,0
+overall length (m): 278,90
+overall beam (m): 40,00
+maximum draught (m): 14,00
+maximum TEU capacity: 5570
+container capacity at 14t (TEU): 4170
+reefer containers (TEU): 440
+deadweight (ton): 66.500
+gross tonnage (ton): 66.800
+handling gear: None
+exname 1: KOTA SINGA-11
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9404027
+1st name: ZAPOLYARNYY
+flag
+/ nationality: Russia
+owner: Norilsk Nickel-Murmansk
+operator: Norilsk Nickel
+completion year: 2008 / 10
+shipyard: Aker Ostsee, Germany
+yard / hull number: 158
+engine design: WAR
+engine type: 12V32
+power output (KW): 6.000
+maximum speed (Kn): 15,5
+overall length (m): 169,40
+overall beam (m): 23,10
+maximum draught (m): 9,00
+maximum TEU capacity: 650
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 18.486
+gross tonnage (ton): 16.994
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9349679
+1st name: IRAN TAJAN
+flag
+/ nationality: Malta
+owner: Iran Shipping Line
+operator: IRISL
+completion year: 2008 / 06
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1823
+engine design: B&W;
+engine type: 10K98ME
+power output (KW): 68.382
+maximum speed (Kn): 25,5
+overall length (m): 300,40
+overall beam (m): 40,00
+maximum draught (m): 14,50
+maximum TEU capacity: 6622
+container capacity at 14t (TEU): 4840
+reefer containers (TEU): 600
+deadweight (ton): 85.250
+gross tonnage (ton): 75.000
+handling gear: None
+exname 1: SIXTH OCEAN-08
+exname 2: DECRETIVE-11
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9314363
+1st name: SCL BASILEA
+flag
+/ nationality: Switzerland
+owner: Swiss Cargo Line
+operator:
+completion year: 2006
+shipyard: Kyokuyo Shipyard Corp. , Japan
+yard / hull number: 457
+engine design: B&W;
+engine type: 8S42MC
+power output (KW): 8.200
+maximum speed (Kn): 17,0
+overall length (m): 140,00
+overall beam (m): 21,50
+maximum draught (m):
+maximum TEU capacity: 766
+container capacity at 14t (TEU): 536
+reefer containers (TEU): 120
+deadweight (ton): 12.680
+gross tonnage (ton): 9.990
+handling gear: 2 x 80
+exname 1: SAFMARINE BASILEA-10
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9402081
+1st name: BELUGA FREEDOM
+flag
+/ nationality: Canada
+owner: Transport Desgagnes Inc
+operator:
+completion year: 2008 / 06
+shipyard: Qingshan Shipyard,China
+yard / hull number: QS20060303
+engine design: MAK
+engine type: 9M43
+power output (KW): 8.400
+maximum speed (Kn): 15,5
+overall length (m): 138,10
+overall beam (m): 21,00
+maximum draught (m): 8,10
+maximum TEU capacity: 673
+container capacity at 14t (TEU): 542
+reefer containers (TEU): 25
+deadweight (ton): 12.850
+gross tonnage (ton): 9.600
+handling gear: 2 x 120
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9127813
+1st name: ZENITH
+flag
+/ nationality: Marshall Islands
+owner: Alpha Shipmanagement
+operator: MOL
+completion year: 1998 / 08
+shipyard: Stocznia Gdansk S.A., Poland
+yard / hull number: 8138/04
+engine design: B&W;
+engine type: 6L70MC
+power output (KW): 15710
+maximum speed (Kn): 21
+overall length (m): 178
+overall beam (m): 28,2
+maximum draught (m): 9,7
+maximum TEU capacity: 1648
+container capacity at 14t (TEU): 1250
+reefer containers (TEU): 350
+deadweight (ton): 24.049
+gross tonnage (ton): 21.199
+handling gear: 2 x 45
+exname 1: MAERSK WELLINGTON-01
+exname 2: SAFMARINE AMAZON-06
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9146687
+1st name: ZHAO QING HE
+flag
+/ nationality: Panama
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1996
+shipyard: Kanasashi Shipbuilding Co. Ltd., Japan
+yard / hull number: 3388
+engine design: B&W;
+engine type: 6L50MC
+power output (KW): 7.875
+maximum speed (Kn): 17,0
+overall length (m): 144,70
+overall beam (m): 25,00
+maximum draught (m): 8,60
+maximum TEU capacity: 836
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 15.920
+gross tonnage (ton): 12.122
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8110564
+1st name: PAPUA
+flag
+/ nationality: China
+owner: Taizhou Jinang Shipping
+operator:
+completion year: 1983
+shipyard: Guangzhou Shipyard, China
+yard / hull number:
+engine design:
+engine type:
+power output (KW):
+maximum speed (Kn):
+overall length (m):
+overall beam (m):
+maximum draught (m):
+maximum TEU capacity:
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton):
+gross tonnage (ton):
+handling gear:
+exname 1: PAPUA-07
+exname 2: LING QUAN HEE-12
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9021540
+1st name: XIANG LI
+flag
+/ nationality: China
+owner: China Shipping Container Line
+operator:
+completion year: 1992 / 11
+shipyard: Xingang Shipyard , Tianjin China
+yard / hull number: 275
+engine design: B&W;
+engine type: 6L42MC
+power output (KW): 5.119
+maximum speed (Kn): 13,0
+overall length (m): 186,40
+overall beam (m): 25,00
+maximum draught (m): 9,80
+maximum TEU capacity: 1434
+container capacity at 14t (TEU):
+reefer containers (TEU): 30
+deadweight (ton): 26.386
+gross tonnage (ton): 18.996
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9021552
+1st name: ZHEN FEN 18
+flag
+/ nationality: China
+owner: China Shipping Container Line
+operator: CSCL
+completion year: 1993 / 04
+shipyard: Xingang Shipyard , Tianjin China
+yard / hull number: 276
+engine design: B&W;
+engine type: 6L42MC
+power output (KW): 5.119
+maximum speed (Kn): 13,0
+overall length (m): 186,40
+overall beam (m): 25,00
+maximum draught (m): 9,80
+maximum TEU capacity: 1434
+container capacity at 14t (TEU):
+reefer containers (TEU): 30
+deadweight (ton): 27.077
+gross tonnage (ton): 18.996
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9118197
+1st name: ZHEN FEN 19
+flag
+/ nationality: China
+owner: China Shipping Container Line
+operator: CSCL
+completion year: 1995
+shipyard: Xingang Shipyard , Tianjin China
+yard / hull number: 283
+engine design:
+engine type: 6 L42MC
+power output (KW): 5.890
+maximum speed (Kn): 15
+overall length (m): 18,4
+overall beam (m): 25
+maximum draught (m): 10
+maximum TEU capacity: 1434
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 12.630
+gross tonnage (ton): 8.944
+handling gear:
+exname 1: XIANG MAO
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9043627
+1st name: ZHEN HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1994
+shipyard: Hitachi Zosen Corp., Japan
+yard / hull number: 4869
+engine design: SUL
+engine type: 9RTA84C
+power output (KW): 34.380
+maximum speed (Kn): 24,0
+overall length (m): 275,00
+overall beam (m): 32,30
+maximum draught (m): 12,50
+maximum TEU capacity: 3800
+container capacity at 14t (TEU): 2824
+reefer containers (TEU): 240
+deadweight (ton): 51.985
+gross tonnage (ton): 49.375
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9073969
+1st name: XIANG NING
+flag
+/ nationality: China
+owner: China Shipping Container Line
+operator: CSCL
+completion year:
+shipyard: Shanghai Shipyard, China
+yard / hull number:
+engine design:
+engine type:
+power output (KW):
+maximum speed (Kn):
+overall length (m): 162,00
+overall beam (m): 22,00
+maximum draught (m): 8,10
+maximum TEU capacity: 1020
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton):
+gross tonnage (ton):
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8918253
+1st name: TSAMAN PHATFINDER
+flag
+/ nationality: Panama
+owner: Osaka Asahi Kaiun
+operator: TOL
+completion year: 1991 / 05
+shipyard: Naikai Zosen Corp., Japan
+yard / hull number: UN 01
+engine design: B&W;
+engine type: 7S70MC
+power output (KW): 8.076
+maximum speed (Kn): 17,5
+overall length (m): 176,40
+overall beam (m): 27,00
+maximum draught (m): 9,90
+maximum TEU capacity: 956
+container capacity at 14t (TEU):
+reefer containers (TEU): 70
+deadweight (ton): 23.676
+gross tonnage (ton): 17.123
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9067556
+1st name: ZHONG HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1994
+shipyard: Bremer Vulkan AG - Schiffbau, Germany
+yard / hull number: 1102
+engine design: B&W;
+engine type: 9RTA84C
+power output (KW): 34.380
+maximum speed (Kn): 24,0
+overall length (m): 275,00
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 3768
+container capacity at 14t (TEU):
+reefer containers (TEU): 240
+deadweight (ton): 51.609
+gross tonnage (ton): 48.311
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9064841
+1st name: VILLE DE LYRA
+flag
+/ nationality: Cyprus
+owner: Schlüter K & Co
+operator:
+completion year: 1993 / 12
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 0844
+engine design: B&W;
+engine type: 8S70MC
+power output (KW): 22.479
+maximum speed (Kn): 21,8
+overall length (m): 240,40
+overall beam (m): 32,30
+maximum draught (m): 11,70
+maximum TEU capacity: 3330
+container capacity at 14t (TEU): 2880
+reefer containers (TEU): 200
+deadweight (ton): 43.204
+gross tonnage (ton): 35.595
+handling gear: None
+exname 1: CHOYANG PHONIX-01
+exname 2: COSCO NORFOLK-02
+exname 3: COSCO NORFOLK-06
+exname 4: COSCO BREMERHAVEN-08
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9009176
+1st name: ACX VIOLET
+flag
+/ nationality: hina
+owner: Sinotrans
+operator: ACX
+completion year: 1991
+shipyard: Kanasashi Shipbuilding Co. Ltd., Japan
+yard / hull number: 3255
+engine design: MIT
+engine type: 8UEC60LS
+power output (KW): 13.755
+maximum speed (Kn): 18,0
+overall length (m): 193,00
+overall beam (m): 28,00
+maximum draught (m): 9,50
+maximum TEU capacity: 1461
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 24.502
+gross tonnage (ton): 18.487
+handling gear:
+exname 1: STX ASIA-11
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9008524
+1st name: CONTSHIP AUSTRALIA
+flag
+/ nationality: Liberia
+owner: Norddeutsche Reederei NAV
+operator:
+completion year: 1991 / 03
+shipyard: A.G. Weser Seebeckwerft, Germany
+yard / hull number: 1072
+engine design: B&W;
+engine type: 6L60MC
+power output (KW): 6.800
+maximum speed (Kn): 17,7
+overall length (m): 164,10
+overall beam (m): 27,50
+maximum draught (m): 14,50
+maximum TEU capacity: 1597
+container capacity at 14t (TEU):
+reefer containers (TEU): 70
+deadweight (ton): 23.465
+gross tonnage (ton): 16.236
+handling gear: None
+exname 1: MILDBURG-96
+exname 2: DIRECT CONDOR-99
+exname 3: MILDBURG-02
+exname 4: TIGER SKY-09
+exname 5: MILDBURG-11
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9155092
+1st name: NORTHERN VICTORY
+flag
+/ nationality: Antigua
+owner: Schlter K & Co
+operator: MISC
+completion year: 1997 / 09
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1045
+engine design: SUL
+engine type: 8RTA72U
+power output (KW): 23.942
+maximum speed (Kn): 22,0
+overall length (m): 196,00
+overall beam (m): 32,30
+maximum draught (m): 12,50
+maximum TEU capacity: 2808
+container capacity at 14t (TEU): 1967
+reefer containers (TEU): 400
+deadweight (ton): 40.080
+gross tonnage (ton): 29.115
+handling gear: None
+exname 1: CMBT EVERETS-01
+exname 2: SAFMARINE EVEREST-02
+exname 3: LYKES INNOVATOR-02
+exname 4: MSC SALVADOR-06
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8302167
+1st name: A. ABRAHAM
+flag
+/ nationality: Antigua
+owner: Sinotrans LTD
+operator:
+completion year: 1991 / 09
+shipyard: Stocznia Gdansk S.A., Poland
+yard / hull number: B355/03
+engine design: SUL
+engine type: 6RTA76
+power output (KW): 16260
+maximum speed (Kn): 19,2
+overall length (m): 195,50
+overall beam (m): 31,00
+maximum draught (m): 10,60
+maximum TEU capacity: 1939
+container capacity at 14t (TEU):
+reefer containers (TEU): 180
+deadweight (ton): 30.685
+gross tonnage (ton): 30.509
+handling gear: None
+exname 1: A.ABRAHAM-94
+exname 2: NORTHERN FORTUNE-94
+exname 3: VALENCIA SENATOR-95
+exname 4: ZIM BRISBANE-97
+exname 5: NORTHERN FORTUNE-97
+exname 6: ZIM RAVENNA-98
+exname 7: NORTHERN FORTUNE-98
+exname 8: CMA KAWASAKI-00
+exname 9: OOCL DRAGON-01
+IMO number: 8321723
+1st name: ZHUANG HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1985
+shipyard: A.G. Weser Seebeckwerft, Germany
+yard / hull number: 1047
+engine design: B&W;
+engine type: 6L79MC
+power output (KW): 11.995
+maximum speed (Kn): 16,7
+overall length (m): 192,20
+overall beam (m): 28,60
+maximum draught (m): 10,70
+maximum TEU capacity: 1668
+container capacity at 14t (TEU): 1180
+reefer containers (TEU): 54
+deadweight (ton): 33.240
+gross tonnage (ton): 24.438
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471226
+1st name: DAVID RICKMERS
+flag
+/ nationality: Marshall Islands
+owner: Rickmers & Cie
+operator: ZIM
+completion year: 2010 / 11
+shipyard: Jiangsu New Yangzijiang Shipbuilding Co. Ltd, China
+yard / hull number: 2007-789C
+engine design: B&W;
+engine type: 9K90MCC
+power output (KW): 36.482
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2800
+reefer containers (TEU):
+deadweight (ton): 50.488
+gross tonnage (ton): 39.941
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398448
+1st name: ZIM ANTWERP
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2009 / 12
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S346
+engine design: B&W;
+engine type: 12 K98MC
+power output (KW): 68.644
+maximum speed (Kn): 25,8
+overall length (m): 349,20
+overall beam (m): 45,60
+maximum draught (m): 15,00
+maximum TEU capacity: 10070
+container capacity at 14t (TEU): 7520
+reefer containers (TEU): 800
+deadweight (ton): 116.440
+gross tonnage (ton): 114.044
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9113654
+1st name: ZIM ASIA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1996
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 322
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 165
+deadweight (ton): 45.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9113678
+1st name: ZIM ATLANTIC
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1996
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 324
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 165
+deadweight (ton): 45.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9280835
+1st name: ZIM BARCELONA
+flag
+/ nationality: Israel
+owner: ZIM integrated Shipping
+operator: ZIM
+completion year: 2004 / 04
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1526
+engine design: B&W;
+engine type: 9K90MCC
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 5042
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 330
+deadweight (ton): 54.644
+gross tonnage (ton): 66.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9289544
+1st name: E.R. BEIJING
+flag
+/ nationality: Liberia
+owner: E R Schiffahrt
+operator: ZIM
+completion year: 2005 / 01
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S220
+engine design: SUL
+engine type: 8RTA96C
+power output (KW): 51.485
+maximum speed (Kn): 25,5
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 12,80
+maximum TEU capacity: 5026
+container capacity at 14t (TEU): 3320
+reefer containers (TEU): 450
+deadweight (ton): 67.170
+gross tonnage (ton): 54.592
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9231793
+1st name: ZIM CALIFORNIA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2002 / 07
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1387
+engine design: B&W;
+engine type: 9K90MC-C
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 500
+deadweight (ton): 66.686
+gross tonnage (ton): 53.453
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398424
+1st name: ZIM CHICAGO
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2010 / 07
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S352
+engine design: B&W;
+engine type: 12 K98MC-C
+power output (KW): 68.644
+maximum speed (Kn): 25,6
+overall length (m): 334,00
+overall beam (m): 42,80
+maximum draught (m): 14,50
+maximum TEU capacity: 8208
+container capacity at 14t (TEU): 6200
+reefer containers (TEU): 700
+deadweight (ton): 108.574
+gross tonnage (ton): 91.158
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9139921
+1st name: ZIM CHINA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1997
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 331
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 175
+deadweight (ton): 45.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9456977
+1st name: RIO CALAIS
+flag
+/ nationality: Liberia
+owner: Jungerhans
+operator: ZIM
+completion year: 2009 / 11
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S415
+engine design: SUL
+engine type: 8RTA82C
+power output (KW): 36.160
+maximum speed (Kn): 24,1
+overall length (m): 262.0
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4334
+container capacity at 14t (TEU): 2900
+reefer containers (TEU): 600
+deadweight (ton): 51.440
+gross tonnage (ton): 39.080
+handling gear: None
+exname 1: ATLAS J-09
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471202
+1st name: BARBARA RICKMERS
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2010 / 08
+shipyard: Jiangsu Yangzijiang Shipbuilding Co. Ltd, China
+yard / hull number: 2007-787C
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.482
+maximum speed (Kn): 24,5
+overall length (m): 261,10
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2800
+reefer containers (TEU):
+deadweight (ton): 50.488
+gross tonnage (ton): 39.941
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398436
+1st name: ZIM DJIBOUTI
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2009 / 06
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S345
+engine design: B&W;
+engine type: 12 K98MC
+power output (KW): 68.644
+maximum speed (Kn): 25,8
+overall length (m): 349,20
+overall beam (m): 45,60
+maximum draught (m): 15,00
+maximum TEU capacity: 10070
+container capacity at 14t (TEU): 7520
+reefer containers (TEU): 800
+deadweight (ton): 116.440
+gross tonnage (ton): 114.044
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9113692
+1st name: ZIM Europa
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1997
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 326
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,7
+overall beam (m): 32,2
+maximum draught (m): 11,8
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 175
+deadweight (ton): 45.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9318187
+1st name: ZIM GENOVA
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2007 / 04
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-11
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 3019
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9288904
+1st name: ZIM HAIFA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2004 / 10
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S202
+engine design: SUL
+engine type: 8RTA96C
+power output (KW): 51.485
+maximum speed (Kn): 25,5
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 12,80
+maximum TEU capacity: 5026
+container capacity at 14t (TEU): 3320
+reefer containers (TEU): 450
+deadweight (ton): 67.170
+gross tonnage (ton): 54.592
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9139919
+1st name: ZIM IBERIA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1997
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 330
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 165
+deadweight (ton): 46.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9322358
+1st name: ZIM INDIA
+flag
+/ nationality: Liberia
+owner: Zodiac Maritime
+operator: ZIM
+completion year: 2007 / 12
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-17
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9456989
+1st name: RIO CANBERRA
+flag
+/ nationality: Liberia
+owner: Vinnen & Co
+operator: ZIM
+completion year: 2009 / 11
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S416
+engine design: SUL
+engine type: 8RTA82C
+power output (KW): 36.160
+maximum speed (Kn): 24,1
+overall length (m): 262.0
+overall beam (m): 32,20
+maximum draught (m): 12,50
+maximum TEU capacity: 4334
+container capacity at 14t (TEU): 2900
+reefer containers (TEU): 600
+deadweight (ton): 51.440
+gross tonnage (ton): 39.080
+handling gear: None
+exname 1: MERKUR HORIZON-09
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9113680
+1st name: ZIM JAMAICA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1997
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 325
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 165
+deadweight (ton): 45.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9318175
+1st name: ZIM LIVORNO
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2006 / 10
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-10
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9332846
+1st name: APL LONDON
+flag
+/ nationality: Panama
+owner: Zodiac Maritime
+operator: APL
+completion year: 2008 / 03
+shipyard: Koyo Dockyard Co. Ltd., Japan
+yard / hull number: 2240
+engine design: B&W;
+engine type: 11K98MC
+power output (KW): 62.920
+maximum speed (Kn): 26,0
+overall length (m): 293,20
+overall beam (m): 40,00
+maximum draught (m): 14,00
+maximum TEU capacity: 6350
+container capacity at 14t (TEU): 4494
+reefer containers (TEU): 500
+deadweight (ton): 80.000
+gross tonnage (ton): 75.300
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398395
+1st name: ZIM LOS ANGELES
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2009 / 06
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S349
+engine design: B&W;
+engine type: 12 K98MC-C
+power output (KW): 68.644
+maximum speed (Kn): 25,6
+overall length (m): 334,00
+overall beam (m): 42,80
+maximum draught (m): 14,50
+maximum TEU capacity: 8208
+container capacity at 14t (TEU): 6200
+reefer containers (TEU): 700
+deadweight (ton): 108.574
+gross tonnage (ton): 91.158
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9403229
+1st name: ZIM LUANDA
+flag
+/ nationality: Cyprus
+owner: Danaos Shipping
+operator: ZIM
+completion year: 2009 / 06
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1699
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 260,10
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 800
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9231779
+1st name: ZIM MEDITERRANEAN
+flag
+/ nationality: Israel
+owner: Ofer Ship holding
+operator: ZIM
+completion year: 2002 / 02
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1385
+engine design: B&W;
+engine type: 9K90MC-C
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 500
+deadweight (ton): 66.686
+gross tonnage (ton): 53.453
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9389708
+1st name: ZIM MONACO
+flag
+/ nationality: Liberia
+owner: Danaos Shipping
+operator: ZIM
+completion year: 2008 / 12
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1673
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 260,10
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2900
+reefer containers (TEU): 400
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9401776
+1st name: BAHIA
+flag
+/ nationality: Liberia
+owner: NSC Schiffahrtsgeselschaft
+operator: ZIM
+completion year: 2009 / 11
+shipyard: Hanjin Heavy Industries Co. Ltd. Subic Bay, Philippines
+yard / hull number: 011
+engine design: B&W;
+engine type: 8K98MC-C
+power output (KW): 45.660
+maximum speed (Kn): 24,5
+overall length (m): 258,90
+overall beam (m): 32,20
+maximum draught (m): 13,00
+maximum TEU capacity: 4308
+container capacity at 14t (TEU): 2771
+reefer containers (TEU): 326
+deadweight (ton): 51.400
+gross tonnage (ton): 50.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9231810
+1st name: ZIM NEW YORK
+flag
+/ nationality: Greece
+owner: Costamare Shipping
+operator: ZIM
+completion year: 2002 / 09
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1389
+engine design: B&W;
+engine type: 9K90MC-C
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 500
+deadweight (ton): 66.686
+gross tonnage (ton): 53.453
+handling gear: None
+exname 1: CHINA SEA-06
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398400
+1st name: ZIM NINGBO
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2009 / 12
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S350
+engine design: B&W;
+engine type: 12 K98MC-C
+power output (KW): 68.644
+maximum speed (Kn): 25,6
+overall length (m): 334,00
+overall beam (m): 42,80
+maximum draught (m): 14,50
+maximum TEU capacity: 8208
+container capacity at 14t (TEU): 6200
+reefer containers (TEU): 700
+deadweight (ton): 108.574
+gross tonnage (ton): 91.158
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9400136
+1st name: CONTI ONTARIO
+flag
+/ nationality: Germany
+owner: NSB Niederelbe
+operator: ZIM
+completion year: 2009 / 04
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4213
+engine design: B&W;
+engine type: 7K98MCC
+power output (KW): 39.952
+maximum speed (Kn): 24,2
+overall length (m): 275,00
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4884
+container capacity at 14t (TEU): 3310
+reefer containers (TEU): 560
+deadweight (ton): 54.549
+gross tonnage (ton): 45.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9113666
+1st name: ZIM PACIFIC
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1996
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 323
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 165
+deadweight (ton): 46.350
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9231781
+1st name: ZIM PANAMA
+flag
+/ nationality: United Kingdom
+owner: Zodiac Maritime
+operator: ZIM
+completion year: 2002 / 04
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1386
+engine design: B&W;
+engine type: 9K90MC-C
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 500
+deadweight (ton): 66.686
+gross tonnage (ton): 53.453
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9280847
+1st name: ZIM PIRAEUS
+flag
+/ nationality: Greece
+owner: Costamare Shipping
+operator: ZIM
+completion year: 2004 / 05
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1527
+engine design: B&W;
+engine type: 9K90MCC
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 5042
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 330
+deadweight (ton): 54.644
+gross tonnage (ton): 66.500
+handling gear: None
+exname 1: YANGTZE STAR-06
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9280861
+1st name: ZIM PUSAN
+flag
+/ nationality: United Kingdom
+owner: Zodiac Maritime
+operator: ZIM
+completion year: 2004 / 07
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1529
+engine design: B&W;
+engine type: 9K90MCC
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 330
+deadweight (ton): 54.644
+gross tonnage (ton): 66.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9318163
+1st name: ZIM QINGDAO
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2006 / 08
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-09
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9363376
+1st name: ZIM RIO GRANDE
+flag
+/ nationality: Liberia
+owner: Danaos Shipping
+operator: ZIM
+completion year: 2008 / 01
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1670
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 260,10
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2900
+reefer containers (TEU): 400
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398450
+1st name: ZIM ROTTERDAM
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: Evergreen
+completion year: 2009 / 10
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S347
+engine design: B&W;
+engine type: 12 K98MC
+power output (KW): 68.644
+maximum speed (Kn): 25,8
+overall length (m): 349,20
+overall beam (m): 45,60
+maximum draught (m): 15,00
+maximum TEU capacity: 10070
+container capacity at 14t (TEU): 7520
+reefer containers (TEU): 800
+deadweight (ton): 116.440
+gross tonnage (ton): 114.044
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9398412
+1st name: ZIM SAN DIEGO
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2010 / 01
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S351
+engine design: B&W;
+engine type: 12 K98MC-C
+power output (KW): 68.644
+maximum speed (Kn): 25,6
+overall length (m): 334,00
+overall beam (m): 42,80
+maximum draught (m): 14,50
+maximum TEU capacity: 8208
+container capacity at 14t (TEU): 6200
+reefer containers (TEU): 700
+deadweight (ton): 108.574
+gross tonnage (ton): 91.158
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9400112
+1st name: CONTI SAN FRANCISCO
+flag
+/ nationality: Germany
+owner: NSB Niederelbe
+operator: ZIM
+completion year: 2009 / 02
+shipyard: Daewoo Shipbuilding & Marine Engineering Ltd, South Korea
+yard / hull number: 4212
+engine design: B&W;
+engine type: 7K98MCC
+power output (KW): 39.952
+maximum speed (Kn): 24,2
+overall length (m): 275,00
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4884
+container capacity at 14t (TEU): 3310
+reefer containers (TEU): 560
+deadweight (ton): 54.549
+gross tonnage (ton): 45.000
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9389681
+1st name: ZIM SAO PAULO
+flag
+/ nationality: Liberia
+owner: Danaos Shipping
+operator: ZIM
+completion year: 2008 / 06
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1671
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 260,10
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4526
+container capacity at 14t (TEU): 2900
+reefer containers (TEU): 400
+deadweight (ton): 50.270
+gross tonnage (ton): 40.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9282974
+1st name: E.R SAVANNAH
+flag
+/ nationality: Liberia
+owner: E R Schiffahrt
+operator: ZIM
+completion year: 2004 / 09
+shipyard: Hyundai Samho Heavy Industries Co. Ltd., South Korea
+yard / hull number: S201
+engine design: SUL
+engine type: 8RTA96C
+power output (KW): 51.485
+maximum speed (Kn): 25,5
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 12,80
+maximum TEU capacity: 5026
+container capacity at 14t (TEU): 3320
+reefer containers (TEU): 450
+deadweight (ton): 67.170
+gross tonnage (ton): 54.592
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9231822
+1st name: ZIM SHANGHAI
+flag
+/ nationality: Greece
+owner: Costamare Shipping
+operator: ZIM
+completion year: 2002 / 10
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1390
+engine design: B&W;
+engine type: 9K90MC-C
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 500
+deadweight (ton): 66.686
+gross tonnage (ton): 53.453
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9322322
+1st name: ZIM SHEKOU
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2007 / 04
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-14
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9280859
+1st name: ZIM SHENZHEN
+flag
+/ nationality: United Kingdom
+owner: Zodiac Maritime
+operator: ZIM
+completion year: 2004 / 08
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1528
+engine design: B&W;
+engine type: 9K90MCC
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 330
+deadweight (ton): 54.644
+gross tonnage (ton): 66.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471214
+1st name: WOLFGANG RICKMERS
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2010 / 10
+shipyard: Jiangsu Yangzijiang Shipbuilding Co. Ltd, China
+yard / hull number: 2007-788C
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.482
+maximum speed (Kn): 24,5
+overall length (m): 261,10
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2800
+reefer containers (TEU):
+deadweight (ton): 50.488
+gross tonnage (ton): 39.941
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9471238
+1st name: SAMUEL RICKMERS
+flag
+/ nationality: Marshall Islands
+owner: Rickmers & Cie
+operator: ZIM
+completion year: 2010 / 12
+shipyard: Jiangsu New Yangzijiang Shipbuilding Co. Ltd, China
+yard / hull number: 2007-790C
+engine design: B&W;
+engine type: 9K90MCC
+power output (KW): 36.482
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2800
+reefer containers (TEU):
+deadweight (ton): 50.488
+gross tonnage (ton): 39.941
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9139907
+1st name: ZIM U.S.A
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1997
+shipyard: HDW Howaldswerke Deutsche Werft AG, Germany
+yard / hull number: 329
+engine design: SUL
+engine type: 7RTA84C
+power output (KW): 28.360
+maximum speed (Kn): 21,7
+overall length (m): 253,70
+overall beam (m): 32,20
+maximum draught (m): 11,80
+maximum TEU capacity: 3480
+container capacity at 14t (TEU):
+reefer containers (TEU): 175
+deadweight (ton): 45.850
+gross tonnage (ton): 41.507
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9403396
+1st name: BENITO
+flag
+/ nationality: Liberia
+owner: NSC Schiffahrtsgeselschaft
+operator: ZIM
+completion year: 2009 / 12
+shipyard: Hanjin Heavy Industries Co. Ltd. Subic Bay, Philippines
+yard / hull number: 012
+engine design: B&W;
+engine type: 8K98MC-C
+power output (KW): 45.660
+maximum speed (Kn): 24,5
+overall length (m): 258,90
+overall beam (m): 32,20
+maximum draught (m): 13,00
+maximum TEU capacity: 4308
+container capacity at 14t (TEU): 2771
+reefer containers (TEU): 326
+deadweight (ton): 51.400
+gross tonnage (ton): 50.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9322334
+1st name: ZIM VANCOUVER
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2007 _ 07
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-15
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263
+overall beam (m): 32,2
+maximum draught (m): 12,6
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1: PEARL RIVER 1 -12
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9231808
+1st name: ZIM VIRGINIA
+flag
+/ nationality: Israel
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 2002 / 08
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 1388
+engine design: B&W;
+engine type: 9K90MC-C
+power output (KW): 41.693
+maximum speed (Kn): 24,0
+overall length (m): 294,10
+overall beam (m): 32,20
+maximum draught (m): 13,50
+maximum TEU capacity: 4839
+container capacity at 14t (TEU): 3672
+reefer containers (TEU): 500
+deadweight (ton): 66.686
+gross tonnage (ton): 53.453
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9318151
+1st name: ZIM XIAMEN
+flag
+/ nationality: Liberia
+owner: Zodiac Maritime
+operator: ZIM
+completion year: 2006 / 05
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-08
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9322346
+1st name: ZIM YOKOHAMA
+flag
+/ nationality: Liberia
+owner: ZIM Integrated Shipping
+operator: CSAV
+completion year: 2007 / 08
+shipyard: Dalian New Shipbuilding Heavy Industry Co. Ltd. China
+yard / hull number: C4250-16
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.560
+maximum speed (Kn): 24,5
+overall length (m): 263,00
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4253
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.689
+gross tonnage (ton): 39.906
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8913320
+1st name: MEHMET KALKAVAN
+flag
+/ nationality: Turkey
+owner: Kalkavan K
+operator: Turkon
+completion year: 1993
+shipyard: Torgem Shipbuilding Industries & Trading Co. Inc., Turkey
+yard / hull number: 49
+engine design: B&W;
+engine type: 8L35MC
+power output (KW): 4.472
+maximum speed (Kn): 14,0
+overall length (m): 139,00
+overall beam (m): 19,70
+maximum draught (m): 7,90
+maximum TEU capacity: 598
+container capacity at 14t (TEU): 335
+reefer containers (TEU): No Info
+deadweight (ton): 12.231
+gross tonnage (ton): 8.220
+handling gear: 2 x 25
+exname 1: MEHMET KALKAVAN-07
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9122629
+1st name: ZIYAHE
+flag
+/ nationality: Panama
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 1996
+shipyard: Kyokuyo Shipyard Corp. , Japan
+yard / hull number: 401
+engine design: B&W;
+engine type: 6L50MC
+power output (KW): 7.988
+maximum speed (Kn): 17
+overall length (m): 144,8
+overall beam (m): 22,5
+maximum draught (m): 8,2
+maximum TEU capacity: 836
+container capacity at 14t (TEU): 610
+reefer containers (TEU): 60
+deadweight (ton): 12.570
+gross tonnage (ton): 9.471
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:

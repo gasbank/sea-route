@@ -1,0 +1,279 @@
+IMO number: 8117299
+1st name: QATARI IBN AL FUJA'A
+flag
+/ nationality: Qatar
+owner: United Arab Shipping Co
+operator: UASC
+completion year: 1983 / 00
+shipyard: Hyundai Heavy Industries Ltd. Co, South Korea
+yard / hull number: 0215
+engine design: B&W;
+engine type: 6L80GFCA
+power output (KW): 13.534
+maximum speed (Kn): 19,7
+overall length (m): 211,50
+overall beam (m): 32,30
+maximum draught (m): 11,30
+maximum TEU capacity: 2109
+container capacity at 14t (TEU):
+reefer containers (TEU): 150
+deadweight (ton): 35.615
+gross tonnage (ton): 32.534
+handling gear: None
+exname 1: KOTA SELAMAT-02
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9228760
+1st name: QI YUN HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 2001 / 01
+shipyard: Imabari Shipbuilding Co. Ltd., Japan
+yard / hull number: 0558
+engine design: B&W;
+engine type: 6S60MC
+power output (KW): 11.769
+maximum speed (Kn): 20,0
+overall length (m): 182,90
+overall beam (m): 27,60
+maximum draught (m): 10,10
+maximum TEU capacity: 1432
+container capacity at 14t (TEU):
+reefer containers (TEU): No Info
+deadweight (ton): 23.850
+gross tonnage (ton): 16.737
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9214513
+1st name: QING YUN HE
+flag
+/ nationality: China
+owner: COSCO Container Lines
+operator: COSCO
+completion year: 2000
+shipyard: Dalian Shipyard, China Shipbuilding Heavy Ind. Corp. , China
+yard / hull number: C250/3
+engine design: B&W;
+engine type: 6L70MC
+power output (KW): 16.980
+maximum speed (Kn): 20,4
+overall length (m): 179,90
+overall beam (m): 27,60
+maximum draught (m): 10,70
+maximum TEU capacity: 1702
+container capacity at 14t (TEU):
+reefer containers (TEU): 200
+deadweight (ton): 25.723
+gross tonnage (ton): 20.569
+handling gear:
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 8322569
+1st name: PACIFIC PROGRESS
+flag
+/ nationality: Malta
+owner: ZIM Integrated Shipping
+operator: ZIM
+completion year: 1985 / 00
+shipyard: Halla Engineering & Construction Corp., South Korea
+yard / hull number: 106
+engine design: B&W;
+engine type: 6L70MC
+power output (KW): 12.490
+maximum speed (Kn): 18,0
+overall length (m): 187,60
+overall beam (m): 28,50
+maximum draught (m): 11,10
+maximum TEU capacity: 1522
+container capacity at 14t (TEU):
+reefer containers (TEU):
+deadweight (ton): 34.366
+gross tonnage (ton): 22.667
+handling gear:
+exname 1: VILLE DE VEGA 94
+exname 2: VEGA 95
+exname 3: ZIM SINGAPORE 98
+exname 4: ZIM INDIA 00
+exname 5: CSCL HOUNGPU-02
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9233832
+1st name: LYKES DELIVERER
+flag
+/ nationality: United Kingdom
+owner: Zodiac Maritime
+operator:
+completion year: 2003 / 02
+shipyard: Samsung Shipbuilding & Heavy industries Co. Ltd, South Korea
+yard / hull number: 1386
+engine design: B&W;
+engine type: 8K90MCC
+power output (KW): 36.529
+maximum speed (Kn): 24,5
+overall length (m): 259,80
+overall beam (m): 32,20
+maximum draught (m): 12,60
+maximum TEU capacity: 4250
+container capacity at 14t (TEU): 2805
+reefer containers (TEU): 400
+deadweight (ton): 50.900
+gross tonnage (ton): 39.941
+handling gear: None
+exname 1: LYKES DELIVERER-05
+exname 2: CP DELIVERER-06
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9102538
+1st name: BUNGA MAS DUA
+flag
+/ nationality: Hong Kong
+owner: Shanghai Jinjiang Shipping
+operator: Shanghai Jinjiang
+completion year: 1995 / 06
+shipyard: Malaysia Shipyard & Engineering , Malaysia
+yard / hull number: 350
+engine design: SUL
+engine type: 6RTA52U
+power output (KW): 8.303
+maximum speed (Kn): 17,3
+overall length (m): 135,20
+overall beam (m): 20,80
+maximum draught (m): 7,50
+maximum TEU capacity: 699
+container capacity at 14t (TEU): 544
+reefer containers (TEU): 60
+deadweight (ton): 10.950
+gross tonnage (ton): 7.998
+handling gear: None
+exname 1: JJ YOKOHAMA-12
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9700251
+1st name: QUEAN ESTER
+flag
+/ nationality: Singapore
+owner: Lomar Shipping
+operator:
+completion year: 2015/ 01
+shipyard: Guangzhou Wenchong Shipyard, China
+yard / hull number: 427
+engine design: B&W;
+engine type: 6S60ME-C8
+power output (KW): 14.280
+maximum speed (Kn): 19,0
+overall length (m): 185,00
+overall beam (m): 30,00
+maximum draught (m): 9,50
+maximum TEU capacity: 2190
+container capacity at 14t (TEU): 1570
+reefer containers (TEU): 490
+deadweight (ton): 25.000
+gross tonnage (ton):
+handling gear: 3 x 45
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9088512
+1st name: MARLENE S
+flag
+/ nationality: Antigua
+owner: Schepers R & Co
+operator: Hapag-Lloyd
+completion year: 1995 / 03
+shipyard: Meeres-Technik-Wismar, Germany
+yard / hull number: 391
+engine design: B&W;
+engine type: 7L60MC
+power output (KW): 13125
+maximum speed (Kn): 21,0
+overall length (m): 164,00
+overall beam (m): 27,50
+maximum draught (m): 10,80
+maximum TEU capacity: 1684
+container capacity at 14t (TEU): 1211
+reefer containers (TEU): 152
+deadweight (ton): 23.260
+gross tonnage (ton): 16.318
+handling gear: 3 x 45
+exname 1: LIBRA BUENOS AIRES-99
+exname 2: ZIM BUENOS AIRES-08
+exname 3:    MARLENE S-13
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
+IMO number: 9515618
+1st name: QUEZON BRIDGE
+flag
+/ nationality: Panama
+owner: Ehime Kaiun LTD
+operator: K-Line
+completion year: 2009 / 07
+shipyard: Imabari Shipbuilding Co. Ltd., Japan
+yard / hull number: 681
+engine design: B&W;
+engine type: 7S60MC
+power output (KW): 15.821
+maximum speed (Kn): 19,7
+overall length (m): 172,00
+overall beam (m): 27,60
+maximum draught (m): 9,50
+maximum TEU capacity: 1700
+container capacity at 14t (TEU):
+reefer containers (TEU): 192
+deadweight (ton): 21.481
+gross tonnage (ton): 17.500
+handling gear: None
+exname 1:
+exname 2:
+exname 3:
+exname 4:
+exname 5:
+exname 6:
+exname 7:
+exname 8:
+exname 9:
