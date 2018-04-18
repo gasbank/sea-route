@@ -1233,6 +1233,8 @@ void load_from_dump_if_empty(rtree_t* rtree_ptr, const char* dump_filename) {
     }
 }
 
+int dumpfix_offset_y = -2251;
+
 // move all rectangles to +Y direction by 2251 pixel
 void dumpfix_land(const char* dump_filename) {
     size_t rect_count = 0;
@@ -1245,7 +1247,6 @@ void dumpfix_land(const char* dump_filename) {
     int max_x = INT_MIN;
     int min_y = INT_MAX;
     int max_y = INT_MIN;
-    int offset_y = -2251;
     if (fin) {
         size_t read_max_count = 100000; // elements
         void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
@@ -1266,15 +1267,15 @@ void dumpfix_land(const char* dump_filename) {
                 if (max_y < r->xy1.y) {
                     max_y = r->xy1.y;
                 }
-                if (r->xy0.y + offset_y < 0) {
+                if (r->xy0.y + dumpfix_offset_y < 0) {
                     abort_("error duing offset fix");
                 }
-                if (r->xy1.y + offset_y < 0) {
+                if (r->xy1.y + dumpfix_offset_y < 0) {
                     abort_("error duing offset fix");
                 }
                 // fix offset
-                r->xy0.y += offset_y;
-                r->xy1.y += offset_y;
+                r->xy0.y += dumpfix_offset_y;
+                r->xy1.y += dumpfix_offset_y;
             }
             fwrite(read_buf, read_count, sizeof(xy32xy32), fout);
         }
@@ -1286,7 +1287,68 @@ void dumpfix_land(const char* dump_filename) {
 }
 
 void dumpfix_water(const char* dump_filename) {
-    abort_("not implemented yet.");
+    size_t rect_count = 0;
+    FILE* fin = fopen(dump_filename, "rb");
+    char output_filename[1024];
+    strcpy(output_filename, dump_filename);
+    strcat(output_filename, "fix.dump");
+    FILE* fout = fopen(output_filename, "wb");
+    int min_x = INT_MAX;
+    int max_x = INT_MIN;
+    int min_y = INT_MAX;
+    int max_y = INT_MIN;
+    if (fin) {
+        size_t read_max_count = 100000; // elements
+        void* read_buf = malloc(sizeof(xy32xy32) * read_max_count);
+        fseek(fin, 0, SEEK_SET);
+        while (size_t read_count = fread(read_buf, sizeof(xy32xy32), read_max_count, fin)) {
+            for (size_t i = 0; i < read_count; i++) {
+                rect_count++;
+                xy32xy32* r = reinterpret_cast<xy32xy32*>(read_buf) + i;
+                if (r->xy0.y == 0) {
+                    printf("(?,0)~ point: (%d,%d)~(%d,%d) size = (%d,%d)\n",
+                           r->xy0.x,
+                           r->xy0.y,
+                           r->xy1.x,
+                           r->xy1.y,
+                           r->xy1.x - r->xy0.x,
+                           r->xy1.y - r->xy0.y);
+                    if (r->xy1.y + dumpfix_offset_y < 0) {
+                        abort_("Dumpfix input data cannot be processed.");
+                    }
+                }
+                if (r->xy1.y == 86412) {
+                    printf("~(?,86412): (%d,%d)~(%d,%d) size = (%d,%d)\n",
+                           r->xy0.x,
+                           r->xy0.y,
+                           r->xy1.x,
+                           r->xy1.y,
+                           r->xy1.x - r->xy0.x,
+                           r->xy1.y - r->xy0.y);
+                }
+
+                if (r->xy0.y == 0) {
+                    // top rectangles...
+                    // only change max point y
+                    r->xy1.y += dumpfix_offset_y;
+                } else if (r->xy1.y == 86412) {
+                    // bottom rectangles...
+                    // only change min point y
+                    r->xy0.y += dumpfix_offset_y;
+                } else {
+                    // other rectangles...
+                    // move in its entirety
+                    r->xy0.y += dumpfix_offset_y;
+                    r->xy1.y += dumpfix_offset_y;
+                }
+            }
+            fwrite(read_buf, read_count, sizeof(xy32xy32), fout);
+        }
+        fclose(fin);
+        fclose(fout);
+    } else {
+        printf("Dump file %s not exist.\n", dump_filename);
+    }
 }
 
 void dumpmerge(const char* dump1_filename, const char* dump2_filename, const char* output_filename) {
