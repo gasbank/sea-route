@@ -7,3 +7,5 @@
 /modis/tif
 /modis/*.pyc
 /modis/__pycache__
+/modis/png-2x1-offset/*.dump
+/modis/png-2x1-offset/*.rtree
