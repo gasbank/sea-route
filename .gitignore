@@ -9,3 +9,8 @@
 /modis/__pycache__
 /modis/png-2x1-offset/*.dump
 /modis/png-2x1-offset/*.rtree
+/crawler/seaarea/EEZ_land_union_v2_201410
+/crawler/seaarea/Intersect_IHO_EEZ_v2_2012
+/crawler/seaarea/World_Seas_IHO_v2
+/crawler/locode/*.dat
+/crawler/seaarea/*.dat
