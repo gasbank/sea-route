@@ -14,3 +14,5 @@
 /crawler/seaarea/World_Seas_IHO_v2
 /crawler/locode/*.dat
 /crawler/seaarea/*.dat
+cities.txt
+cities.dat
