@@ -2,22 +2,21 @@ import csv
 import struct
 
 # Country,City,AccentCity,Region,Population,Latitude,Longitude
-with open('cities.dat', 'wb') as fout:
-	with open('cities.txt') as csvfile:
+with open('cities10k.dat', 'wb') as fout:
+	with open('cities10k.txt') as csvfile:
 		reader = csv.DictReader(csvfile)
 		c = 0
 		max_city_name_len = 0
 		for i, row in enumerate(reader):
 			try:
-				population = int(row['Population'])
-				longitude = float(row['Longitude'])
-				latitude = float(row['Latitude'])
+				population = int(row['population'])
+				longitude = float(row['longitude'])
+				latitude = float(row['latitude'])
 			except:
 				continue
 			if population > 100000:
-				country = row['Country']
-				city = row['City']
-				region = row['Region']
+				country = row['countrycode']
+				city = row['asciiname']
 				city_len = len(city)
 				print(country, city, population, longitude, latitude)
 				if max_city_name_len < city_len:
